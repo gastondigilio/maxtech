@@ -1,0 +1,46 @@
+.card .card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.row .img-fluid {
+    padding: 5px;
+}
+
+.w-100 .navbar {
+    width: 100%;
+}
+
+.product-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.product-list li {
+    margin-bottom: 5px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}

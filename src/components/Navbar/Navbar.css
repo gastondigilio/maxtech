@@ -1,0 +1,98 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.logo {
+    width: 50px;
+    /* Ajusta el tamaño de tu logo según sea necesario */
+    margin-right: 10px;
+}
+
+.navbar-right {
+    display: flex;
+}
+
+.navbar-right ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* Muestra los elementos en una fila */
+}
+
+.navbar-right ul li {
+    margin-right: 20px;
+}
+
+.navbar-right ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-right ul li a:hover {
+    text-decoration: underline;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+.close-btn {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.change {
+    background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-right ul {
+        display: none;
+        /* Oculta la lista de elementos */
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar-right.show ul {
+        display: flex;
+        /* Muestra la lista de elementos en columna */
+        flex-direction: column;
+        align-items: flex-end;
+        /* Alinea los elementos a la derecha */
+    }
+
+    .navbar-right.show {
+        position: absolute;
+        top: 60px;
+        /* Altura de la barra de navegación */
+        right: 0;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+    }
+}

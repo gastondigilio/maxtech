@@ -1,0 +1,45 @@
+.about {
+    background-color: white;
+    color: black;
+    /* padding: 20px; */
+}
+
+.card-about {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    width: 50%;
+    /* Ajusta la imagen al 50% del ancho del contenedor */
+    height: auto;
+    /* Mantiene la relación de aspecto de la imagen */
+    margin: 0 auto;
+    /* Centra la imagen horizontalmente */
+    display: block;
+    /* Asegura que el margen automático funcione */
+}
+
+.card-title {
+    color: black;
+}
+
+.card-text-about {
+    color: black;
+}
+
+.objective-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.objective-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
