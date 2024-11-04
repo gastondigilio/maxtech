@@ -153,6 +153,10 @@ body {
 
 @media screen and (max-width: 768px) {
 
+    .product-header{
+        width: 100%;
+    }
+
     .brand-images-row {
         flex-direction: column;
         align-items: center;
@@ -165,16 +169,18 @@ body {
         max-width: 100%;
     }
 
-    .product-text{
+    .product-text {
         padding-left: 20px;
         padding-right: 20px;
     }
 
-    .button-group{
+    .button-group {
         gap: 0;
+        width: 100%;
+        max-width: 100%;
     }
 
-    .product-table{
+    .product-table {
         width: 95%;
     }
 }
