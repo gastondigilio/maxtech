@@ -180,6 +180,10 @@ body {
         max-width: 100%;
     }
 
+    .button-group button{
+        padding: 10px 10px;
+    }
+
     .product-table {
         width: 95%;
     }
