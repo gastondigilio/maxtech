@@ -24,7 +24,7 @@ const About = () => {
                         <img src={Mision} className="card-img-top image" alt="Imagen 2" />
                         <div className="card-body">
                             <h5 className="card-title">Misión</h5>
-                            <p className="card-text-about text-justify">
+                            <p className="card-text-about1 text-justify">
                                 Desarrollar e importar productos de tecnología de punta que impulsen la innovación y la eficiencia en la construcción y las industrias.
                                 A través de una rigurosa investigación y certificación, garantizamos la calidad y la seguridad de nuestras soluciones, adaptándonos a las necesidades específicas de nuestros clientes. Nos comprometemos a fomentar el crecimiento sostenible y a ser un referente en el sector, ofreciendo un servicio excepcional y estableciendo relaciones de confianza con nuestros socios comerciales.
                             </p>
@@ -33,7 +33,7 @@ const About = () => {
                 </div>
             </div>
 
-            <h3 className="text-center mb-4">Objetivos</h3>
+            <h3 className="text-center mb-4 title-objetivos">Objetivos</h3>
             <div className="row">
                 <div className="col-md-4">
                     <div className="objective-card">

@@ -13,12 +13,12 @@ function Navbar() {
         <nav className="navbar">
             <div className="navbar-left">
                 <img src={logo} alt="Logo" className="logo" />
-                <h1>MaxTech</h1>
+                <h1>MAXTECH</h1>
             </div>
             <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
                 <ul>
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/productos">Productos</a></li>
+                    <li><a href="/productos">Portfolio</a></li>
                     <li><a href="#about">Nosotros</a></li>
                     <li><a href="#contact">Contacto</a></li>
                     {/* <li><a href="#">Componente 4</a></li> */}

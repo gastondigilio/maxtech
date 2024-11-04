@@ -35,11 +35,11 @@ function Home() {
             <Navbar />
             <Approach />
             {/* <Entrenamientos /> */}
-            <div className={`scroll-to-top ${showScroll ? 'show' : ''}`} onClick={scrollTop}>
+            {/* <div className={`scroll-to-top ${showScroll ? 'show' : ''}`} onClick={scrollTop}>
                 <span className="material-icons">
                     arrow_upward
                 </span>
-            </div>
+            </div> */}
             <About />
             <Contact />
             <Footer />

@@ -110,7 +110,6 @@
 //             </div>
 //             <div className="container py-5">
 //                 <div className="row">
-//                     {/* Columna Izquierda */}
 //                     <div className="col-md-6 mb-4">
 //                         <div className="card">
 //                             <div className="card-body">
@@ -182,126 +181,235 @@
 
 // export default Product;
 
-import React, { useState } from "react";
-import "./Product.css";
+// import React, { useState } from "react";
+// import "./Product.css";
+// import NavbarProduct from '../NavbarProduct/NavbarProduct.jsx';
+// import ImgBrand1 from "../assets/Product/logoSilande.png";
+// import ImgBrand2 from "../assets/Product/homeryLogo.png";
+// import ImgBrand3 from "../assets/Product/logoSilande.png";
+// import Footer from '../Footer/Footer.jsx';
+
+// const brands = [
+//     { name: "Colf", sector: "Construcción", product: "Fibras sintéticas para hormigón", img: ImgBrand1 },
+//     { name: "Colf", sector: "Construcción", product: "Mallas de fibra de vidrio", img: ImgBrand1 },
+//     { name: "Colf", sector: "Construcción", product: "Cinta autoadhesiva de fibra de vidrio", img: ImgBrand1 },
+//     { name: "Colf", sector: "Construcción", product: "Selladores de poliuretano", img: ImgBrand1 },
+//     { name: "Colf", sector: "Construcción", product: "Selladores de polímeros modificados", img: ImgBrand1 },
+//     { name: "Colf", sector: "Construcción", product: "Membrana líquida, base acrílico & poliuretánica", img: ImgBrand1 },
+//     { name: "Colf", sector: "Construcción", product: "Anclajes químicos", img: ImgBrand1 },
+//     { name: "Colf", sector: "Construcción", product: "Aplicadores manuales, neumáticos y a batería", img: ImgBrand1 },
+//     { name: "Colf", sector: "Construcción", product: "Clavos y tornillos", img: ImgBrand1 },
+//     { name: "Colf", sector: "Construcción", product: "Máquinas y equipos para la construcción y mantenimiento", img: ImgBrand1 },
+//     { name: "Silande", sector: "Aberturas", product: "Sellador polisulfuro", img: ImgBrand2 },
+//     { name: "Silande", sector: "Aberturas", product: "Sellador butilo", img: ImgBrand2 },
+//     { name: "Silande", sector: "Aberturas", product: "Sellador estructural", img: ImgBrand2 },
+//     { name: "Silande", sector: "Aberturas", product: "Sellador climático", img: ImgBrand2 },
+//     { name: "Silande", sector: "Aberturas", product: "Adhesivo termofusión PIB", img: ImgBrand2 },
+//     { name: "Homey", sector: "Aberturas", product: "Selladores acrílicos y base agua", img: ImgBrand3 },
+//     { name: "Homey", sector: "Aberturas", product: "Selladores de silicona acética", img: ImgBrand3 },
+//     { name: "Homey", sector: "Aberturas", product: "Selladores de silicona neutro", img: ImgBrand3 },
+//     { name: "Homey", sector: "Aberturas", product: "Espumas de poliuretano", img: ImgBrand3 },
+//     { name: "Colf", sector: "Aberturas", product: "Perfiles estructurales", img: ImgBrand1 },
+//     { name: "Colf", sector: "Aberturas", product: "Perfiles espaciadores", img: ImgBrand1 },
+//     { name: "Colf", sector: "Aberturas", product: "Cinta bi faz, base Eva Foam y butilo", img: ImgBrand1 },
+//     { name: "Colf", sector: "Aberturas", product: "Espaciadores Warm Edge", img: ImgBrand1 },
+//     { name: "Colf", sector: "Aberturas", product: "Disecante, tamiz molecular", img: ImgBrand1 },
+//     { name: "Colf", sector: "Aberturas", product: "Vidrios para muro cortina", img: ImgBrand1 },
+//     { name: "Colf", sector: "Industrias", product: "Adhesivos termofusión para packaging aprobación FDA", img: ImgBrand1 },
+// ];
+
+// const Product = () => {
+//     const [selectedBrand, setSelectedBrand] = useState("");
+//     const [selectedSector, setSelectedSector] = useState("");
+
+//     const filteredBrands = brands.filter(brand => {
+//         return (
+//             (selectedBrand === "" || brand.name === selectedBrand) &&
+//             (selectedSector === "" || brand.sector === selectedSector)
+//         );
+//     });
+
+//     const fixedImages = [
+//         { name: "Colf", img: ImgBrand1 },
+//         { name: "Silande", img: ImgBrand2 },
+//         { name: "Homey", img: ImgBrand3 },
+//     ];
+
+//     const clearFilters = () => {
+//         setSelectedBrand("");
+//         setSelectedSector("");
+//     };
+
+//     return (
+//         <div id="app">
+//             <div className="w-100">
+//                 <NavbarProduct />
+//             </div>
+//             <div className="container py-5">
+//                 <h2 className="text-center mb-4">Nuestras Marcas</h2>
+//                 <div className="row mb-4">
+//                     {fixedImages.map((brand, index) => (
+//                         <div className="col-md-4" key={index}>
+//                             <img src={brand.img} className="img-fluid" alt={`Marca ${brand.name}`} />
+//                         </div>
+//                     ))}
+//                 </div>
+//                 <div className="mb-4 text-center">
+//                     <select onChange={e => setSelectedBrand(e.target.value)} value={selectedBrand}>
+//                         <option value="">Filtrar por Marca</option>
+//                         <option value="Colf">Colf</option>
+//                         <option value="Silande">Silande</option>
+//                         <option value="Homey">Homey</option>
+//                     </select>
+//                     <select onChange={e => setSelectedSector(e.target.value)} value={selectedSector}>
+//                         <option value="">Filtrar por Sector</option>
+//                         <option value="Construcción">Construcción</option>
+//                         <option value="Industrias">Industrias</option>
+//                         <option value="Aberturas">Aberturas</option>
+//                     </select>
+//                     <button className="btn btn-secondary ms-2" onClick={clearFilters}>Borrar Filtros</button>
+//                 </div>
+//                 <div className="row">
+//                     <div className="col-md-4">
+//                         <h5 className="text-center">Marca</h5>
+//                         {filteredBrands.map((brand, index) => (
+//                             <p className="text-center" key={index}>{brand.name}</p>
+//                         ))}
+//                     </div>
+//                     <div className="col-md-4">
+//                         <h5 className="text-center">Sector</h5>
+//                         {filteredBrands.map((brand, index) => (
+//                             <p className="text-center" key={index}>{brand.sector}</p>
+//                         ))}
+//                     </div>
+//                     <div className="col-md-4">
+//                         <h5 className="text-center">Producto</h5>
+//                         {filteredBrands.map((brand, index) => (
+//                             <p className="text-center" key={index}>{brand.product}</p>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+//             <footer className="footer w-100">
+//                 <Footer />
+//             </footer>
+//         </div>
+//     );
+// };
+
+// export default Product;
+
+
+import React, { useState } from 'react';
+import './Product.css';
 import NavbarProduct from '../NavbarProduct/NavbarProduct.jsx';
-import ImgBrand1 from "../assets/Product/logoSilande.png";
+import Footer from '../Footer/Footer.jsx';
+import ImgBrand1 from "../assets/Product/colfLogo.png";
 import ImgBrand2 from "../assets/Product/homeryLogo.png";
 import ImgBrand3 from "../assets/Product/logoSilande.png";
-import Footer from '../Footer/Footer.jsx';
 
-// Datos de las marcas y productos
+
 const brands = [
-    { name: "Colf", sector: "Construcción", product: "Fibras sintéticas para hormigón", img: ImgBrand1 },
-    { name: "Colf", sector: "Construcción", product: "Mallas de fibra de vidrio", img: ImgBrand1 },
-    { name: "Colf", sector: "Construcción", product: "Cinta autoadhesiva de fibra de vidrio", img: ImgBrand1 },
-    { name: "Colf", sector: "Construcción", product: "Selladores de poliuretano", img: ImgBrand1 },
-    { name: "Colf", sector: "Construcción", product: "Selladores de polímeros modificados", img: ImgBrand1 },
-    { name: "Colf", sector: "Construcción", product: "Membrana líquida, base acrílico & poliuretánica", img: ImgBrand1 },
-    { name: "Colf", sector: "Construcción", product: "Anclajes químicos", img: ImgBrand1 },
-    { name: "Colf", sector: "Construcción", product: "Aplicadores manuales, neumáticos y a batería", img: ImgBrand1 },
-    { name: "Colf", sector: "Construcción", product: "Clavos y tornillos", img: ImgBrand1 },
-    { name: "Colf", sector: "Construcción", product: "Máquinas y equipos para la construcción y mantenimiento", img: ImgBrand1 },
-    { name: "Silande", sector: "Aberturas", product: "Sellador polisulfuro", img: ImgBrand2 },
-    { name: "Silande", sector: "Aberturas", product: "Sellador butilo", img: ImgBrand2 },
-    { name: "Silande", sector: "Aberturas", product: "Sellador estructural", img: ImgBrand2 },
-    { name: "Silande", sector: "Aberturas", product: "Sellador climático", img: ImgBrand2 },
-    { name: "Silande", sector: "Aberturas", product: "Adhesivo termofusión PIB", img: ImgBrand2 },
-    { name: "Homey", sector: "Aberturas", product: "Selladores acrílicos y base agua", img: ImgBrand3 },
-    { name: "Homey", sector: "Aberturas", product: "Selladores de silicona acética", img: ImgBrand3 },
-    { name: "Homey", sector: "Aberturas", product: "Selladores de silicona neutro", img: ImgBrand3 },
-    { name: "Homey", sector: "Aberturas", product: "Espumas de poliuretano", img: ImgBrand3 },
-    { name: "Colf", sector: "Aberturas", product: "Perfiles estructurales", img: ImgBrand1 },
-    { name: "Colf", sector: "Aberturas", product: "Perfiles espaciadores", img: ImgBrand1 },
-    { name: "Colf", sector: "Aberturas", product: "Cinta bi faz, base Eva Foam y butilo", img: ImgBrand1 },
-    { name: "Colf", sector: "Aberturas", product: "Espaciadores Warm Edge", img: ImgBrand1 },
-    { name: "Colf", sector: "Aberturas", product: "Disecante, tamiz molecular", img: ImgBrand1 },
-    { name: "Colf", sector: "Aberturas", product: "Vidrios para muro cortina", img: ImgBrand1 },
-    { name: "Colf", sector: "Industrias", product: "Adhesivos termofusión para packaging aprobación FDA", img: ImgBrand1 },
+    { name: "Colf", sector: "Construcción", product: "Fibras sintéticas para hormigón", img: "ImgBrand1" },
+    { name: "Colf", sector: "Construcción", product: "Mallas de fibra de vidrio", img: "ImgBrand1" },
+    { name: "Colf", sector: "Construcción", product: "Cinta autoadhesiva de fibra de vidrio", img: "ImgBrand1" },
+    { name: "Colf", sector: "Construcción", product: "Selladores de poliuretano", img: "ImgBrand1" },
+    { name: "Colf", sector: "Construcción", product: "Selladores de polímeros modificados", img: "ImgBrand1" },
+    { name: "Colf", sector: "Construcción", product: "Membrana líquida, base acrílico & poliuretánica", img: "ImgBrand1" },
+    { name: "Colf", sector: "Construcción", product: "Anclajes químicos", img: "ImgBrand1" },
+    { name: "Colf", sector: "Construcción", product: "Aplicadores manuales, neumáticos y a batería", img: "ImgBrand1" },
+    { name: "Colf", sector: "Construcción", product: "Clavos y tornillos", img: "ImgBrand1" },
+    { name: "Colf", sector: "Construcción", product: "Máquinas y equipos para la construcción y mantenimiento", img: "ImgBrand1" },
+    { name: "Silande", sector: "Aberturas", product: "Sellador polisulfuro", img: "ImgBrand2" },
+    { name: "Silande", sector: "Aberturas", product: "Sellador butilo", img: "ImgBrand2" },
+    { name: "Silande", sector: "Aberturas", product: "Sellador estructural", img: "ImgBrand2" },
+    { name: "Silande", sector: "Aberturas", product: "Sellador climático", img: "ImgBrand2" },
+    { name: "Silande", sector: "Aberturas", product: "Adhesivo termofusión PIB", img: "ImgBrand2" },
+    { name: "Homey", sector: "Aberturas", product: "Selladores acrílicos y base agua", img: "ImgBrand3" },
+    { name: "Homey", sector: "Aberturas", product: "Selladores de silicona acética", img: "ImgBrand3" },
+    { name: "Homey", sector: "Aberturas", product: "Selladores de silicona neutro", img: "ImgBrand3" },
+    { name: "Homey", sector: "Aberturas", product: "Espumas de poliuretano", img: "ImgBrand3" },
+    { name: "Colf", sector: "Aberturas", product: "Perfiles estructurales", img: "ImgBrand1" },
+    { name: "Colf", sector: "Aberturas", product: "Perfiles espaciadores", img: "ImgBrand1" },
+    { name: "Colf", sector: "Aberturas", product: "Cinta bi faz, base Eva Foam y butilo", img: "ImgBrand1" },
+    { name: "Colf", sector: "Aberturas", product: "Espaciadores Warm Edge", img: "ImgBrand1" },
+    { name: "Colf", sector: "Aberturas", product: "Disecante, tamiz molecular", img: "ImgBrand1" },
+    { name: "Colf", sector: "Aberturas", product: "Vidrios para muro cortina", img: "ImgBrand1" },
+    { name: "Colf", sector: "Industrias", product: "Adhesivos termofusión para packaging aprobación FDA", img: "ImgBrand1" },
 ];
 
 const Product = () => {
-    const [selectedBrand, setSelectedBrand] = useState("");
-    const [selectedSector, setSelectedSector] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState('Construcción');
 
-    // Filtrado de marcas
-    const filteredBrands = brands.filter(brand => {
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+    };
+
+    const renderGrid = () => {
+        const filteredBrands = brands.filter(brand => brand.sector === selectedCategory);
+
         return (
-            (selectedBrand === "" || brand.name === selectedBrand) &&
-            (selectedSector === "" || brand.sector === selectedSector)
+            <table className="product-table">
+                <thead>
+                    <tr>
+                        <th>Marca</th>
+                        <th>Producto</th>
+                        <th>Sector</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {filteredBrands.map((brand, index) => (
+                        <tr key={index}>
+                            <td>{brand.name}</td>
+                            <td>{brand.product}</td>
+                            <td>{brand.sector}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         );
-    });
-
-    // Obtener imágenes únicas (fijas)
-    const fixedImages = [
-        { name: "Colf", img: ImgBrand1 },
-        { name: "Silande", img: ImgBrand2 },
-        { name: "Homey", img: ImgBrand3 },
-    ];
-
-    // Función para restablecer filtros
-    const clearFilters = () => {
-        setSelectedBrand("");
-        setSelectedSector("");
     };
 
     return (
-        <div id="app">
+        <div className="product-container">
             <div className="w-100">
                 <NavbarProduct />
             </div>
-            <div className="container py-5">
-                <h2 className="text-center mb-4">Nuestras Marcas</h2>
-
-                {/* Imágenes de marcas fijas */}
-                <div className="row mb-4">
-                    {fixedImages.map((brand, index) => (
-                        <div className="col-md-4" key={index}>
-                            <img src={brand.img} className="img-fluid" alt={`Marca ${brand.name}`} />
-                        </div>
-                    ))}
-                </div>
-
-                {/* Filtros */}
-                <div className="mb-4 text-center">
-                    <select onChange={e => setSelectedBrand(e.target.value)} value={selectedBrand}>
-                        <option value="">Filtrar por Marca</option>
-                        <option value="Colf">Colf</option>
-                        <option value="Silande">Silande</option>
-                        <option value="Homey">Homey</option>
-                    </select>
-                    <select onChange={e => setSelectedSector(e.target.value)} value={selectedSector}>
-                        <option value="">Filtrar por Sector</option>
-                        <option value="Construcción">Construcción</option>
-                        <option value="Industrias">Industrias</option>
-                        <option value="Aberturas">Aberturas</option>
-                    </select>
-                    <button className="btn btn-secondary ms-2" onClick={clearFilters}>Borrar Filtros</button>
-                </div>
-
-                {/* Grilla con columnas de Marca, Sector y Producto */}
-                <div className="row">
-                    <div className="col-md-4">
-                        <h5 className="text-center">Marca</h5>
-                        {filteredBrands.map((brand, index) => (
-                            <p className="text-center" key={index}>{brand.name}</p>
-                        ))}
-                    </div>
-                    <div className="col-md-4">
-                        <h5 className="text-center">Sector</h5>
-                        {filteredBrands.map((brand, index) => (
-                            <p className="text-center" key={index}>{brand.sector}</p>
-                        ))}
-                    </div>
-                    <div className="col-md-4">
-                        <h5 className="text-center">Producto</h5>
-                        {filteredBrands.map((brand, index) => (
-                            <p className="text-center" key={index}>{brand.product}</p>
-                        ))}
-                    </div>
+            <div>
+                <h2 className='title-product'>NUESTROS SOCIOS DE MARCAS PREMIUM</h2>
+                <p className='product-text'>En MAXTECH, estamos comprometidos con ofrecer soluciones tecnológicas de excelencia para la construcción e industrias. Nos enorgullece contar con el respaldo de marcas de renombre que comparten nuestros valores de calidad e innovación. Juntos, construimos alianzas estratégicas que potencian nuestros servicios y aportan valor a cada proyecto.</p>
+                <div className="brand-images-row">
+                    <img src={ImgBrand1} alt="Marca 1" className="brand-image" />
+                    <img src={ImgBrand3} alt="Marca 3" className="brand-image" />
+                    <img src={ImgBrand2} alt="Marca 2" className="brand-image" />
                 </div>
             </div>
-            <footer className="footer w-100">
+            <div className="product-header">
+                <h2>Listado de productos por sector</h2>
+                <p>Cátalogo disponible distribuido por marca</p>
+            </div>
+            <div className="button-group">
+                <button
+                    onClick={() => handleCategoryClick('Construcción')}
+                    className={selectedCategory === 'Construcción' ? 'active' : ''}
+                >
+                    Construcción
+                </button>
+                <button
+                    onClick={() => handleCategoryClick('Aberturas')}
+                    className={selectedCategory === 'Aberturas' ? 'active' : ''}
+                >
+                    Aberturas
+                </button>
+                <button
+                    onClick={() => handleCategoryClick('Industrias')}
+                    className={selectedCategory === 'Industrias' ? 'active' : ''}
+                >
+                    Industrias
+                </button>
+            </div>
+            {renderGrid()}
+            <footer className="footer producto-footer w-100">
                 <Footer />
             </footer>
         </div>
@@ -309,3 +417,4 @@ const Product = () => {
 };
 
 export default Product;
+

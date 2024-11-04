@@ -13,7 +13,7 @@ function NavbarProduct() {
         <nav className="navbar">
             <div className="navbar-left">
                 <img src={logo} alt="Logo" className="logo" />
-                <h1>MaxTech</h1>
+                <h1>MAXTECH</h1>
             </div>
             <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
                 <ul>

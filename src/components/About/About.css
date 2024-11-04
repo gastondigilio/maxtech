@@ -13,14 +13,7 @@
 }
 
 .image {
-    width: 50%;
-    /* Ajusta la imagen al 50% del ancho del contenedor */
-    height: auto;
-    /* Mantiene la relación de aspecto de la imagen */
-    margin: 0 auto;
-    /* Centra la imagen horizontalmente */
-    display: block;
-    /* Asegura que el margen automático funcione */
+    padding: 20px;
 }
 
 .card-title {
@@ -29,6 +22,24 @@
 
 .card-text-about {
     color: black;
+    text-align: justify;
+    padding: 20px;
+}
+
+.card-text-about1 {
+    color: black;
+    text-align: justify;
+    padding: 20px;
+    padding-bottom: 70px;
+}
+
+.title-objetivos {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+    margin-top: 3rem;
 }
 
 .objective-card {

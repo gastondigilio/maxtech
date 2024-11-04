@@ -6,7 +6,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Centra el contenido verticalmente */
 }
 
 @media screen and (max-width: 768px) {
@@ -24,37 +23,36 @@
 .approach-content {
     color: white;
     text-align: center;
-    /* Centra el texto horizontalmente */
     margin: 0 auto;
-    /* Asegura que el contenido esté centrado dentro de su contenedor */
     padding: 0 20px;
-    /* Agrega un poco de espaciado a los lados */
+}
+
+.approach-title{
+    padding: 5px;
+    font-size: 40px;
+}
+
+.approach-text{
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-size: 25px;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .about-button {
     background-color: transparent;
-    /* Fondo transparente */
     color: white;
-    /* Texto en blanco */
     border: 2px solid white;
-    /* Borde blanco */
     padding: 10px 20px;
-    /* Espaciado interno */
     font-size: 16px;
-    /* Tamaño de fuente */
     cursor: pointer;
-    /* Cambia el cursor al pasar sobre el botón */
     margin-top: 15px;
-    /* Espacio arriba del botón */
     transition: background-color 0.3s, color 0.3s;
-    /* Transición suave para hover */
     text-decoration: none;
-    /* Quita el subrayado */
 }
 
 .about-button:hover {
     background-color: white;
-    /* Fondo blanco al pasar el mouse */
     color: black;
-    /* Texto negro al pasar el mouse */
 }

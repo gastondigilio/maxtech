@@ -13,7 +13,7 @@ const Contact = () => {
                 <div className="row gx-3"> 
                     <div className="col-md-4 mb-4">
                         <div className="card-contact h-100 text-center">
-                            <img src={Argentina} className="card-img-top image" alt="Argentina" />
+                            <img src={Argentina} className="card-img-top imageContact" alt="Argentina" />
                             <div className="card-body">
                                 <h5 className="title">Argentina</h5>
                                 <p className="card-text text-justify">
@@ -27,7 +27,7 @@ const Contact = () => {
                     </div>
                     <div className="col-md-4 mb-4">
                         <div className="card-contact h-100 text-center">
-                            <img src={Brasil} className="card-img-top image" alt="Brasil" />
+                            <img src={Brasil} className="card-img-top imageContact" alt="Brasil" />
                             <div className="card-body">
                                 <h5 className="title">Brasil</h5>
                                 <p className="card-text text-justify">
@@ -38,7 +38,7 @@ const Contact = () => {
                     </div>
                     <div className="col-md-4 mb-4">
                         <div className="card-contact h-100 text-center">
-                            <img src={Uruguay} className="card-img-top image" alt="Uruguay" />
+                            <img src={Uruguay} className="card-img-top imageContact" alt="Uruguay" />
                             <div className="card-body">
                                 <h5 className="title">Uruguay</h5>
                                 <p className="card-text text-justify">
@@ -49,7 +49,7 @@ const Contact = () => {
                     </div>
                     <div className="col-md-4 mb-4">
                         <div className="card-contact h-100 text-center">
-                            <img src={EEUU} className="card-img-top image" alt="Estados Unidos" />
+                            <img src={EEUU} className="card-img-top imageContact" alt="Estados Unidos" />
                             <div className="card-body">
                                 <h5 className="title">Estados Unidos</h5>
                                 <p className="card-text text-justify">
@@ -60,7 +60,7 @@ const Contact = () => {
                     </div>
                     <div className="col-md-4 mb-4">
                         <div className="card-contact h-100 text-center">
-                            <img src={China} className="card-img-top image" alt="China" />
+                            <img src={China} className="card-img-top imageContact" alt="China" />
                             <div className="card-body">
                                 <h5 className="title">China</h5>
                                 <p className="card-text text-justify">
