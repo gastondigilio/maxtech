@@ -20,7 +20,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <div className="card-about">
+                    <div className="card-about1">
                         <img src={Mision} className="card-img-top image" alt="Imagen 2" />
                         <div className="card-body">
                             <h5 className="card-title">Misión</h5>
@@ -37,7 +37,7 @@ const About = () => {
             <div className="row">
                 <div className="col-md-4">
                     <div className="objective-card">
-                        <h5>Innovación y Mejora Continua</h5>
+                        <h5 className="card-title" >Innovación y Mejora Continua</h5>
                         <p className="text-justify">
                             Fomentar la investigación y el desarrollo de productos tecnológicos avanzados que mejoren la eficiencia y la sostenibilidad en el sector de la construcción e industrias.
                         </p>
@@ -45,7 +45,7 @@ const About = () => {
                 </div>
                 <div className="col-md-4">
                     <div className="objective-card">
-                        <h5>Certificación de Calidad</h5>
+                        <h5 className="card-title" >Certificación de Calidad</h5>
                         <p className="text-justify">
                             Establecer un riguroso proceso de certificación para garantizar que todos los productos cumplan con los estándares de seguridad y calidad exigidos por el mercado.
                         </p>
@@ -53,7 +53,7 @@ const About = () => {
                 </div>
                 <div className="col-md-4">
                     <div className="objective-card">
-                        <h5>Importación Eficiente</h5>
+                        <h5 className="card-title" >Importación Eficiente</h5>
                         <p className="text-justify">
                             Crear una red de proveedores confiables y estratégicos a nivel global para asegurar la importación de tecnologías de punta, optimizando tiempos y costos.
                         </p>
@@ -61,7 +61,7 @@ const About = () => {
                 </div>
                 <div className="col-md-4">
                     <div className="objective-card">
-                        <h5>Atención al Cliente</h5>
+                        <h5 className="card-title" >Atención al Cliente</h5>
                         <p className="text-justify">
                             Proporcionar un servicio excepcional, ofreciendo asesoría y soporte técnico para garantizar que nuestros clientes encuentren las soluciones adecuadas a sus necesidades.
                         </p>
@@ -69,7 +69,7 @@ const About = () => {
                 </div>
                 <div className="col-md-4">
                     <div className="objective-card">
-                        <h5>Sostenibilidad</h5>
+                        <h5 className="card-title" >Sostenibilidad</h5>
                         <p className="text-justify">
                             Promover prácticas responsables que minimicen el impacto ambiental de nuestras operaciones y productos, contribuyendo a un desarrollo más sostenible en la industria.
                         </p>
@@ -77,7 +77,7 @@ const About = () => {
                 </div>
                 <div className="col-md-4">
                     <div className="objective-card">
-                        <h5>Alianzas Estratégicas</h5>
+                        <h5 className="card-title" >Alianzas Estratégicas</h5>
                         <p className="text-justify">
                             Establecer colaboraciones con instituciones académicas y empresas del sector para fortalecer la investigación y el desarrollo de nuevas tecnologías.
                         </p>

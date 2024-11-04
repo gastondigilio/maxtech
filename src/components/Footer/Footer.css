@@ -8,12 +8,14 @@
     color: #FFFFFF;
 }
 
-.footer-text{
+.footer-text {
     padding-top: 15px;
 }
 
 @media screen and (max-width: 768px) {
-    .footer{
-        height:30vh;
+    .footer {
+        height: auto;
+        justify-content: center;
+        padding: 0;
     }
 }

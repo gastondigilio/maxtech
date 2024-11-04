@@ -375,7 +375,7 @@ const Product = () => {
             <div className="w-100">
                 <NavbarProduct />
             </div>
-            <div>
+            <div className='product-brands'>
                 <h2 className='title-product'>NUESTROS SOCIOS DE MARCAS PREMIUM</h2>
                 <p className='product-text'>En MAXTECH, estamos comprometidos con ofrecer soluciones tecnológicas de excelencia para la construcción e industrias. Nos enorgullece contar con el respaldo de marcas de renombre que comparten nuestros valores de calidad e innovación. Juntos, construimos alianzas estratégicas que potencian nuestros servicios y aportan valor a cada proyecto.</p>
                 <div className="brand-images-row">
