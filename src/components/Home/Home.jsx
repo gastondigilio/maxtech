@@ -21,7 +21,7 @@ function Home() {
             <Footer />
             <button
                 className="whatsapp-button"
-                onClick={() => window.open("https://wa.me/1234567890", "_blank")}
+                onClick={() => window.open("https://wa.me/+5491164734500", "_blank")}
             >
                 <img src={WhatsappVerde} alt="WhatsApp" />
             </button>
