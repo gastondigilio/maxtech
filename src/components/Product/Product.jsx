@@ -304,9 +304,10 @@ import React, { useState } from 'react';
 import './Product.css';
 import NavbarProduct from '../NavbarProduct/NavbarProduct.jsx';
 import Footer from '../Footer/Footer.jsx';
-import ImgBrand1 from "../assets/Product/colfLogo.png";
+import ImgBrand1 from "../assets/Product/penosilLogo.png";
 import ImgBrand2 from "../assets/Product/homeryLogo.png";
 import ImgBrand3 from "../assets/Product/logoSilande.png";
+import Instagram from '../assets/Product/instagramLogo.jpg';
 
 
 const brands = [
@@ -371,20 +372,33 @@ const Product = () => {
     };
 
     return (
-        <div className="product-container">
-            <div className="w-100">
-                <NavbarProduct />
-            </div>
+        <div className="product-container" id='productos'>
             <div className='product-brands'>
                 <h2 className='title-product'>NUESTROS SOCIOS DE MARCAS PREMIUM</h2>
                 <p className='product-text'>En MAXTECH, estamos comprometidos con ofrecer soluciones tecnológicas de excelencia para la construcción e industrias. Nos enorgullece contar con el respaldo de marcas de renombre que comparten nuestros valores de calidad e innovación. Juntos, construimos alianzas estratégicas que potencian nuestros servicios y aportan valor a cada proyecto.</p>
                 <div className="brand-images-row">
-                    <img src={ImgBrand1} alt="Marca 1" className="brand-image" />
-                    <img src={ImgBrand3} alt="Marca 3" className="brand-image" />
-                    <img src={ImgBrand2} alt="Marca 2" className="brand-image" />
+                    <div className="brand-item">
+                        <a href="https://penosil.com/" target="_blank" rel="noopener noreferrer">
+                            <img src={ImgBrand1} alt="Marca 1" className="brand-image" />
+                        </a>
+                    </div>
+                    <div className="brand-item">
+                        <a href="http://en.cnsealant.com/news/1.html" target="_blank" rel="noopener noreferrer">
+                            <img src={ImgBrand3} alt="Marca 3" className="brand-image" />
+                        </a>
+                    </div>
+                    <div className="brand-item">
+                        <a
+                            href="https://homeycons.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img src={ImgBrand2} alt="Marca 2" className="brand-image" />
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div className="product-header">
+            {/* <div className="product-header">
                 <h2>Listado de productos por sector</h2>
                 <p>Cátalogo disponible distribuido por marca</p>
             </div>
@@ -408,10 +422,10 @@ const Product = () => {
                     Industrias
                 </button>
             </div>
-            {renderGrid()}
-            <footer className="footer producto-footer w-100">
+            {renderGrid()} */}
+            {/* <footer className="footer producto-footer w-100">
                 <Footer />
-            </footer>
+            </footer> */}
         </div>
     );
 };

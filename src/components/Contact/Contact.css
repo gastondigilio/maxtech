@@ -1,36 +1,35 @@
-.contact {
+.contact{
     background-color: black;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    font-family: Montserrat, sans-serif;
 }
 
-.title {
-    padding-bottom: 20px;
-    color: #FFFFFF;
-    padding-top: 10px;
+.contact .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .card-contact {
-    padding: 15px;
-    margin: 0 10px;
-    background-color: black !important;
-    color: #FFFFFF;
-    border: none;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.card-text {
-    color: #FFFFFF;
+.card-contact .card-img-top {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
 }
 
-.imageContact {
-    max-width: 120px;
-    max-height: 120px;
-    object-fit: contain;
-    margin: 0 auto;
+.card-contact .card-body {
+    padding: 10px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #FFFFFF;
 }

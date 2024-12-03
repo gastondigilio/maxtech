@@ -1,15 +1,15 @@
-.scroll-to-top {
+.whatsapp-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    border-radius: 50%;
+    z-index: 1000;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    display: none;
 }
 
-.scroll-to-top.show {
-    display: block;
+.whatsapp-button img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }

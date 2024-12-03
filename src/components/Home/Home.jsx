@@ -5,44 +5,26 @@ import Approach from '../Approach/Approach';
 import About from '../About/About';
 import Footer from '../Footer/Footer';
 import Contact from '../Contact/Contact';
-// import Entrenamientos from '../Entrenamientos/Entrenamientos';
+import Product from '../Product/Product';
+import WhatsappVerde from '../assets/Navbar/whatsappVerde.png'
 
 
 function Home() {
-    const [showScroll, setShowScroll] = useState(false);
-
-    useEffect(() => {
-        window.addEventListener('scroll', checkScrollTop);
-        return function cleanup() {
-            window.removeEventListener('scroll', checkScrollTop);
-        };
-    });
-
-    const checkScrollTop = () => {
-        if (!showScroll && window.pageYOffset > 400) {
-            setShowScroll(true);
-        } else if (showScroll && window.pageYOffset <= 400) {
-            setShowScroll(false);
-        }
-    };
-
-    const scrollTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
 
     return (
         <div className="App">
             <Navbar />
             <Approach />
-            {/* <Entrenamientos /> */}
-            {/* <div className={`scroll-to-top ${showScroll ? 'show' : ''}`} onClick={scrollTop}>
-                <span className="material-icons">
-                    arrow_upward
-                </span>
-            </div> */}
             <About />
+            {/*<Product/>*/}
             <Contact />
             <Footer />
+            <button
+                className="whatsapp-button"
+                onClick={() => window.open("https://wa.me/1234567890", "_blank")}
+            >
+                <img src={WhatsappVerde} alt="WhatsApp" />
+            </button>
         </div>
     );
 }

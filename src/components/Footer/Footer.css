@@ -1,21 +1,116 @@
 .footer {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
-    height: 30px;
-    /* background-color: #8a0000; */
-    background-color: #0056b3;
+    padding: 10px 20px;
     color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black !important;
 }
 
-.footer-text {
-    padding-top: 15px;
+/* .line-footer {
+    width: calc(100% - 500px);
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.178);
+    margin-left: 20px;
+    margin-right: 20px;
+} */
+
+.line-footer-up {
+    width: 10%;
+    margin: 0 auto;
+    border-top: 1px solid #4F00D7;
+    margin-bottom: 2rem;
+}
+
+.line-footer-down {
+    display: none;
+}
+
+.container {
+    font-family: Montserrat, sans-serif;
+}
+
+.footer-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-image {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-container {
+    margin-top: 5rem;
+}
+
+.custom-button {
+    background-color: #4F00D7 !important;
+    color: #FFFFFF !important;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-logo-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media screen and (max-width: 768px) {
-    .footer {
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        margin-top: 3rem;
+    }
+
+    .footer-logo-button {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .footer-logo-button img {
+        width: auto;
         height: auto;
+        margin-bottom: 1rem;
+    }
+
+    .footer-logo-button .custom-button {
+        width: auto;
+    }
+
+    .footer-icons {
         justify-content: center;
-        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    .custom-button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .line-footer-up {
+        width: 20%;
+    }
+
+    .line-footer-down {
+        display: block !important;
+        width: 20%;
+        margin: 0 auto;
+        border-top: 1px solid #4F00D7;
+        margin-top: 2rem;
     }
 }

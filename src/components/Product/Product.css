@@ -52,6 +52,10 @@ body {
     font-family: Montserrat, sans-serif;
 }
 
+/* .product-brands {
+    min-height: 80vh;
+} */
+
 .button-group {
     margin-bottom: 20px;
 }
@@ -117,6 +121,20 @@ body {
     transition: transform 0.3s ease;
 }
 
+.imageInstagram {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: contain;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.brand-item {
+    display: flex;
+    flex-direction: column;
+}
+
 .title-product {
     padding: 20px;
 }
@@ -124,6 +142,7 @@ body {
 .product-text {
     padding-left: 180px;
     padding-right: 180px;
+    padding-top: 2rem;
     text-align: justify;
 }
 
@@ -153,7 +172,7 @@ body {
 
 @media screen and (max-width: 768px) {
 
-    .product-header{
+    .product-header {
         width: 100%;
     }
 
@@ -172,6 +191,7 @@ body {
     .product-text {
         padding-left: 20px;
         padding-right: 20px;
+        margin-top: 0;
     }
 
     .button-group {
@@ -180,7 +200,7 @@ body {
         max-width: 100%;
     }
 
-    .button-group button{
+    .button-group button {
         padding: 10px 10px;
     }
 

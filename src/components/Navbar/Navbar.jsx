@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../assets/Navbar/logo.png'; // Asegúrate de tener tu imagen en la carpeta src
-import './Navbar.css'; // Archivo de estilos CSS para personalizar la apariencia de la Navbar
+import logo from '../assets/Navbar/logo.png';
+import './Navbar.css';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,11 +17,8 @@ function Navbar() {
             </div>
             <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
                 <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/productos">Portfolio</a></li>
                     <li><a href="#about">Nosotros</a></li>
                     <li><a href="#contact">Contacto</a></li>
-                    {/* <li><a href="#">Componente 4</a></li> */}
                 </ul>
             </div>
             <div className="menu-icon" onClick={toggleMenu}>
