@@ -11,7 +11,6 @@ const Footer = () => {
         <footer className="footer py-4">
             <div className="container">
                 <div className="line-footer-up"></div>
-                <div className="line-footer-down"></div>
                 <div className="d-flex justify-content-between align-items-center footer-container">
                     <p className="mb-0">info@maxtechlatam.com</p>
                 </div>
