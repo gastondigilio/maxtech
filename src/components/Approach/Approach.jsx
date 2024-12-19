@@ -8,7 +8,7 @@ const Approach = () => {
             <div className="approach-container" style={{ backgroundImage: `url(${Banner})` }}>
                 <div className="approach-content">
                     <h2 className='approach-title'>SOLUCIONES TECNOLÓGICAS PARA LA CONSTRUCCIÓN E INDUSTRIAS</h2>
-                    <p className='approach-text'>Ofrecemos herramientas tecnológicas innovadoras para optimizar procesos, aumentar la productividad y facilitar el crecimiento de empresas</p>
+                    <p className='approach-text'>Ofrecemos innovación tecnológica para lograr procesos productivos más eficientes y optimizar sistemas de construcción, aportando a un crecimiento sostenible</p>
                     <a href='#about' className="about-button">NOSOTROS</a>
                 </div>
             </div>
