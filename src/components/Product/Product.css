@@ -110,12 +110,19 @@ body {
     display: flex;
     justify-content: space-around;
     gap: 20px;
-    margin-top: 6rem;
+    margin-top: 3rem;
     margin-bottom: 6rem;
 }
 
 .brand-image {
     height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.brand-image1 {
+    height: 40px;
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
@@ -135,8 +142,16 @@ body {
     flex-direction: column;
 }
 
+.brand-item1 {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: black;
+}
+
 .title-product {
     padding: 20px;
+    margin-top: 3rem;
 }
 
 .product-text {

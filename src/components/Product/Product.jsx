@@ -304,7 +304,7 @@ import React, { useState } from 'react';
 import './Product.css';
 import NavbarProduct from '../NavbarProduct/NavbarProduct.jsx';
 import Footer from '../Footer/Footer.jsx';
-import ImgBrand1 from "../assets/Product/penosilLogo.png";
+import ImgBrand1 from "../assets/Product/horseLogo.png";
 import ImgBrand2 from "../assets/Product/homeryLogo.png";
 import ImgBrand3 from "../assets/Product/logoSilande.png";
 import Instagram from '../assets/Product/instagramLogo.jpg';
@@ -374,12 +374,12 @@ const Product = () => {
     return (
         <div className="product-container" id='productos'>
             <div className='product-brands'>
-                <h2 className='title-product'>NUESTROS SOCIOS DE MARCAS PREMIUM</h2>
-                <p className='product-text'>En MAXTECH, estamos comprometidos con ofrecer soluciones tecnológicas de excelencia para la construcción e industrias. Nos enorgullece contar con el respaldo de marcas de renombre que comparten nuestros valores de calidad e innovación. Juntos, construimos alianzas estratégicas que potencian nuestros servicios y aportan valor a cada proyecto.</p>
+                <h2 className='title-product '>MARCAS REPRESENTADAS</h2>
+                {/* <p className='product-text'>En MAXTECH, estamos comprometidos con ofrecer soluciones tecnológicas de excelencia para la construcción e industrias. Nos enorgullece contar con el respaldo de marcas de renombre que comparten nuestros valores de calidad e innovación. Juntos, construimos alianzas estratégicas que potencian nuestros servicios y aportan valor a cada proyecto.</p> */}
                 <div className="brand-images-row">
-                    <div className="brand-item">
-                        <a href="https://penosil.com/" target="_blank" rel="noopener noreferrer">
-                            <img src={ImgBrand1} alt="Marca 1" className="brand-image" />
+                    <div className="brand-item1">
+                        <a href="https://www.horseen.com/" target="_blank" rel="noopener noreferrer">
+                            <img src={ImgBrand1} alt="Marca 1" className="brand-image1" />
                         </a>
                     </div>
                     <div className="brand-item">

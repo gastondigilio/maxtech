@@ -16,7 +16,7 @@ function Home() {
             <Navbar />
             <Approach />
             <About />
-            {/*<Product/>*/}
+            <Product/>
             <Contact />
             <Footer />
             <button
