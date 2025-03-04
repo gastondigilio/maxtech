@@ -387,7 +387,7 @@ const Product = () => {
                             <img src={ImgBrand3} alt="Marca 3" className="brand-image" />
                         </a>
                     </div>
-                    <div className="brand-item">
+                    {/* <div className="brand-item">
                         <a
                             href="https://homeycons.com/"
                             target="_blank"
@@ -395,7 +395,7 @@ const Product = () => {
                         >
                             <img src={ImgBrand2} alt="Marca 2" className="brand-image" />
                         </a>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {/* <div className="product-header">
