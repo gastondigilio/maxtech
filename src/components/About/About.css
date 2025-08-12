@@ -3,6 +3,9 @@
     color: black;
     /* padding: 20px; */
     font-family: Montserrat, sans-serif;
+    margin-top: 100vh;
+    position: relative;
+    z-index: 5;
 }
 
 .card-about {

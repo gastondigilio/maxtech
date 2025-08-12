@@ -1,6 +1,6 @@
 import React from 'react';
 import './Approach.css';
-import Banner from '../assets/Approach/bannerApproach.png';
+import Banner from '../assets/Approach/approachBanner.png';
 
 const Approach = () => {
     return (

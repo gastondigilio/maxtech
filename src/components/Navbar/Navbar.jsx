@@ -1,24 +1,41 @@
 import React, { useState } from 'react';
-import logo from '../assets/Navbar/logo.png';
+import logo from '../assets/Navbar/logoMaxtech.png';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({ variant = 'home' }) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
+    // Configuración de enlaces según la variante
+    const getNavLinks = () => {
+        if (variant === 'product') {
+            return [
+                { href: "/", text: "Inicio" }
+            ];
+        }
+        // Variante por defecto (home)
+        return [
+            { href: "/productos", text: "Productos" },
+            { href: "#about", text: "Nosotros" },
+            { href: "#contact", text: "Contacto" }
+        ];
+    };
+
     return (
         <nav className="navbar">
             <div className="navbar-left">
-                <img src={logo} alt="Logo" className="logo" />
-                <h1>MAXTECH</h1>
+                <img src={logo} alt="Logo Maxtech" className="logo" />
             </div>
             <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
                 <ul>
-                    <li><a href="#about">Nosotros</a></li>
-                    <li><a href="#contact">Contacto</a></li>
+                    {getNavLinks().map((link, index) => (
+                        <li key={index}>
+                            <a href={link.href}>{link.text}</a>
+                        </li>
+                    ))}
                 </ul>
             </div>
             <div className="menu-icon" onClick={toggleMenu}>

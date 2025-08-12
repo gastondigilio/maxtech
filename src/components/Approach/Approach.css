@@ -1,33 +1,48 @@
-    .approach-container {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Montserrat, sans-serif;
-    }
+.approach-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat, sans-serif;
+}
 
 
-    .approach-content {
-        color: white;
-        text-align: center;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+.approach-content {
+    color: white;
+    text-align: left;
+    margin: 0;
+    padding: 0 20px 0 60px;
+    position: relative;
+    z-index: 10;
+    padding-right: 450px;
+}
 
     .approach-title {
         padding: 5px;
-        font-size: 40px;
+        font-size: 48px;
+        font-family: 'Mulish', sans-serif;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     .approach-text {
         padding-top: 20px;
         padding-bottom: 40px;
-        font-size: 25px;
-        padding-left: 80px;
-        padding-right: 80px;
+        font-size: 18px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .about-button {
@@ -52,9 +67,15 @@
             height: 50vh;
         }
 
+        .approach-content {
+            padding: 0 20px 0 30px;
+        }
+        
         .approach-content h2 {
-            font-size: 1rem;
+            font-size: 24px;
             margin: 0;
+            font-family: 'Mulish', sans-serif;
+            font-weight: 800;
         }
 
         .approach-text {
@@ -62,6 +83,8 @@
             padding-bottom: 20px;
             padding-left: 0px;
             padding-right: 0px;
-            font-size: inherit;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
         }
     }
