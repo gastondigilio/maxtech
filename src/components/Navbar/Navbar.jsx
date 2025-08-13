@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from '../assets/Navbar/logoMaxtech.png';
 import './Navbar.css';
 
 function Navbar({ variant = 'home' }) {
@@ -27,7 +26,7 @@ function Navbar({ variant = 'home' }) {
     return (
         <nav className="navbar">
             <div className="navbar-left">
-                <img src={logo} alt="Logo Maxtech" className="logo" />
+                <img src="/images/ui/logoMaxtech.png" alt="Logo Maxtech" className="logo" />
             </div>
             <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
                 <ul>

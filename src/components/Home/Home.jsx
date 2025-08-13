@@ -6,7 +6,7 @@ import About from '../About/About';
 import Footer from '../Footer/Footer';
 import Contact from '../Contact/Contact';
 import Product from '../Product/Product';
-import WhatsappVerde from '../assets/Navbar/whatsappVerde.png'
+
 
 
 function Home() {
@@ -23,7 +23,7 @@ function Home() {
                 className="whatsapp-button"
                 onClick={() => window.open("https://wa.me/+5491151489606", "_blank")}
             >
-                <img src={WhatsappVerde} alt="WhatsApp" />
+                <img src="/images/ui/WhatsApp.png" alt="WhatsApp" />
             </button>
         </div>
     );

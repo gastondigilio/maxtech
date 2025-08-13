@@ -23,11 +23,12 @@
     position: relative;
     z-index: 10;
     padding-right: 450px;
+    padding-top: 60px;
 }
 
     .approach-title {
-        padding: 5px;
-        font-size: 48px;
+        padding: 15px 5px 5px 5px;
+        font-size: 46px;
         font-family: 'Mulish', sans-serif;
         font-weight: 800;
         text-transform: uppercase;
@@ -46,20 +47,53 @@
     }
 
     .about-button {
-        background-color: transparent;
+        background-color: #0082c9;
         color: white;
-        border: 2px solid white;
-        padding: 10px 20px;
+        border: 2px solid #0082c9;
+        padding: 12px 24px;
         font-size: 16px;
         cursor: pointer;
         margin-top: 15px;
-        transition: background-color 0.3s, color 0.3s;
+        transition: all 0.3s ease;
         text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(0, 130, 201, 0.3);
     }
 
     .about-button:hover {
-        background-color: white;
-        color: black;
+        background-color: #0066a3;
+        border-color: #0066a3;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 130, 201, 0.4);
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 20px;
+        margin-top: 15px;
+    }
+
+    .secondary-button {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .secondary-button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
     }
 
     @media screen and (max-width: 768px) {

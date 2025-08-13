@@ -52,6 +52,63 @@ body {
     font-family: Montserrat, sans-serif;
 }
 
+/* Sección de búsqueda */
+.search-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: 2rem auto 1rem;
+    padding: 0 2rem;
+}
+
+.search-container {
+    position: relative;
+    max-width: 250px;
+    margin: 0;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #0082c9;
+    box-shadow: 0 0 0 3px rgba(0, 130, 201, 0.1);
+}
+
+.search-input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.clear-search-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+    background-color: #f0f0f0;
+    color: #666;
+}
+
 /* .product-brands {
     min-height: 80vh;
 } */
@@ -239,26 +296,130 @@ body {
     box-shadow: 0 4px 15px rgba(0, 130, 201, 0.3);
 }
 
+/* Layout principal de productos */
+.product-layout {
+    display: flex;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Filtro lateral izquierdo */
+.brand-filters {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.filter-item {
+    background-color: white;
+    border-radius: 0;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-item:hover {
+    border-color: #0082c9;
+    transform: translateY(-2px);
+}
+
+.filter-item.active {
+    background-color: #f8f9fa;
+    border: 2px solid #0082c9;
+    transform: translateY(-2px);
+}
+
+.filter-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-name {
+    color: #000000;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.product-count {
+    color: #95a5a6;
+    font-size: 14px;
+}
+
+.filter-arrow {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Contenido principal de productos */
+.products-main {
+    flex: 1;
+}
+
+/* Etiqueta de filtro activo */
+.active-filter-tag {
+    position: absolute;
+    right: -600px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    max-width: fit-content;
+    font-size: 12px;
+}
+
+.filter-label {
+    color: #666;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.remove-filter-btn {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-filter-btn:hover {
+    background-color: #e9ecef;
+    color: #666;
+}
+
 /* Grid de productos */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    padding: 0 2rem;
     margin-bottom: 3rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
 }
 
 /* Cards de productos */
 .product-card {
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
     overflow: hidden;
     transition: all 0.3s ease;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #e0e0e0;
 }
 
 .product-card:hover {
@@ -276,6 +437,7 @@ body {
     height: 200px;
     overflow: hidden;
     background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .product-image {
@@ -319,6 +481,46 @@ body {
     text-transform: uppercase;
 }
 
+/* CTA sutil para las cards */
+.product-cta {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.info-button {
+    background: transparent;
+    border: 1px solid #e0e0e0;
+    color: #666;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+}
+
+.info-button:hover {
+    background-color: #f8f9fa;
+    border-color: #0082c9;
+    color: #0082c9;
+    transform: translateY(-1px);
+}
+
+.plus-icon {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #0082c9;
+}
+
+.info-text {
+    color: inherit;
+}
+
 @media screen and (max-width: 1024px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -328,6 +530,21 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+    .product-layout {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .brand-filters {
+        width: 100%;
+        order: 2;
+    }
+
+    .products-main {
+        order: 1;
+    }
+
     .product-header h1 {
         font-size: 2rem;
     }
@@ -366,4 +583,25 @@ body {
     .product-title {
         font-size: 1.2rem;
     }
+}
+
+/* Botón de WhatsApp flotante */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.whatsapp-button img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover img {
+    transform: scale(1.05);
 }
