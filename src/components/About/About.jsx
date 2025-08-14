@@ -1,39 +1,8 @@
 import "./About.css";
-import Mision from "../assets/About/mision.png";
-import Vision from "../assets/About/vision.png";
 
 const About = () => {
     return (
-        <div id="about" className="about container py-5">
-            <div className="row mb-4 about-container">
-                <div className="col-md-6">
-                    <div className="card-about">
-                        <img src={Vision} className="card-img-top image" alt="Imagen 1" />
-                        <div className="card-body">
-                            <h5 className="card-title">Visión</h5>
-                            <p className="card-text-about text-justify">
-                                Ser reconocidos como líderes en la investigación, desarrollo y certificación de tecnología de punta para la construcción e industrias, impulsando la innovación y la sostenibilidad.
-                                Nos comprometemos a ofrecer soluciones de alta calidad que transformen el sector, mejorando la eficiencia y seguridad en los procesos constructivos y productivos.
-                                A través de alianzas estratégicas y un enfoque centrado en el cliente, buscamos posicionarnos como el socio preferido en el suministro de productos tecnológicos avanzados, contribuyendo al crecimiento de nuestros clientes y al desarrollo responsable de la industria.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-6">
-                    <div className="card-about1">
-                        <img src={Mision} className="card-img-top image" alt="Imagen 2" />
-                        <div className="card-body">
-                            <h5 className="card-title">Misión</h5>
-                            <p className="card-text-about1 text-justify">
-                                Desarrollar e importar productos de tecnología de punta que impulsen la innovación y la eficiencia en la construcción y las industrias.
-                                A través de una rigurosa investigación y certificación, garantizamos la calidad y la seguridad de nuestras soluciones, adaptándonos a las necesidades específicas de nuestros clientes. Nos comprometemos a fomentar el crecimiento sostenible y a ser un referente en el sector, ofreciendo un servicio excepcional y estableciendo relaciones de confianza con nuestros socios comerciales.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 className="text-center mb-4 title-objetivos">Objetivos</h3>
+        <div id="about" className="about container">
             <div className="row">
                 <div className="col-md-4">
                     <div className="objective-card">
@@ -81,6 +50,31 @@ const About = () => {
                         <p className="text-justify">
                             Establecer colaboraciones con instituciones académicas y empresas del sector para fortalecer la investigación y el desarrollo de nuevas tecnologías.
                         </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Sección de Marcas Representadas */}
+            <div className="brands-section">
+                <h3 className="brands-title">Marcas Representadas</h3>
+                <div className="brands-container">
+                    <div className="brand-item">
+                        <a href="/productos?marca=horse" className="brand-link">
+                            <img 
+                                src="/horse.png" 
+                                alt="Horse" 
+                                className="brand-logo"
+                            />
+                        </a>
+                    </div>
+                    <div className="brand-item">
+                        <a href="https://silandeargentina.com/" target="_blank" rel="noopener noreferrer" className="brand-link">
+                            <img 
+                                src="/logosilande.png" 
+                                alt="Logo Silande" 
+                                className="brand-logo"
+                            />
+                        </a>
                     </div>
                 </div>
             </div>

@@ -12,14 +12,14 @@ function Navbar({ variant = 'home' }) {
     const getNavLinks = () => {
         if (variant === 'product') {
             return [
-                { href: "/", text: "Inicio" }
+                { href: "/", text: "INICIO" }
             ];
         }
         // Variante por defecto (home)
         return [
-            { href: "/productos", text: "Productos" },
-            { href: "#about", text: "Nosotros" },
-            { href: "#contact", text: "Contacto" }
+            { href: "/productos", text: "PRODUCTOS" },
+            { href: "#about", text: "EMPRESA" },
+            { href: "#contact", text: "CONTACTO" }
         ];
     };
 

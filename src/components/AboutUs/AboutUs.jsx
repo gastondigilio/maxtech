@@ -2,12 +2,17 @@ import React from 'react';
 import './AboutUs.css';
 
 const AboutUs = () => {
-    console.log('AboutUs component rendered');
     return (
-        <div>
-            <h1>SOBRE NOSOTROS</h1>
-            <p>Texto de prueba</p>
-        </div>
+        <section className="about-us-section">
+            <div className="about-us-container">
+                <h1 className="about-us-title">Sobre Nosotros</h1>
+                <p className="about-us-subtitle">
+                    Somos una empresa líder dedicada a la investigación, desarrollo y certificación de tecnología de vanguardia. 
+                    Nuestro objetivo es transformar el sector a través de la eficiencia, seguridad y sostenibilidad, 
+                    impulsando el crecimiento de nuestros clientes y el desarrollo responsable de la industria.
+                </p>
+            </div>
+        </section>
     );
 };
 

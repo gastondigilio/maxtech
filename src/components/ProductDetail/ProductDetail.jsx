@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProductDetail.css';
 import Navbar from '../Navbar/Navbar.jsx';
+import Footer from '../Footer/Footer.jsx';
 import JM500 from '../assets/Product/JM500.JPG';
 import macroFibra from '../assets/Product/macroFibra.jpg';
 
@@ -67,6 +68,8 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
+            
+            <Footer />
         </>
     );
 };

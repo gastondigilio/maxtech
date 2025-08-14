@@ -311,6 +311,27 @@ body {
     flex-shrink: 0;
 }
 
+.filter-section-title {
+    color: #0082c9;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem 0;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-section-title:first-child {
+    margin-top: 0;
+}
+
+.filter-separator {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 2rem 0;
+    opacity: 0.6;
+}
+
 .filter-item {
     background-color: white;
     border-radius: 0;
@@ -338,7 +359,16 @@ body {
 .filter-content {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    width: 100%;
+}
+
+.filter-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #0082c9;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 .brand-name {
@@ -352,11 +382,7 @@ body {
     font-size: 14px;
 }
 
-.filter-arrow {
-    color: #000000;
-    font-size: 18px;
-    font-weight: bold;
-}
+/* Estilos para checkboxes ya están definidos arriba */
 
 /* Contenido principal de productos */
 .products-main {
@@ -598,8 +624,8 @@ body {
 }
 
 .whatsapp-button img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     transition: transform 0.3s ease;
 }
 

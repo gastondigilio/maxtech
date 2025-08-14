@@ -54,11 +54,7 @@ const Footer = () => {
             
             <div className="footer-bottom">
                 <div className="footer-bottom-content">
-                    <p>&copy; 2024 Maxtech Latam. Todos los derechos reservados.</p>
-                    <div className="footer-bottom-links">
-                        <a href="/politica-privacidad">Política de Privacidad</a>
-                        <a href="/terminos-condiciones">Términos y Condiciones</a>
-                    </div>
+                    <p>&copy; Powered by AgaruCorp</p>
                 </div>
             </div>
         </footer>
