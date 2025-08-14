@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Product.css';
 import Navbar from '../Navbar/Navbar.jsx';
-import Footer from '../Footer/Footer.jsx';
-import JM500 from '../assets/Product/JM500.JPG';
-import macroFibra from '../assets/Product/macroFibra.jpg';
-import Home from '../Home/Home.jsx';
 
 
 const Product = () => {

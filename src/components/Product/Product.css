@@ -366,7 +366,7 @@ body {
 /* Etiqueta de filtro activo */
 .active-filter-tag {
     position: absolute;
-    right: -600px;
+    left: calc(2rem + 280px + 1.5rem);
     top: 0;
     display: flex;
     align-items: center;
@@ -383,6 +383,7 @@ body {
     color: #666;
     font-size: 12px;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .remove-filter-btn {

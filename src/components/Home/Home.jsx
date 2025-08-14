@@ -1,11 +1,11 @@
 import './Home.css';
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navbar from '../Navbar/Navbar'
 import Approach from '../Approach/Approach';
+import AboutUs from '../AboutUs/AboutUs.jsx';
 import About from '../About/About';
 import Footer from '../Footer/Footer';
 import Contact from '../Contact/Contact';
-import Product from '../Product/Product';
 
 
 
@@ -15,6 +15,8 @@ function Home() {
         <div className="App">
             <Navbar />
             <Approach />
+            <h1>PRUEBA SIMPLE</h1>
+            <p>Texto de prueba básico</p>
             <About />
             {/* <Product/> */}
             <Contact />

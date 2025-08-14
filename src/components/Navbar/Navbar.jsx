@@ -26,7 +26,9 @@ function Navbar({ variant = 'home' }) {
     return (
         <nav className="navbar">
             <div className="navbar-left">
-                <img src="/images/ui/logoMaxtech.png" alt="Logo Maxtech" className="logo" />
+                <a href="/" className="logo-link">
+                    <img src="/images/ui/logoMaxtech.png" alt="Logo Maxtech" className="logo" />
+                </a>
             </div>
             <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
                 <ul>
