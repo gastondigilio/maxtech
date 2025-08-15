@@ -54,30 +54,7 @@ const About = () => {
                 </div>
             </div>
 
-            {/* Sección de Marcas Representadas */}
-            <div className="brands-section">
-                <h3 className="brands-title">Marcas Representadas</h3>
-                <div className="brands-container">
-                    <div className="brand-item">
-                        <a href="/productos?marca=horse" className="brand-link">
-                            <img 
-                                src="/horse.png" 
-                                alt="Horse" 
-                                className="brand-logo"
-                            />
-                        </a>
-                    </div>
-                    <div className="brand-item">
-                        <a href="https://silandeargentina.com/" target="_blank" rel="noopener noreferrer" className="brand-link">
-                            <img 
-                                src="/logosilande.png" 
-                                alt="Logo Silande" 
-                                className="brand-logo"
-                            />
-                        </a>
-                    </div>
-                </div>
-            </div>
+
 
         </div>
     );

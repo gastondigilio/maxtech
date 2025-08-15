@@ -1,36 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Product.css';
-import Navbar from '../Navbar/Navbar.jsx';
-import Footer from '../Footer/Footer.jsx';
+import Footer from '../Footer/Footer';
 
 
 const Product = () => {
     const [selectedBrand, setSelectedBrand] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedType, setSelectedType] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
-    const location = useLocation();
-
-    // Efecto para leer parámetros de la URL y activar filtros automáticamente
-    useEffect(() => {
-        const searchParams = new URLSearchParams(location.search);
-        const marca = searchParams.get('marca');
-        
-        if (marca === 'horse') {
-            setSelectedBrand('Horse');
-            setSelectedCategory(null);
-        }
-    }, [location.search]);
 
     const handleBrandClick = (brand) => {
         setSelectedBrand(brand);
-        setSelectedCategory(null); // Resetear categoría al cambiar marca
     };
 
-    const handleCategoryClick = (category) => {
-        setSelectedCategory(category);
-        setSelectedBrand(null); // Resetear marca al cambiar categoría
+    const handleTypeClick = (type) => {
+        setSelectedType(type);
     };
 
     const handleProductClick = (productId) => {
@@ -43,7 +28,7 @@ const Product = () => {
             id: 1,
             name: "Maxtech JM500L",
             category: "Maxtech",
-            productType: "Adhesivos",
+            type: "Adhesivos",
             image: "/images/products/maxtech/JM500.png",
             description: "Pistola Aplicadora Manual JM500L"
         },
@@ -51,7 +36,7 @@ const Product = () => {
             id: 2,
             name: "Maxtech JM 702",
             category: "Maxtech",
-            productType: "Adhesivos",
+            type: "Adhesivos",
             image: "/images/products/maxtech/JM702.png",
             description: "Pistola Aplicadora Neumática JM 702"
         },
@@ -59,7 +44,7 @@ const Product = () => {
             id: 3,
             name: "Macrofibra",
             category: "Maxtech",
-            productType: "Selladores",
+            type: "Selladores",
             image: "/images/products/maxtech/macro1.png",
             description: "Macrofibra de Polipropileno Virgen"
         },
@@ -67,7 +52,7 @@ const Product = () => {
             id: 4,
             name: "Microfibra",
             category: "Maxtech",
-            productType: "Selladores",
+            type: "Selladores",
             image: "/images/products/maxtech/microfibra1.png",
             description: "Microfibra de Polipropileno Virgen"
         },
@@ -75,7 +60,7 @@ const Product = () => {
             id: 5,
             name: "HORSE HM-500",
             category: "Horse",
-            productType: "Adhesivos",
+            type: "Adhesivos",
             image: "/images/products/horse/HM500.png",
             description: "Anclajes Adhesivos Inyectables"
         }
@@ -85,20 +70,19 @@ const Product = () => {
         // Filtro por marca
         const brandMatch = !selectedBrand || product.category === selectedBrand;
         
-        // Filtro por categoría de producto
-        const categoryMatch = !selectedCategory || product.productType === selectedCategory;
+        // Filtro por tipo
+        const typeMatch = !selectedType || product.type === selectedType;
         
         // Filtro por búsqueda de texto
         const searchMatch = !searchTerm || 
             product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             product.description.toLowerCase().includes(searchTerm.toLowerCase());
         
-        return brandMatch && categoryMatch && searchMatch;
+        return brandMatch && typeMatch && searchMatch;
     });
 
     return (
         <>
-                         <Navbar />
              <div className="product-container" id='productos'>
                  {/* Campo de búsqueda */}
                  <div className="search-section">
@@ -118,109 +102,122 @@ const Product = () => {
                                  ✕
                              </button>
                          )}
-                         {/* Etiqueta de filtro activo */}
-                         {(selectedBrand || selectedCategory) && (
+                         {/* Etiquetas de filtros activos */}
+                         {selectedType && (
                              <div className="active-filter-tag">
-                                 <span className="filter-label">
-                                     Filtro: {selectedBrand || selectedCategory}
-                                 </span>
+                                 <span className="filter-label">Tipo: {selectedType}</span>
                                  <button 
                                      className="remove-filter-btn"
-                                     onClick={() => {
-                                         setSelectedBrand(null);
-                                         setSelectedCategory(null);
-                                     }}
+                                     onClick={() => setSelectedType(null)}
                                  >
                                      ✕
                                  </button>
                              </div>
                          )}
+                         {selectedBrand && (
+                             <div className="active-filter-tag">
+                                 <span className="filter-label">Marca: {selectedBrand}</span>
+                                 <button 
+                                     className="remove-filter-btn"
+                                     onClick={() => setSelectedBrand(null)}
+                                 >
+                                     ✕
+                                 </button>
+                             </div>
+                         )}
+                         
+
                      </div>
                  </div>
                  <div className="product-layout">
-                     {/* Filtro lateral izquierdo */}
-                     <div className="brand-filters">
-                         {/* Filtros por categoría de producto */}
-                         <h4 className="filter-section-title">Categorías</h4>
-                         <div 
-                             className={`filter-item ${selectedCategory === 'Adhesivos' ? 'active' : ''}`}
-                             onClick={() => handleCategoryClick('Adhesivos')}
-                         >
-                             <div className="filter-content">
-                                 <input 
-                                     type="checkbox" 
-                                     checked={selectedCategory === 'Adhesivos'}
-                                     readOnly
-                                     className="filter-checkbox"
-                                 />
-                                 <span className="brand-name">Adhesivos</span>
-                                 <span className="product-count">(3)</span>
+                     {/* Filtros laterales izquierdos */}
+                     <div className="filters-sidebar">
+                         {/* Filtros por tipo */}
+                         <div className="filter-section">
+                             <h4 className="filter-section-title">Tipo de Producto</h4>
+                             <div className="type-filters">
+                                 <div 
+                                     className={`filter-item ${selectedType === 'Adhesivos' ? 'active' : ''}`}
+                                     onClick={() => handleTypeClick('Adhesivos')}
+                                 >
+                                     <div className="filter-content">
+                                         <input 
+                                             type="checkbox" 
+                                             checked={selectedType === 'Adhesivos'}
+                                             onChange={() => handleTypeClick('Adhesivos')}
+                                             className="filter-checkbox"
+                                         />
+                                         <span className="filter-name">Adhesivos</span>
+                                         <span className="product-count">(3)</span>
+                                     </div>
+                                 </div>
+                                 <div 
+                                     className={`filter-item ${selectedType === 'Selladores' ? 'active' : ''}`}
+                                     onClick={() => handleTypeClick('Selladores')}
+                                 >
+                                     <div className="filter-content">
+                                         <input 
+                                             type="checkbox" 
+                                             checked={selectedType === 'Selladores'}
+                                             onChange={() => handleTypeClick('Selladores')}
+                                             className="filter-checkbox"
+                                         />
+                                         <span className="filter-name">Selladores</span>
+                                         <span className="product-count">(2)</span>
+                                     </div>
+                                 </div>
+                                 <div 
+                                     className={`filter-item ${selectedType === 'Accesorios' ? 'active' : ''}`}
+                                     onClick={() => handleTypeClick('Accesorios')}
+                                 >
+                                     <div className="filter-content">
+                                         <input 
+                                             type="checkbox" 
+                                             checked={selectedType === 'Accesorios'}
+                                             onChange={() => handleTypeClick('Accesorios')}
+                                             className="filter-checkbox"
+                                         />
+                                         <span className="filter-name">Accesorios</span>
+                                         <span className="product-count">(0)</span>
+                                     </div>
+                                 </div>
                              </div>
                          </div>
-                         <div 
-                             className={`filter-item ${selectedCategory === 'Selladores' ? 'active' : ''}`}
-                             onClick={() => handleCategoryClick('Selladores')}
-                         >
-                             <div className="filter-content">
-                                 <input 
-                                     type="checkbox" 
-                                     checked={selectedCategory === 'Selladores'}
-                                     readOnly
-                                     className="filter-checkbox"
-                                 />
-                                 <span className="brand-name">Selladores</span>
-                                 <span className="product-count">(2)</span>
-                             </div>
-                         </div>
-                         <div 
-                             className={`filter-item ${selectedCategory === 'Accesorios' ? 'active' : ''}`}
-                             onClick={() => handleCategoryClick('Accesorios')}
-                         >
-                             <div className="filter-content">
-                                 <input 
-                                     type="checkbox" 
-                                     checked={selectedCategory === 'Accesorios'}
-                                     readOnly
-                                     className="filter-checkbox"
-                                 />
-                                 <span className="brand-name">Accesorios</span>
-                                 <span className="product-count">(0)</span>
-                             </div>
-                         </div>
-                         
-                         {/* Separador */}
-                         <div className="filter-separator"></div>
                          
                          {/* Filtros por marca */}
-                         <h4 className="filter-section-title">Marcas</h4>
-                         <div 
-                             className={`filter-item ${selectedBrand === 'Maxtech' ? 'active' : ''}`}
-                             onClick={() => handleBrandClick('Maxtech')}
-                         >
-                             <div className="filter-content">
-                                 <input 
-                                     type="checkbox" 
-                                     checked={selectedBrand === 'Maxtech'}
-                                     readOnly
-                                     className="filter-checkbox"
-                                 />
-                                 <span className="brand-name">Maxtech</span>
-                                 <span className="product-count">(4)</span>
-                             </div>
-                         </div>
-                         <div 
-                             className={`filter-item ${selectedBrand === 'Horse' ? 'active' : ''}`}
-                             onClick={() => handleBrandClick('Horse')}
-                         >
-                             <div className="filter-content">
-                                 <input 
-                                     type="checkbox" 
-                                     checked={selectedBrand === 'Horse'}
-                                     readOnly
-                                     className="filter-checkbox"
-                                 />
-                                 <span className="brand-name">Horse</span>
-                                 <span className="product-count">(1)</span>
+                         <div className="filter-section">
+                             <h4 className="filter-section-title">Marca</h4>
+                             <div className="brand-filters">
+                                 <div 
+                                     className={`filter-item ${selectedBrand === 'Maxtech' ? 'active' : ''}`}
+                                     onClick={() => handleBrandClick('Maxtech')}
+                                 >
+                                     <div className="filter-content">
+                                         <input 
+                                             type="checkbox" 
+                                             checked={selectedBrand === 'Maxtech'}
+                                             onChange={() => handleBrandClick('Maxtech')}
+                                             className="filter-checkbox"
+                                         />
+                                         <span className="filter-name">Maxtech</span>
+                                         <span className="product-count">(4)</span>
+                                     </div>
+                                 </div>
+                                 <div 
+                                     className={`filter-item ${selectedBrand === 'Horse' ? 'active' : ''}`}
+                                     onClick={() => handleBrandClick('Horse')}
+                                 >
+                                     <div className="filter-content">
+                                         <input 
+                                             type="checkbox" 
+                                             checked={selectedBrand === 'Horse'}
+                                             onChange={() => handleBrandClick('Horse')}
+                                             className="filter-checkbox"
+                                         />
+                                         <span className="filter-name">Horse</span>
+                                         <span className="product-count">(1)</span>
+                                     </div>
+                                 </div>
                              </div>
                          </div>
                      </div>
@@ -260,7 +257,10 @@ const Product = () => {
                 </div>
             </div>
             
-            <Footer />
+            {/* Footer */}
+            <div id="contact">
+                <Footer />
+            </div>
             
             {/* Botón de WhatsApp flotante */}
             <button

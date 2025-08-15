@@ -1,6 +1,5 @@
 import './Home.css';
 import React from "react";
-import Navbar from '../Navbar/Navbar'
 import Approach from '../Approach/Approach';
 
 import About from '../About/About';
@@ -10,12 +9,33 @@ import Contact from '../Contact/Contact';
 
 
 function Home() {
+    // Verificar si hay una sección específica a la que hacer scroll
+    React.useEffect(() => {
+        const scrollToSection = sessionStorage.getItem('scrollToSection');
+        if (scrollToSection) {
+            // Limpiar el sessionStorage
+            sessionStorage.removeItem('scrollToSection');
+            
+            // Hacer scroll a la sección después de un pequeño delay para que la página se cargue
+            setTimeout(() => {
+                const element = document.querySelector(scrollToSection);
+                if (element) {
+                    const navbarHeight = 80;
+                    const elementTop = element.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: elementTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+    }, []);
 
     return (
         <div className="App">
-            <Navbar />
             <Approach />
-            <div style={{padding: '2rem', textAlign: 'center', backgroundColor: '#ffffff', marginTop: '100vh'}}>
+            <div id="about-intro" style={{padding: '2rem', textAlign: 'center', backgroundColor: '#ffffff', marginTop: '70vh'}}>
                 <h1 style={{fontSize: '48px', fontWeight: '600', color: '#000000', marginBottom: '2rem'}}>
                     Sobre Nosotros
                 </h1>
@@ -26,14 +46,14 @@ function Home() {
                 </p>
             </div>
             
-            {/* Nueva sección entre Sobre Nosotros y About */}
-            <div style={{
-                padding: '4rem 2rem',
+            {/* Sección consolidada About */}
+            <div id="about" style={{
+                padding: '2rem 2rem',
                 backgroundColor: '#ffffff',
                 display: 'flex',
                 gap: '3rem',
                 maxWidth: '1200px',
-                margin: '0 auto',
+                margin: '0.5rem auto 0 auto',
                 alignItems: 'flex-start'
             }}>
                 {/* Columna izquierda */}
@@ -159,6 +179,32 @@ function Home() {
             </div>
             
             <About />
+            
+            {/* Sección de Marcas */}
+            <div id="marcas" className="brands-section">
+                <h3 className="brands-title">Marcas Representadas</h3>
+                <div className="brands-container">
+                    <div className="brand-item">
+                        <a href="/productos?marca=horse" className="brand-link">
+                            <img 
+                                src="/horse.png" 
+                                alt="Horse" 
+                                className="brand-logo"
+                            />
+                        </a>
+                    </div>
+                    <div className="brand-item">
+                        <a href="https://silandeargentina.com/" target="_blank" rel="noopener noreferrer" className="brand-link">
+                            <img 
+                                src="/logosilande.png" 
+                                alt="Logo Silande" 
+                                className="brand-logo"
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
             {/* <Product/> */}
             <Contact />
             <Footer />

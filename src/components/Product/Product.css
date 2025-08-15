@@ -313,7 +313,7 @@ body {
 
 .filter-section-title {
     color: #0082c9;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     margin: 1.5rem 0 1rem 0;
     font-family: 'Inter', sans-serif;
@@ -371,15 +371,15 @@ body {
     flex-shrink: 0;
 }
 
-.brand-name {
+.brand-name, .filter-name {
     color: #000000;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: normal;
+    font-size: 14px;
 }
 
 .product-count {
     color: #95a5a6;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* Estilos para checkboxes ya están definidos arriba */

@@ -20,9 +20,15 @@
 }
 
 .footer-logo-img {
-    width: 120px;
-    height: auto;
+    width: 150px !important;
+    height: auto !important;
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+/* Selector más específico para asegurar que se aplique */
+footer .footer-logo .footer-logo-img {
+    width: 150px !important;
+    height: auto !important;
 }
 
 .footer-flags {
@@ -144,16 +150,152 @@
     left: 0;
     width: 16px;
     color: #0082c9;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .contact-info p span {
-    margin-left: 24px;
+    margin-left: 0;
     display: block;
 }
 
 .contact-info i {
     color: #0082c9;
     width: 16px;
+}
+
+.contact-link {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #0082c9;
+    text-decoration: underline;
+}
+
+/* Modal de selección de correo */
+.email-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.email-modal {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.email-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.email-modal-header h3 {
+    color: #333;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.email-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.email-modal-close:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.email-modal-email {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #0082c9;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.email-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.email-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.email-option:hover {
+    border-color: #0082c9;
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.email-option-icon {
+    font-size: 1.5rem;
+}
+
+.email-option.gmail:hover {
+    border-color: #ea4335;
+    background-color: #fef7f7;
+}
+
+.email-option.outlook:hover {
+    border-color: #0078d4;
+    background-color: #f0f8ff;
+}
+
+.email-option.yahoo:hover {
+    border-color: #720e9e;
+    background-color: #faf0ff;
+}
+
+.email-option.copy:hover {
+    border-color: #28a745;
+    background-color: #f0fff4;
 }
 
 .world-presence {

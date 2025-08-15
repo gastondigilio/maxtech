@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProductDetail.css';
-import Navbar from '../Navbar/Navbar.jsx';
 import Footer from '../Footer/Footer.jsx';
 import JM500 from '../assets/Product/JM500.JPG';
 import macroFibra from '../assets/Product/macroFibra.jpg';
@@ -45,7 +44,6 @@ const ProductDetail = () => {
 
     return (
         <>
-            <Navbar variant="product" />
             <div className="product-detail-container">
                 <div className="product-detail-content">
                     <button className="back-button" onClick={handleBackToProducts}>
