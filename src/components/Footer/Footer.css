@@ -1,7 +1,7 @@
 .footer {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 3rem 0 0 0;
+    background-color: #FFFFFF;
+    color: #333333;
+    padding: 1.8rem 0 0 0;
     font-family: 'Inter', sans-serif;
 }
 
@@ -22,7 +22,6 @@
 .footer-logo-img {
     width: 150px !important;
     height: auto !important;
-    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 /* Selector más específico para asegurar que se aplique */
@@ -54,7 +53,7 @@ footer .footer-logo .footer-logo-img {
 
 .footer-flag span {
     font-size: 0.9rem;
-    color: #ffffff;
+    color: #333333;
     text-align: center;
     font-weight: 500;
 }
@@ -67,7 +66,7 @@ footer .footer-logo .footer-logo-img {
 }
 
 .footer-section h4 {
-    color: #ffffff;
+    color: #333333;
     font-size: 1.1rem;
     margin-bottom: 1rem;
     font-weight: 600;
@@ -75,7 +74,7 @@ footer .footer-logo .footer-logo-img {
 }
 
 .footer-section p {
-    color: #cccccc;
+    color: #666666;
     line-height: 1.6;
     margin-bottom: 1rem;
     text-align: left;
@@ -98,7 +97,7 @@ footer .footer-logo .footer-logo-img {
 }
 
 .footer-section ul li a {
-    color: #cccccc;
+    color: #666666;
     text-decoration: none;
     transition: color 0.3s ease;
     text-align: left;
@@ -165,7 +164,7 @@ footer .footer-logo .footer-logo-img {
 }
 
 .contact-link {
-    color: #cccccc;
+    color: #666666;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -328,9 +327,8 @@ footer .footer-logo .footer-logo-img {
 }
 
 .footer-bottom {
-    background-color: #111111;
+    background-color: #F0F0F0;
     padding: 1.5rem 0;
-    border-top: 1px solid #333333;
 }
 
 .footer-bottom-content {
@@ -345,7 +343,7 @@ footer .footer-logo .footer-logo-img {
 }
 
 .footer-bottom p {
-    color: #999999;
+    color: #666666;
     margin: 0;
     text-align: center;
     font-size: 0.9rem;
@@ -357,7 +355,7 @@ footer .footer-logo .footer-logo-img {
 }
 
 .footer-bottom-links a {
-    color: #999999;
+    color: #666666;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;

@@ -96,26 +96,7 @@ function Home() {
                                 borderRadius: '4px'
                             }}
                         />
-                        {/* Overlay con iconos hexagonales */}
-                        <div style={{
-                            position: 'absolute',
-                            top: '0',
-                            left: '0',
-                            right: '0',
-                            bottom: '0',
-                            background: 'rgba(255, 255, 255, 0.1)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}>
-                            <div style={{
-                                fontSize: '24px',
-                                color: '#ffffff',
-                                textAlign: 'center'
-                            }}>
-                                [Iconos hexagonales overlay]
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 
@@ -182,10 +163,10 @@ function Home() {
             
             {/* Sección de Marcas */}
             <div id="marcas" className="brands-section">
-                <h3 className="brands-title">Marcas Representadas</h3>
+                <h3 className="brands-title">Fábricas Representadas</h3>
                 <div className="brands-container">
                     <div className="brand-item">
-                        <a href="/productos?marca=horse" className="brand-link">
+                        <a href="https://es.horseen.com/" target="_blank" rel="noopener noreferrer" className="brand-link">
                             <img 
                                 src="/horse.png" 
                                 alt="Horse" 

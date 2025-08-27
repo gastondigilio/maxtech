@@ -58,7 +58,6 @@ function Navbar({ variant = 'home' }) {
         if (variant === 'product') {
             return [
                 { href: "/#about-intro", text: "Sobre nosotros", id: "about" },
-                { href: "/#marcas", text: "Marcas representadas", id: "marcas" },
                 { href: "/productos", text: "Productos", id: "productos" },
                 { href: "#contact", text: "Contacto", id: "contact" }
             ];
@@ -66,7 +65,6 @@ function Navbar({ variant = 'home' }) {
         // Variante por defecto (home)
         return [
             { href: "#about-intro", text: "Sobre nosotros", id: "about" },
-            { href: "#marcas", text: "Marcas representadas", id: "marcas" },
             { href: "/productos", text: "Productos", id: "productos" },
             { href: "#contact", text: "Contacto", id: "contact" }
         ];
@@ -77,7 +75,7 @@ function Navbar({ variant = 'home' }) {
             <nav className="navbar">
                 <div className="navbar-left">
                     <a href="/" className="logo-link">
-                        <img src="/images/ui/logoMaxtech.png" alt="Logo Maxtech" className="logo" />
+                        <img src="/maxtechsinbg.png" alt="Logo Maxtech" className="logo" />
                     </a>
                 </div>
                 <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>

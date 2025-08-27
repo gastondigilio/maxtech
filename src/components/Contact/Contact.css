@@ -1,5 +1,5 @@
 .contact{
-    background-color: black;
+    background-color: #ffffff;
 }
 
 .contact .container {
@@ -31,5 +31,5 @@
     font-size: 1.5rem;
     font-weight: bold;
     margin: 10px 0;
-    color: #FFFFFF;
+    color: #333333;
 }
