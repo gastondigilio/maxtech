@@ -335,7 +335,7 @@ body {
 .filter-item {
     background-color: white;
     border-radius: 0;
-    padding: 20px;
+    padding: 12px 20px;
     margin-bottom: 15px;
     border: 1px solid #e0e0e0;
     cursor: pointer;
@@ -438,6 +438,8 @@ body {
     gap: 2rem;
     margin-bottom: 3rem;
     max-width: 100%;
+    justify-items: start;
+    align-items: start;
 }
 
 /* Cards de productos */
@@ -610,6 +612,134 @@ body {
     .product-title {
         font-size: 1.2rem;
     }
+}
+
+/* Estilos para el sistema de filtros anidados de industria */
+.industry-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.industry-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.industry-main {
+    position: relative;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.industry-main:hover {
+    border-color: #0082c9;
+    background-color: #e3f2fd;
+}
+
+.industry-main.active {
+    background-color: #e3f2fd;
+    border: 2px solid #0082c9;
+    transform: translateY(-2px);
+}
+
+.expand-btn {
+    background: none;
+    border: none;
+    color: #0082c9;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+}
+
+.expand-btn:hover {
+    background-color: rgba(0, 130, 201, 0.1);
+}
+
+.expand-btn.expanded {
+    transform: rotate(180deg);
+}
+
+.subcategories-dropdown {
+    margin-left: 20px;
+    margin-top: 8px;
+    border-left: 2px solid #e0e0e0;
+    padding-left: 16px;
+    animation: slideDown 0.3s ease-out;
+}
+
+.subcategory-item {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 6px;
+    transition: all 0.3s ease;
+}
+
+.subcategory-item:hover {
+    border-color: #0082c9;
+    background-color: #f8f9fa;
+}
+
+.subcategory-item.active {
+    background-color: #e3f2fd;
+    border: 2px solid #0082c9;
+    transform: translateY(-1px);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 300px;
+    }
+}
+
+/* Mensaje cuando no hay productos */
+.no-products-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.no-products-message p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.clear-filters-btn {
+    background-color: #0082c9;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.clear-filters-btn:hover {
+    background-color: #0066a3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 130, 201, 0.3);
 }
 
 /* Botón de WhatsApp flotante */

@@ -6,16 +6,53 @@ import Footer from '../Footer/Footer';
 
 const Product = () => {
     const [selectedBrand, setSelectedBrand] = useState(null);
-    const [selectedType, setSelectedType] = useState(null);
+    const [selectedIndustry, setSelectedIndustry] = useState(null);
+    const [selectedSubcategories, setSelectedSubcategories] = useState([]);
+    const [expandedIndustry, setExpandedIndustry] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
+
+    // Estructura de industrias con sus subcategorías
+    const industries = {
+        'Construcción': ['Anclajes químicos', 'Aditivos para hormigón', 'Adhesivos y selladores', 'Espumas'],
+        'Aberturas': ['Fabricación DVH', 'Instalación silicona neutra', 'Insumos'],
+        'Automotriz': [],
+        'Aplicadores': [],
+        'Maquinaria': []
+    };
 
     const handleBrandClick = (brand) => {
         setSelectedBrand(brand);
     };
 
-    const handleTypeClick = (type) => {
-        setSelectedType(type);
+    const handleIndustryClick = (industry) => {
+        if (selectedIndustry === industry) {
+            setSelectedIndustry(null);
+            setSelectedSubcategories([]);
+        } else {
+            setSelectedIndustry(industry);
+            setSelectedSubcategories([]);
+        }
+    };
+
+    const handleSubcategoryClick = (subcategory) => {
+        setSelectedSubcategories(prev => {
+            if (prev.includes(subcategory)) {
+                // Si ya está seleccionada, la removemos
+                return prev.filter(item => item !== subcategory);
+            } else {
+                // Si no está seleccionada, la agregamos
+                return [...prev, subcategory];
+            }
+        });
+    };
+
+    const toggleIndustryExpansion = (industry) => {
+        if (expandedIndustry === industry) {
+            setExpandedIndustry(null);
+        } else {
+            setExpandedIndustry(industry);
+        }
     };
 
     const handleProductClick = (productId) => {
@@ -28,7 +65,8 @@ const Product = () => {
             id: 1,
             name: "Maxtech JM500L",
             category: "Maxtech",
-            type: "Adhesivos",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
             image: "/images/products/maxtech/JM500.png",
             description: "Pistola Aplicadora Manual JM500L"
         },
@@ -36,7 +74,8 @@ const Product = () => {
             id: 2,
             name: "Maxtech JM 702",
             category: "Maxtech",
-            type: "Adhesivos",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
             image: "/images/products/maxtech/JM702.png",
             description: "Pistola Aplicadora Neumática JM 702"
         },
@@ -44,7 +83,8 @@ const Product = () => {
             id: 3,
             name: "Macrofibra",
             category: "Maxtech",
-            type: "Selladores",
+            type: "Aditivos para hormigón",
+            industry: "Construcción",
             image: "/images/products/maxtech/macro1.png",
             description: "Macrofibra de Polipropileno Virgen"
         },
@@ -52,7 +92,8 @@ const Product = () => {
             id: 4,
             name: "Microfibra",
             category: "Maxtech",
-            type: "Selladores",
+            type: "Aditivos para hormigón",
+            industry: "Construcción",
             image: "/images/products/maxtech/microfibra1.png",
             description: "Microfibra de Polipropileno Virgen"
         },
@@ -60,7 +101,8 @@ const Product = () => {
             id: 5,
             name: "HORSE HM-500",
             category: "Horse",
-            type: "Adhesivos",
+            type: "Anclajes químicos",
+            industry: "Construcción",
             image: "/images/products/horse/HM500.png",
             description: "Anclajes Adhesivos Inyectables"
         }
@@ -70,15 +112,24 @@ const Product = () => {
         // Filtro por marca
         const brandMatch = !selectedBrand || product.category === selectedBrand;
         
-        // Filtro por tipo
-        const typeMatch = !selectedType || product.type === selectedType;
+        // Filtro por industria (general o subcategoría específica)
+        let industryMatch = true;
+        if (selectedIndustry) {
+            if (selectedSubcategories.length > 0) {
+                // Si hay subcategorías seleccionadas, filtrar por cualquiera de ellas
+                industryMatch = selectedSubcategories.includes(product.type);
+            } else {
+                // Si solo hay industria seleccionada, filtrar por cualquier subcategoría de esa industria
+                industryMatch = product.industry === selectedIndustry;
+            }
+        }
         
         // Filtro por búsqueda de texto
         const searchMatch = !searchTerm || 
             product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             product.description.toLowerCase().includes(searchTerm.toLowerCase());
         
-        return brandMatch && typeMatch && searchMatch;
+        return brandMatch && industryMatch && searchMatch;
     });
 
     return (
@@ -103,12 +154,18 @@ const Product = () => {
                              </button>
                          )}
                          {/* Etiquetas de filtros activos */}
-                         {selectedType && (
+                         {selectedIndustry && (
                              <div className="active-filter-tag">
-                                 <span className="filter-label">Tipo: {selectedType}</span>
+                                 <span className="filter-label">
+                                     Industria: {selectedIndustry}
+                                     {selectedSubcategories.length > 0 && ` > ${selectedSubcategories.join(', ')}`}
+                                 </span>
                                  <button 
                                      className="remove-filter-btn"
-                                     onClick={() => setSelectedType(null)}
+                                     onClick={() => {
+                                         setSelectedIndustry(null);
+                                         setSelectedSubcategories([]);
+                                     }}
                                  >
                                      ✕
                                  </button>
@@ -132,55 +189,65 @@ const Product = () => {
                  <div className="product-layout">
                      {/* Filtros laterales izquierdos */}
                      <div className="filters-sidebar">
-                         {/* Filtros por tipo */}
+                         {/* Filtros por industria */}
                          <div className="filter-section">
-                             <h4 className="filter-section-title">Tipo de Producto</h4>
-                             <div className="type-filters">
-                                 <div 
-                                     className={`filter-item ${selectedType === 'Adhesivos' ? 'active' : ''}`}
-                                     onClick={() => handleTypeClick('Adhesivos')}
-                                 >
-                                     <div className="filter-content">
-                                         <input 
-                                             type="checkbox" 
-                                             checked={selectedType === 'Adhesivos'}
-                                             onChange={() => handleTypeClick('Adhesivos')}
-                                             className="filter-checkbox"
-                                         />
-                                         <span className="filter-name">Adhesivos</span>
-                                         <span className="product-count">(3)</span>
+                             <h4 className="filter-section-title">Industria</h4>
+                             <div className="industry-filters">
+                                 {Object.entries(industries).map(([industry, subcategories]) => (
+                                     <div key={industry} className="industry-item">
+                                         {/* Botón principal de la industria */}
+                                         <div 
+                                             className={`filter-item industry-main ${selectedIndustry === industry ? 'active' : ''}`}
+                                             onClick={() => handleIndustryClick(industry)}
+                                         >
+                                             <div className="filter-content">
+                                                 <input 
+                                                     type="checkbox" 
+                                                     checked={selectedIndustry === industry}
+                                                     onChange={() => handleIndustryClick(industry)}
+                                                     className="filter-checkbox"
+                                                 />
+                                                 <span className="filter-name">{industry}</span>
+                                                 <span className="product-count">(0)</span>
+                                                 {subcategories.length > 0 && (
+                                                     <button 
+                                                         className={`expand-btn ${expandedIndustry === industry ? 'expanded' : ''}`}
+                                                         onClick={(e) => {
+                                                             e.stopPropagation();
+                                                             toggleIndustryExpansion(industry);
+                                                         }}
+                                                     >
+                                                         ▼
+                                                     </button>
+                                                 )}
+                                             </div>
+                                         </div>
+                                         
+                                         {/* Dropdown de subcategorías */}
+                                         {expandedIndustry === industry && (
+                                             <div className="subcategories-dropdown">
+                                                 {subcategories.map((subcategory) => (
+                                                     <div 
+                                                         key={subcategory}
+                                                         className={`filter-item subcategory-item ${selectedSubcategories.includes(subcategory) ? 'active' : ''}`}
+                                                         onClick={() => handleSubcategoryClick(subcategory)}
+                                                     >
+                                                         <div className="filter-content">
+                                                             <input 
+                                                                 type="checkbox" 
+                                                                 checked={selectedSubcategories.includes(subcategory)}
+                                                                 onChange={() => handleSubcategoryClick(subcategory)}
+                                                                 className="filter-checkbox"
+                                                             />
+                                                             <span className="filter-name">{subcategory}</span>
+                                                             <span className="product-count">(0)</span>
+                                                         </div>
+                                                     </div>
+                                                 ))}
+                                             </div>
+                                         )}
                                      </div>
-                                 </div>
-                                 <div 
-                                     className={`filter-item ${selectedType === 'Selladores' ? 'active' : ''}`}
-                                     onClick={() => handleTypeClick('Selladores')}
-                                 >
-                                     <div className="filter-content">
-                                         <input 
-                                             type="checkbox" 
-                                             checked={selectedType === 'Selladores'}
-                                             onChange={() => handleTypeClick('Selladores')}
-                                             className="filter-checkbox"
-                                         />
-                                         <span className="filter-name">Selladores</span>
-                                         <span className="product-count">(2)</span>
-                                     </div>
-                                 </div>
-                                 <div 
-                                     className={`filter-item ${selectedType === 'Accesorios' ? 'active' : ''}`}
-                                     onClick={() => handleTypeClick('Accesorios')}
-                                 >
-                                     <div className="filter-content">
-                                         <input 
-                                             type="checkbox" 
-                                             checked={selectedType === 'Accesorios'}
-                                             onChange={() => handleTypeClick('Accesorios')}
-                                             className="filter-checkbox"
-                                         />
-                                         <span className="filter-name">Accesorios</span>
-                                         <span className="product-count">(0)</span>
-                                     </div>
-                                 </div>
+                                 ))}
                              </div>
                          </div>
                          
@@ -225,33 +292,49 @@ const Product = () => {
                                                                     {/* Contenido principal de productos */}
                            <div className="products-main">
                                <div className="products-grid">
-                            {filteredProducts.map((product) => (
-                                <div 
-                                    key={product.id} 
-                                    className="product-card"
-                                    onClick={() => handleProductClick(product.id)}
-                                    style={{ cursor: 'pointer' }}
-                                >
-                                    <div className="product-image-container">
-                                        <img 
-                                            src={product.image} 
-                                            alt={product.name} 
-                                            className="product-image"
-                                        />
+                            {filteredProducts.length > 0 ? (
+                                filteredProducts.map((product) => (
+                                    <div 
+                                        key={product.id} 
+                                        className="product-card"
+                                        onClick={() => handleProductClick(product.id)}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        <div className="product-image-container">
+                                            <img 
+                                                src={product.image} 
+                                                alt={product.name} 
+                                                className="product-image"
+                                            />
+                                        </div>
+                                        <div className="product-info">
+                                            <h3 className="product-title">{product.name}</h3>
+                                            <p className="product-description">{product.description}</p>
+                                            {/* <span className="product-category">{product.category}</span> */}
+                                            <div className="product-cta">
+                                                <button className="info-button">
+                                                    <span className="plus-icon">+</span>
+                                                    <span className="info-text">info</span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                                                         <div className="product-info">
-                                         <h3 className="product-title">{product.name}</h3>
-                                         <p className="product-description">{product.description}</p>
-                                         {/* <span className="product-category">{product.category}</span> */}
-                                         <div className="product-cta">
-                                             <button className="info-button">
-                                                 <span className="plus-icon">+</span>
-                                                 <span className="info-text">info</span>
-                                             </button>
-                                         </div>
-                                     </div>
+                                ))
+                            ) : (
+                                <div className="no-products-message">
+                                    <p>No se encontraron productos con los filtros seleccionados.</p>
+                                    <button 
+                                        className="clear-filters-btn"
+                                        onClick={() => {
+                                            setSelectedIndustry(null);
+                                            setSelectedSubcategories([]);
+                                            setSelectedBrand(null);
+                                        }}
+                                    >
+                                        Limpiar filtros
+                                    </button>
                                 </div>
-                            ))}
+                            )}
                         </div>
                     </div>
                 </div>
