@@ -62,7 +62,10 @@
     margin-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
-    min-height: 2px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .objective-card .card-title {
@@ -71,6 +74,10 @@
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 1rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .objective-card p {
@@ -80,6 +87,9 @@
     line-height: 1.6;
     max-width: 90%;
     margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
 }
 
 .objective-card:hover {
@@ -93,6 +103,16 @@
 @media screen and (max-width: 768px) {
     .card-about1 {
         margin-top: 20px;
+    }
+    
+    .objective-card {
+        height: auto;
+        min-height: 200px;
+    }
+    
+    .objective-card p {
+        display: block;
+        align-items: unset;
     }
 }
 

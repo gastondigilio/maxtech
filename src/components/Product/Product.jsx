@@ -14,7 +14,7 @@ const Product = () => {
 
     // Estructura de industrias con sus subcategorías
     const industries = {
-        'Construcción': ['Anclajes químicos', 'Aditivos para hormigón', 'Adhesivos y selladores', 'Espumas'],
+        'Construcción': ['Anclajes químicos', 'Aditivos para hormigón', 'Adhesivos y selladores'],
         'Aberturas': ['Fabricación DVH', 'Instalación silicona neutra', 'Insumos'],
         'Automotriz': [],
         'Aplicadores': [],
@@ -71,6 +71,51 @@ const Product = () => {
             description: "Pistola Aplicadora Manual JM500L"
         },
         {
+            id: 6,
+            name: "Maxtech JM500L",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "Pistola Aplicadora Manual JM500L"
+        },
+        {
+            id: 7,
+            name: "Maxtech JM500L",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "Pistola Aplicadora Manual JM500L"
+        },
+        {
+            id: 8,
+            name: "Maxtech JM500L",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "Pistola Aplicadora Manual JM500L"
+        },
+        {
+            id: 9,
+            name: "Maxtech JM500L",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "Pistola Aplicadora Manual JM500L"
+        },
+        {
+            id: 10,
+            name: "Maxtech JM500L",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "Pistola Aplicadora Manual JM500L"
+        },
+        {
             id: 2,
             name: "Maxtech JM 702",
             category: "Maxtech",
@@ -96,15 +141,6 @@ const Product = () => {
             industry: "Construcción",
             image: "/images/products/maxtech/microfibra1.png",
             description: "Microfibra de Polipropileno Virgen"
-        },
-        {
-            id: 5,
-            name: "HORSE HM-500",
-            category: "Horse",
-            type: "Anclajes químicos",
-            industry: "Construcción",
-            image: "/images/products/horse/HM500.png",
-            description: "Anclajes Adhesivos Inyectables"
         }
     ];
 
@@ -267,7 +303,7 @@ const Product = () => {
                                              className="filter-checkbox"
                                          />
                                          <span className="filter-name">Maxtech</span>
-                                         <span className="product-count">(4)</span>
+                                         <span className="product-count">(9)</span>
                                      </div>
                                  </div>
                                  <div 
@@ -282,7 +318,7 @@ const Product = () => {
                                              className="filter-checkbox"
                                          />
                                          <span className="filter-name">Horse</span>
-                                         <span className="product-count">(1)</span>
+                                         <span className="product-count">(0)</span>
                                      </div>
                                  </div>
                              </div>
@@ -311,12 +347,7 @@ const Product = () => {
                                             <h3 className="product-title">{product.name}</h3>
                                             <p className="product-description">{product.description}</p>
                                             {/* <span className="product-category">{product.category}</span> */}
-                                            <div className="product-cta">
-                                                <button className="info-button">
-                                                    <span className="plus-icon">+</span>
-                                                    <span className="info-text">info</span>
-                                                </button>
-                                            </div>
+
                                         </div>
                                     </div>
                                 ))

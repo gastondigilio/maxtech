@@ -6,7 +6,7 @@ const About = () => {
             <div className="row">
                 <div className="col-md-4">
                     <div className="objective-card">
-                        <h5 className="card-title" >Innovación y Mejora Continua</h5>
+                        <h5 className="card-title" >INNOVACIÓN CONTINUA</h5>
                         <p className="text-justify">
                             Fomentar la investigación y el desarrollo de productos tecnológicos avanzados que mejoren la eficiencia y la sostenibilidad en el sector de la construcción e industrias.
                         </p>
