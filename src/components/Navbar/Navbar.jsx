@@ -1,19 +1,79 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar({ variant = 'home' }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [showResults, setShowResults] = useState(false);
+    const navigate = useNavigate();
+
+    // Base de datos de productos para búsqueda
+    const products = [
+        { id: 1, name: "MAXFLEX 440", description: "SELLADOR DE POLIURETANO" },
+        { id: 2, name: "HORSE HM-500", description: "ANCLAJES ADHESIVOS INYECTABLES" },
+        { id: 3, name: "MACROFIBRA MAXFIBER 50", description: "MACROFIBRA DE POLIPROPILENO VIRGEN" },
+        { id: 4, name: "MICROFIBRA MAXFIBER 19", description: "MICROFIBRA DE POLIPROPILENO VIRGEN" },
+        { id: 5, name: "SILICONA NEUTRA", description: "SELLADOR DE SILICONA NEUTRA" },
+        { id: 6, name: "MAXTECH JM702", description: "PISTOLA APLICADORA NEUMÁTICA" },
+        { id: 7, name: "MAXFLEX 445", description: "SELLADOR DE POLIURETANO" },
+        { id: 8, name: "MAXTECH JM138", description: "PISTOLA APLICADORA MANUAL JM500L" },
+        { id: 9, name: "MAXTECH JM500L", description: "PISTOLA APLICADORA MANUAL JM500L" }
+    ];
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+
+    // Función para filtrar productos en tiempo real
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+        
+        if (value.trim().length > 0) {
+            const filtered = products.filter(product => 
+                product.name.toLowerCase().includes(value.toLowerCase()) ||
+                product.description.toLowerCase().includes(value.toLowerCase())
+            );
+            setSearchResults(filtered);
+            setShowResults(true);
+        } else {
+            setSearchResults([]);
+            setShowResults(false);
+        }
+    };
+
+    // Función para seleccionar un producto
+    const handleProductSelect = (productId) => {
+        setSearchTerm('');
+        setSearchResults([]);
+        setShowResults(false);
+        navigate(`/productos/${productId}`);
+    };
+
+
 
     // Función para detectar la sección activa - solo al hacer click
     useEffect(() => {
         // No hay detección automática al hacer scroll
         // Los markers solo se activan al hacer click en los enlaces
     }, []);
+
+    // Cerrar dropdown al hacer clic fuera
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (showResults && !event.target.closest('.search-container')) {
+                setShowResults(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [showResults]);
 
     // Función para manejar el click en los enlaces
     const handleNavClick = (href, event) => {
@@ -78,6 +138,43 @@ function Navbar({ variant = 'home' }) {
                         <img src="/maxtechsinbg.png" alt="Logo Maxtech" className="logo" />
                     </a>
                 </div>
+                
+                <div className="navbar-center">
+                    <div className="search-container" onClick={(e) => e.stopPropagation()}>
+                        <div className="search-form">
+                            <input
+                                type="text"
+                                placeholder="Buscar..."
+                                value={searchTerm}
+                                onChange={handleSearchChange}
+                                className="search-input"
+                                autoComplete="off"
+                            />
+                            <div className="search-button">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        {showResults && searchResults.length > 0 && (
+                            <div className="search-results">
+                                {searchResults.map((product) => (
+                                    <div 
+                                        key={product.id}
+                                        className="search-result-item"
+                                        onClick={() => handleProductSelect(product.id)}
+                                    >
+                                        <div className="result-name">{product.name}</div>
+                                        <div className="result-description">{product.description}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+
                 <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
                                     <ul>
                     {getNavLinks().map((link, index) => (

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Product.css';
 import Footer from '../Footer/Footer';
 
@@ -11,6 +11,16 @@ const Product = () => {
     const [expandedIndustry, setExpandedIndustry] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // Leer parámetro de búsqueda de la URL
+    useEffect(() => {
+        const urlParams = new URLSearchParams(location.search);
+        const searchParam = urlParams.get('search');
+        if (searchParam) {
+            setSearchTerm(searchParam);
+        }
+    }, [location.search]);
 
     // Estructura de industrias con sus subcategorías
     const industries = {
@@ -57,6 +67,16 @@ const Product = () => {
 
     const handleProductClick = (productId) => {
         navigate(`/productos/${productId}`);
+    };
+
+    // Función para contar productos por industria
+    const getIndustryProductCount = (industry) => {
+        return mockProducts.filter(product => product.industry === industry).length;
+    };
+
+    // Función para contar productos por subcategoría
+    const getSubcategoryProductCount = (subcategory) => {
+        return mockProducts.filter(product => product.type === subcategory).length;
     };
 
     // Productos reales de las marcas Maxtech y Horse
@@ -171,25 +191,9 @@ const Product = () => {
     return (
         <>
              <div className="product-container" id='productos'>
-                 {/* Campo de búsqueda */}
+                 {/* Etiquetas de filtros activos */}
                  <div className="search-section">
                      <div className="search-container">
-                         <input
-                             type="text"
-                             placeholder="Buscar productos..."
-                             value={searchTerm}
-                             onChange={(e) => setSearchTerm(e.target.value)}
-                             className="search-input"
-                         />
-                         {searchTerm && (
-                             <button 
-                                 className="clear-search-btn"
-                                 onClick={() => setSearchTerm('')}
-                             >
-                                 ✕
-                             </button>
-                         )}
-                         {/* Etiquetas de filtros activos */}
                          {selectedIndustry && (
                              <div className="active-filter-tag">
                                  <span className="filter-label">
@@ -218,8 +222,17 @@ const Product = () => {
                                  </button>
                              </div>
                          )}
-                         
-
+                         {searchTerm && (
+                             <div className="active-filter-tag">
+                                 <span className="filter-label">Búsqueda: {searchTerm}</span>
+                                 <button 
+                                     className="remove-filter-btn"
+                                     onClick={() => setSearchTerm('')}
+                                 >
+                                     ✕
+                                 </button>
+                             </div>
+                         )}
                      </div>
                  </div>
                  <div className="product-layout">
@@ -244,7 +257,7 @@ const Product = () => {
                                                      className="filter-checkbox"
                                                  />
                                                  <span className="filter-name">{industry}</span>
-                                                 <span className="product-count">(0)</span>
+                                                 <span className="product-count">({getIndustryProductCount(industry)})</span>
                                                  {subcategories.length > 0 && (
                                                      <button 
                                                          className={`expand-btn ${expandedIndustry === industry ? 'expanded' : ''}`}
@@ -276,7 +289,7 @@ const Product = () => {
                                                                  className="filter-checkbox"
                                                              />
                                                              <span className="filter-name">{subcategory}</span>
-                                                             <span className="product-count">(0)</span>
+                                                             <span className="product-count">({getSubcategoryProductCount(subcategory)})</span>
                                                          </div>
                                                      </div>
                                                  ))}
