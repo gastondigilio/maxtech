@@ -71,51 +71,6 @@ const Product = () => {
             description: "SELLADOR DE POLIURETANO"
         },
         {
-            id: 6,
-            name: "SILICONA NEUTRA",
-            category: "Maxsil",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "SELLADOR DE SILICONA NEUTRA"
-        },
-        {
-            id: 7,
-            name: "MAXTECH JM702",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM702.png",
-            description: "PISTOLA APLICADORA NEUMÁTICA"
-        },
-        {
-            id: 8,
-            name: "MAXFLEX 445",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "SELLADOR DE POLIURETANO"
-        },
-        {
-            id: 9,
-            name: "MAXTECH JM138",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "PISTOLA APLICADORA MANUAL JM500L"
-        },
-        {
-            id: 10,
-            name: "MAXTECH JM500L",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "PISTOLA APLICADORA MANUAL JM500L"
-        },
-        {
             id: 2,
             name: "HORSE HM-500",
             category: "Horse",
@@ -141,6 +96,51 @@ const Product = () => {
             industry: "Construcción",
             image: "/images/products/maxtech/microfibra1.png",
             description: "MICROFIBRA DE POLIPROPILENO VIRGEN"
+        },
+        {
+            id: 5,
+            name: "SILICONA NEUTRA",
+            category: "Maxsil",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "SELLADOR DE SILICONA NEUTRA"
+        },
+        {
+            id: 6,
+            name: "MAXTECH JM702",
+            category: "Maxtech",
+            type: "",
+            industry: "Aplicadores",
+            image: "/images/products/maxtech/JM702.png",
+            description: "PISTOLA APLICADORA NEUMÁTICA"
+        },
+        {
+            id: 7,
+            name: "MAXFLEX 445",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "SELLADOR DE POLIURETANO"
+        },
+        {
+            id: 8,
+            name: "MAXTECH JM138",
+            category: "Maxtech",
+            type: "",
+            industry: "Aplicadores",
+            image: "/images/products/maxtech/JM500.png",
+            description: "PISTOLA APLICADORA MANUAL JM500L"
+        },
+        {
+            id: 9,
+            name: "MAXTECH JM500L",
+            category: "Maxtech",
+            type: "",
+            industry: "Aplicadores",
+            image: "/images/products/maxtech/JM500.png",
+            description: "PISTOLA APLICADORA MANUAL JM500L"
         }
     ];
 
