@@ -63,84 +63,84 @@ const Product = () => {
     const mockProducts = [
         {
             id: 1,
-            name: "Maxtech JM500L",
+            name: "MAXFLEX 440",
             category: "Maxtech",
             type: "Adhesivos y selladores",
             industry: "Construcción",
             image: "/images/products/maxtech/JM500.png",
-            description: "Pistola Aplicadora Manual JM500L"
+            description: "SELLADOR DE POLIURETANO"
         },
         {
             id: 6,
-            name: "Maxtech JM500L",
-            category: "Maxtech",
+            name: "SILICONA NEUTRA",
+            category: "Maxsil",
             type: "Adhesivos y selladores",
             industry: "Construcción",
             image: "/images/products/maxtech/JM500.png",
-            description: "Pistola Aplicadora Manual JM500L"
+            description: "SELLADOR DE SILICONA NEUTRA"
         },
         {
             id: 7,
-            name: "Maxtech JM500L",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "Pistola Aplicadora Manual JM500L"
-        },
-        {
-            id: 8,
-            name: "Maxtech JM500L",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "Pistola Aplicadora Manual JM500L"
-        },
-        {
-            id: 9,
-            name: "Maxtech JM500L",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "Pistola Aplicadora Manual JM500L"
-        },
-        {
-            id: 10,
-            name: "Maxtech JM500L",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "Pistola Aplicadora Manual JM500L"
-        },
-        {
-            id: 2,
-            name: "Maxtech JM 702",
+            name: "MAXTECH JM702",
             category: "Maxtech",
             type: "Adhesivos y selladores",
             industry: "Construcción",
             image: "/images/products/maxtech/JM702.png",
-            description: "Pistola Aplicadora Neumática JM 702"
+            description: "PISTOLA APLICADORA NEUMÁTICA"
+        },
+        {
+            id: 8,
+            name: "MAXFLEX 445",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "SELLADOR DE POLIURETANO"
+        },
+        {
+            id: 9,
+            name: "MAXTECH JM138",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "PISTOLA APLICADORA MANUAL JM500L"
+        },
+        {
+            id: 10,
+            name: "MAXTECH JM500L",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/JM500.png",
+            description: "PISTOLA APLICADORA MANUAL JM500L"
+        },
+        {
+            id: 2,
+            name: "HORSE HM-500",
+            category: "Horse",
+            type: "Anclajes químicos",
+            industry: "Construcción",
+            image: "/images/products/horse/HM500.png",
+            description: "ANCLAJES ADHESIVOS INYECTABLES"
         },
         {
             id: 3,
-            name: "Macrofibra",
+            name: "MACROFIBRA MAXFIBER 50",
             category: "Maxtech",
             type: "Aditivos para hormigón",
             industry: "Construcción",
             image: "/images/products/maxtech/macro1.png",
-            description: "Macrofibra de Polipropileno Virgen"
+            description: "MACROFIBRA DE POLIPROPILENO VIRGEN"
         },
         {
             id: 4,
-            name: "Microfibra",
+            name: "MICROFIBRA MAXFIBER 19",
             category: "Maxtech",
             type: "Aditivos para hormigón",
             industry: "Construcción",
             image: "/images/products/maxtech/microfibra1.png",
-            description: "Microfibra de Polipropileno Virgen"
+            description: "MICROFIBRA DE POLIPROPILENO VIRGEN"
         }
     ];
 
@@ -303,7 +303,7 @@ const Product = () => {
                                              className="filter-checkbox"
                                          />
                                          <span className="filter-name">Maxtech</span>
-                                         <span className="product-count">(9)</span>
+                                         <span className="product-count">(7)</span>
                                      </div>
                                  </div>
                                  <div 
@@ -318,7 +318,22 @@ const Product = () => {
                                              className="filter-checkbox"
                                          />
                                          <span className="filter-name">Horse</span>
-                                         <span className="product-count">(0)</span>
+                                         <span className="product-count">(1)</span>
+                                     </div>
+                                 </div>
+                                 <div 
+                                     className={`filter-item ${selectedBrand === 'Maxsil' ? 'active' : ''}`}
+                                     onClick={() => handleBrandClick('Maxsil')}
+                                 >
+                                     <div className="filter-content">
+                                         <input 
+                                             type="checkbox" 
+                                             checked={selectedBrand === 'Maxsil'}
+                                             onChange={() => handleBrandClick('Maxsil')}
+                                             className="filter-checkbox"
+                                         />
+                                         <span className="filter-name">Maxsil</span>
+                                         <span className="product-count">(1)</span>
                                      </div>
                                  </div>
                              </div>

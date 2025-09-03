@@ -299,8 +299,8 @@ body {
 /* Layout principal de productos */
 .product-layout {
     display: flex;
-    gap: 3rem;
-    max-width: 1400px;
+    gap: 2rem;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -435,7 +435,7 @@ body {
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 3rem;
     max-width: 100%;
     justify-items: start;
@@ -452,6 +452,7 @@ body {
     height: 350px;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .product-card:hover {
@@ -487,7 +488,7 @@ body {
 }
 
 .product-info {
-    padding: 1.5rem;
+    padding: 0.75rem 1rem;
     text-align: left;
     flex-grow: 1;
     display: flex;
@@ -499,7 +500,7 @@ body {
 
 .product-title {
     color: #0082c9;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     line-height: 1.3;

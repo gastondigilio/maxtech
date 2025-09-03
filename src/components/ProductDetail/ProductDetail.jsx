@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer.jsx';
 import JM500 from '../assets/Product/JM500.JPG';
 import macroFibra from '../assets/Product/macroFibra.jpg';
 
+
 const ProductDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -21,11 +22,11 @@ const ProductDetail = () => {
         },
         {
             id: 2,
-            name: "Macro Fibra - Refuerzo Estructural",
-            category: "Maxtech",
-            image: macroFibra,
-            description: "Fibra de refuerzo para hormigón de alta resistencia",
-            longDescription: "La Macro Fibra es una solución innovadora para el refuerzo estructural del hormigón. Estas fibras de alta resistencia proporcionan refuerzo secundario, reduciendo la formación de grietas y mejorando la durabilidad del hormigón. Perfecta para pavimentos, losas, muros y elementos estructurales que requieren mayor resistencia a la tracción."
+            name: "HORSE HM-500",
+            category: "Horse",
+            image: "/images/products/horse/HM500.png",
+            description: "Anclajes adhesivos inyectables",
+            longDescription: "El HORSE HM-500 es un sistema de anclajes adhesivos inyectables de alta calidad diseñado para aplicaciones de construcción y fijación estructural. Este producto ofrece excelente adherencia y resistencia, proporcionando una solución confiable para anclajes químicos en hormigón, mampostería y otros materiales de construcción. Ideal para aplicaciones que requieren máxima resistencia y durabilidad a largo plazo."
         }
     ];
 
