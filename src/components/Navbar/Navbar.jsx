@@ -20,7 +20,8 @@ function Navbar({ variant = 'home' }) {
         { id: 6, name: "MAXTECH JM702", description: "PISTOLA APLICADORA NEUMÁTICA" },
         { id: 7, name: "MAXFLEX 445", description: "SELLADOR DE POLIURETANO" },
         { id: 8, name: "MAXTECH JM138", description: "PISTOLA APLICADORA MANUAL JM500L" },
-        { id: 9, name: "MAXTECH JM500L", description: "PISTOLA APLICADORA MANUAL JM500L" }
+        { id: 9, name: "MAXTECH JM500L", description: "PISTOLA APLICADORA MANUAL JM500L" },
+        { id: 10, name: "SELLADOR PARABRISAS", description: "Sellador de poliuretano" }
     ];
 
     const toggleMenu = () => {

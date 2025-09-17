@@ -26,7 +26,7 @@ const Product = () => {
     const industries = {
         'Construcción': ['Anclajes químicos', 'Aditivos para hormigón', 'Adhesivos y selladores'],
         'Aberturas': ['Fabricación DVH', 'Instalación silicona neutra', 'Insumos'],
-        'Automotriz': [],
+        'Automotriz': ['Adhesivos y selladores'],
         'Aplicadores': [],
         'Maquinaria': []
     };
@@ -161,6 +161,15 @@ const Product = () => {
             industry: "Aplicadores",
             image: "/images/products/maxtech/JM500.png",
             description: "PISTOLA APLICADORA MANUAL JM500L"
+        },
+        {
+            id: 10,
+            name: "SELLADOR PARABRISAS",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Automotriz",
+            image: "/images/products/maxtech/parabrisas.png",
+            description: "Sellador de poliuretano"
         }
     ];
 

@@ -9,7 +9,7 @@ import macroFibra from '../assets/Product/macroFibra.jpg';
 const ProductDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState('description');
+    const [activeTab, setActiveTab] = useState('descripcion');
 
     // Base de datos de productos (la misma que en Product.jsx)
     const products = [
@@ -21,7 +21,12 @@ const ProductDetail = () => {
             industry: "Construcción",
             image: "/images/products/maxtech/JM500.png",
             description: "SELLADOR DE POLIURETANO",
-            longDescription: "El MAXFLEX 440 es un sellador de poliuretano de alta calidad diseñado específicamente para juntas de construcción. Este producto ofrece excelente resistencia a la intemperie, flexibilidad excepcional y durabilidad a largo plazo. Ideal para sellar juntas de dilatación, conexiones de techos, muros y pisos en proyectos de construcción comercial e industrial."
+            longDescription: "Es un sellador de poliuretano de un componente, de curado por humedad. Buen sellado y rendimiento flexible. No corroe ni contamina los materiales de base y es amigable con el medio ambiente. Resistencia a la punción, fácil de reparar. Buena adherencia con cementos y piedras.\n\nPROPIEDADES\n• Mono componente, excelente extrusión, no chorrea, fácil uso en construcción.\n• Alto módulo, alta resistencia al movimiento.\n\nAPLICACIONES\nEs adecuado para áreas donde se requiere poco movimiento, alta resistencia a la penetración y presión. Para la impermeabilización de caras de aire en puentes, túneles y tuberías de drenaje. Para la unión y el sellado de paneles prefabricados, paredes internas de hormigón y piedra.",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga el producto sellado alejado de la humedad, el sol, las altas temperaturas y evite colisiones.\n● Almacenamiento: Mantener sellado en un lugar fresco y seco. Temperatura: 5~25℃. Humedad: ≤50%HR.\n● Vida útil: Cartucho y Salchicha 12 meses, Tambor 16 meses.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Evite el contacto con la piel y los ojos. En caso de contacto con la piel, retire el sellador con un paño, lave bien la piel con agua y jabón.\n● En caso de contacto con los ojos, mantenga los párpados separados y enjuague bien con agua, comuníquese con un médico.",
+            documents: {
+                HDT: "/documents/products/maxtech/maxflex-440/HDT.pdf",
+                HDS: "/documents/products/maxtech/maxflex-440/HDS.pdf"
+            }
         },
         {
             id: 2,
@@ -31,7 +36,12 @@ const ProductDetail = () => {
             industry: "Construcción",
             image: "/images/products/horse/HM500.png",
             description: "ANCLAJES ADHESIVOS INYECTABLES",
-            longDescription: "El HORSE HM-500 es un sistema de anclajes adhesivos inyectables de alta calidad diseñado para aplicaciones de construcción y fijación estructural. Este producto ofrece excelente adherencia y resistencia, proporcionando una solución confiable para anclajes químicos en hormigón, mampostería y otros materiales de construcción. Ideal para aplicaciones que requieren máxima resistencia y durabilidad a largo plazo."
+            longDescription: "El HORSE HM-500 es un sistema de anclajes adhesivos inyectables de alta calidad diseñado para aplicaciones de construcción y fijación estructural. Este producto ofrece excelente adherencia y resistencia, proporcionando una solución confiable para anclajes químicos en hormigón, mampostería y otros materiales de construcción. Ideal para aplicaciones que requieren máxima resistencia y durabilidad a largo plazo.\n\nPROPIEDADES\n• Sistema de dos componentes\n• Alta resistencia mecánica\n• Excelente adherencia al hormigón\n• Resistencia a la intemperie\n\nAPLICACIONES\n• Anclajes estructurales en hormigón\n• Fijación de elementos pesados\n• Construcción civil e industrial\n• Reparaciones estructurales",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga el producto sellado alejado de la humedad, el sol y las altas temperaturas.\n● Almacenamiento: Mantener sellado en un lugar fresco y seco. Temperatura: 5~25℃. Humedad: ≤60%HR.\n● Vida útil: Cartucho 18 meses, Tambor 24 meses.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Evite el contacto con la piel y los ojos. En caso de contacto con la piel, retire el producto con un paño, lave bien la piel con agua y jabón.\n● En caso de contacto con los ojos, enjuague inmediatamente con agua abundante y consulte a un médico.\n● Usar en áreas bien ventiladas durante la aplicación.",
+            documents: {
+                HDT: "/documents/products/horse/hm-500/HDT.pdf",
+                HDS: "/documents/products/horse/hm-500/HDS.pdf"
+            }
         },
         {
             id: 3,
@@ -41,7 +51,8 @@ const ProductDetail = () => {
             industry: "Construcción",
             image: "/images/products/maxtech/macro1.png",
             description: "MACROFIBRA DE POLIPROPILENO VIRGEN",
-            longDescription: "La MACROFIBRA MAXFIBER 50 es una solución innovadora para el refuerzo estructural del hormigón. Estas fibras de alta resistencia proporcionan refuerzo secundario, reduciendo la formación de grietas y mejorando la durabilidad del hormigón. Perfecta para pavimentos, losas, muros y elementos estructurales que requieren mayor resistencia a la tracción."
+            longDescription: "La MACROFIBRA MAXFIBER 50 es una fibra de polipropileno virgen de alta calidad diseñada para mejorar las propiedades del hormigón. Esta macrofibra proporciona refuerzo estructural, reduce la fisuración por contracción y mejora la durabilidad del hormigón en aplicaciones industriales y comerciales.\n\nPROPIEDADES\n• Fibra de polipropileno virgen\n• Longitud: 50mm\n• Diámetro: 0.75mm\n• Resistencia a álcalis\n• No corrosión\n\nAPLICACIONES\n• Hormigón estructural\n• Pavimentos industriales\n• Elementos prefabricados\n• Construcción civil",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga el producto en envases cerrados, alejado de la humedad.\n● Almacenamiento: Mantener en lugar seco y ventilado. Temperatura: ambiente.\n● Vida útil: 36 meses en condiciones adecuadas de almacenamiento.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Evite la inhalación del polvo durante el manejo.\n● Usar mascarilla y guantes durante la manipulación.\n● En caso de contacto con los ojos, enjuague con agua abundante y consulte a un médico."
         },
         {
             id: 4,
@@ -51,7 +62,8 @@ const ProductDetail = () => {
             industry: "Construcción",
             image: "/images/products/maxtech/microfibra1.png",
             description: "MICROFIBRA DE POLIPROPILENO VIRGEN",
-            longDescription: "La MICROFIBRA MAXFIBER 19 es una fibra de polipropileno virgen de alta calidad diseñada para mejorar las propiedades del hormigón. Proporciona refuerzo secundario, reduce la formación de grietas y mejora la durabilidad del material. Ideal para aplicaciones que requieren mayor resistencia y control de fisuración."
+            longDescription: "La MICROFIBRA MAXFIBER 19 es una microfibra de polipropileno virgen que mejora significativamente las propiedades del hormigón. Proporciona control de fisuración, mejora la trabajabilidad y aumenta la resistencia a la abrasión, ideal para aplicaciones de hormigón de alto rendimiento.\n\nPROPIEDADES\n• Fibra de polipropileno virgen\n• Longitud: 19mm\n• Diámetro: 0.45mm\n• Control de fisuración\n• Mejora trabajabilidad\n\nAPLICACIONES\n• Hormigón de alto rendimiento\n• Control de fisuración\n• Mejora de trabajabilidad\n• Construcción civil",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga el producto en envases cerrados, alejado de la humedad.\n● Almacenamiento: Mantener en lugar seco y ventilado. Temperatura: ambiente.\n● Vida útil: 36 meses en condiciones adecuadas de almacenamiento.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Evite la inhalación del polvo durante el manejo.\n● Usar mascarilla y guantes durante la manipulación.\n● En caso de contacto con los ojos, enjuague con agua abundante y consulte a un médico."
         },
         {
             id: 5,
@@ -61,7 +73,8 @@ const ProductDetail = () => {
             industry: "Construcción",
             image: "/images/products/maxtech/JM500.png",
             description: "SELLADOR DE SILICONA NEUTRA",
-            longDescription: "La SILICONA NEUTRA es un sellador de silicona neutra de alta calidad diseñado para aplicaciones de construcción. Ofrece excelente adherencia, resistencia a la intemperie y flexibilidad. Ideal para sellar juntas en ventanas, puertas, techos y otras aplicaciones donde se requiere un sellado confiable y duradero."
+            longDescription: "La SILICONA NEUTRA es un sellador de silicona neutra de alta calidad que no produce ácido acético durante la curación. Ideal para aplicaciones donde se requiere compatibilidad con una amplia gama de materiales, proporcionando excelente adherencia y resistencia a la intemperie.\n\nPROPIEDADES\n• Sellador de silicona neutra\n• No produce ácido acético\n• Compatible con múltiples materiales\n• Resistencia a la intemperie\n• Excelente adherencia\n\nAPLICACIONES\n• Sellado de juntas en construcción\n• Impermeabilización\n• Sellado de ventanas y puertas\n• Aplicaciones sanitarias",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga el producto sellado alejado de la humedad y el sol.\n● Almacenamiento: Mantener sellado en un lugar fresco y seco. Temperatura: 5~25℃.\n● Vida útil: Cartucho 12 meses, Tambor 18 meses.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Evite el contacto con la piel y los ojos. En caso de contacto con la piel, retire el sellador con un paño, lave bien la piel con agua y jabón.\n● En caso de contacto con los ojos, enjuague inmediatamente con agua abundante y consulte a un médico.\n● Usar en áreas bien ventiladas."
         },
         {
             id: 6,
@@ -71,7 +84,8 @@ const ProductDetail = () => {
             industry: "Aplicadores",
             image: "/images/products/maxtech/JM702.png",
             description: "PISTOLA APLICADORA NEUMÁTICA",
-            longDescription: "La MAXTECH JM702 es una pistola aplicadora neumática de alta precisión diseñada para aplicaciones profesionales. Ofrece control preciso del flujo de material, ergonomía superior y durabilidad excepcional. Ideal para aplicaciones de sellado y adhesivos en proyectos de construcción e industrial."
+            longDescription: "La MAXTECH JM702 es una pistola aplicadora neumática profesional diseñada para la aplicación eficiente de selladores y adhesivos. Ofrece control preciso, ergonomía mejorada y durabilidad excepcional para aplicaciones industriales y comerciales.\n\nPROPIEDADES\n• Pistola aplicadora neumática\n• Control de flujo preciso\n• Diseño ergonómico\n• Construcción robusta\n• Fácil mantenimiento\n\nAPLICACIONES\n• Aplicación de selladores\n• Aplicación de adhesivos\n• Trabajos de construcción\n• Aplicaciones industriales",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga la herramienta en su estuche original, protegida de golpes.\n● Almacenamiento: Guardar en lugar seco y limpio. Lubricar según especificaciones.\n● Vida útil: 5 años con mantenimiento adecuado.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Usar equipo de protección personal (guantes, gafas).\n● Verificar presión de aire antes del uso.\n● Mantener la herramienta limpia y en buen estado.\n● Leer manual de instrucciones antes del uso."
         },
         {
             id: 7,
@@ -81,7 +95,8 @@ const ProductDetail = () => {
             industry: "Construcción",
             image: "/images/products/maxtech/JM500.png",
             description: "SELLADOR DE POLIURETANO",
-            longDescription: "El MAXFLEX 445 es un sellador de poliuretano de alta calidad diseñado para aplicaciones de construcción. Ofrece excelente adherencia, resistencia a la intemperie y flexibilidad. Ideal para sellar juntas de dilatación, conexiones estructurales y aplicaciones que requieren máxima durabilidad."
+            longDescription: "El MAXFLEX 445 es un sellador de poliuretano versátil que combina excelente adherencia con flexibilidad excepcional. Ideal para aplicaciones que requieren movilidad estructural y resistencia a la intemperie, perfecto para juntas de expansión y contracción en estructuras de hormigón y metal.\n\nPROPIEDADES\n• Sellador de poliuretano versátil\n• Excelente adherencia\n• Flexibilidad excepcional\n• Resistencia a la intemperie\n• Movilidad estructural\n\nAPLICACIONES\n• Juntas de expansión\n• Juntas de contracción\n• Estructuras de hormigón\n• Estructuras metálicas",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga el producto sellado alejado de la humedad, el sol y las altas temperaturas.\n● Almacenamiento: Mantener sellado en un lugar fresco y seco. Temperatura: 5~25℃. Humedad: ≤50%HR.\n● Vida útil: Cartucho y Salchicha 12 meses, Tambor 16 meses.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Evite el contacto con la piel y los ojos. En caso de contacto con la piel, retire el sellador con un paño, lave bien la piel con agua y jabón.\n● En caso de contacto con los ojos, enjuague inmediatamente con agua abundante y consulte a un médico.\n● Usar en áreas bien ventiladas."
         },
         {
             id: 8,
@@ -91,7 +106,8 @@ const ProductDetail = () => {
             industry: "Aplicadores",
             image: "/images/products/maxtech/JM500.png",
             description: "PISTOLA APLICADORA MANUAL JM500L",
-            longDescription: "La MAXTECH JM138 es una pistola aplicadora manual de alta calidad diseñada para aplicaciones profesionales. Ofrece control preciso, ergonomía superior y durabilidad excepcional. Ideal para aplicaciones de sellado y adhesivos en proyectos de construcción e industrial."
+            longDescription: "La MAXTECH JM138 es una pistola aplicadora manual de alta precisión diseñada para trabajos que requieren control detallado. Su diseño ergonómico y mecanismo suave la hacen ideal para aplicaciones de sellado y adhesivo en proyectos de construcción y reparación.\n\nPROPIEDADES\n• Pistola aplicadora manual\n• Alta precisión\n• Diseño ergonómico\n• Mecanismo suave\n• Control detallado\n\nAPLICACIONES\n• Sellado de precisión\n• Aplicación de adhesivos\n• Trabajos de reparación\n• Construcción",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga la herramienta en su estuche original, protegida de golpes.\n● Almacenamiento: Guardar en lugar seco y limpio. Limpiar después de cada uso.\n● Vida útil: 3 años con mantenimiento adecuado.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Usar equipo de protección personal (guantes, gafas).\n● Mantener la herramienta limpia y en buen estado.\n● Leer manual de instrucciones antes del uso.\n● No forzar el mecanismo de la pistola."
         },
         {
             id: 9,
@@ -101,7 +117,23 @@ const ProductDetail = () => {
             industry: "Aplicadores",
             image: "/images/products/maxtech/JM500.png",
             description: "PISTOLA APLICADORA MANUAL JM500L",
-            longDescription: "La MAXTECH JM500L es una pistola aplicadora manual de alta calidad diseñada para aplicaciones profesionales. Ofrece control preciso, ergonomía superior y durabilidad excepcional. Ideal para aplicaciones de sellado y adhesivos en proyectos de construcción e industrial."
+            longDescription: "La MAXTECH JM500L es una pistola aplicadora manual profesional con capacidad de 500ml. Diseñada para aplicaciones intensivas, ofrece durabilidad excepcional y control preciso para trabajos de sellado y adhesivo en proyectos comerciales e industriales.\n\nPROPIEDADES\n• Pistola aplicadora manual\n• Capacidad: 500ml\n• Diseño profesional\n• Durabilidad excepcional\n• Control preciso\n\nAPLICACIONES\n• Aplicaciones intensivas\n• Sellado comercial\n• Sellado industrial\n• Proyectos grandes",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga la herramienta en su estuche original, protegida de golpes.\n● Almacenamiento: Guardar en lugar seco y limpio. Limpiar después de cada uso.\n● Vida útil: 4 años con mantenimiento adecuado.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Usar equipo de protección personal (guantes, gafas).\n● Mantener la herramienta limpia y en buen estado.\n● Leer manual de instrucciones antes del uso.\n● No sobrecargar la pistola."
+        },
+        {
+            id: 10,
+            name: "SELLADOR PARABRISAS",
+            category: "Maxtech",
+            type: "Adhesivos y selladores",
+            industry: "Automotriz",
+            image: "/images/products/maxtech/parabrisas.png",
+            description: "Sellador de poliuretano",
+            longDescription: "El SELLADOR PARABRISAS es un sellador de poliuretano especializado para la industria automotriz. Proporciona sellado hermético y duradero para parabrisas, ventanas laterales y traseras. Ofrece excelente adherencia al vidrio y metal, resistencia a la intemperie y flexibilidad para soportar las tensiones estructurales del vehículo.\n\nPROPIEDADES\n• Sellador de poliuretano especializado\n• Sellado hermético\n• Excelente adherencia al vidrio\n• Excelente adherencia al metal\n• Resistencia a la intemperie\n\nAPLICACIONES\n• Sellado de parabrisas\n• Sellado de ventanas laterales\n• Sellado de ventanas traseras\n• Industria automotriz",
+            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga el producto sellado alejado de la humedad, el sol y las altas temperaturas.\n● Almacenamiento: Mantener sellado en un lugar fresco y seco. Temperatura: 5~25℃. Humedad: ≤50%HR.\n● Vida útil: Cartucho 12 meses, Tambor 16 meses.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Evite el contacto con la piel y los ojos. En caso de contacto con la piel, retire el sellador con un paño, lave bien la piel con agua y jabón.\n● En caso de contacto con los ojos, enjuague inmediatamente con agua abundante y consulte a un médico.\n● Usar en áreas bien ventiladas durante la aplicación.",
+            documents: {
+                HDT: "/documents/products/maxtech/sellador-parabrisas/HDT.pdf",
+                HDS: "/documents/products/maxtech/sellador-parabrisas/HDS.pdf"
+            }
         }
     ];
 
@@ -114,31 +146,83 @@ const ProductDetail = () => {
         return null;
     }
 
+    const handleBackToProducts = () => {
+        navigate('/productos');
+    };
 
+    const handleBreadcrumbClick = (path, params = {}) => {
+        if (path === '/productos') {
+            navigate('/productos');
+        } else {
+            navigate(`/productos?${new URLSearchParams(params).toString()}`);
+        }
+    };
+
+    const generateBreadcrumb = () => {
+        if (!product) return [];
+        
+        const breadcrumb = [
+            { label: 'Productos', path: '/productos' }
+        ];
+
+        if (product.industry) {
+            breadcrumb.push({
+                label: product.industry,
+                path: '/productos',
+                params: { industry: product.industry }
+            });
+        }
+
+        if (product.type) {
+            breadcrumb.push({
+                label: product.type,
+                path: '/productos',
+                params: { 
+                    industry: product.industry,
+                    subcategory: product.type 
+                }
+            });
+        }
+
+        breadcrumb.push({
+            label: product.name,
+            path: null,
+            current: true
+        });
+
+        return breadcrumb;
+    };
 
     return (
         <>
             <div className="product-detail-container">
                 <div className="product-detail-content">
-                    {/* Hero Section */}
+                    <nav className="breadcrumb">
+                        {generateBreadcrumb().map((item, index) => (
+                            <div key={index} className="breadcrumb-item">
+                                {item.path ? (
+                                    <button 
+                                        className="breadcrumb-link"
+                                        onClick={() => handleBreadcrumbClick(item.path, item.params)}
+                                    >
+                                        {item.label}
+                    </button>
+                                ) : (
+                                    <span className="breadcrumb-current">{item.label}</span>
+                                )}
+                                {index < generateBreadcrumb().length - 1 && (
+                                    <span className="breadcrumb-separator">></span>
+                                )}
+                            </div>
+                        ))}
+                    </nav>
+
                     <div className="product-hero-section">
                         <div className="product-image-section">
-                            <div className="image-container-rectangle">
-                                <img
-                                    src="/rectangle47.png"
-                                    alt="Rectangle background"
-                                    className="rectangle-background"
-                                />
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="product-detail-image-centered"
-                                />
-                            </div>
                             <img
                                 src={product.image}
                                 alt={product.name}
-                                className="product-detail-image-mobile"
+                                className="product-detail-image"
                             />
                         </div>
 
@@ -146,66 +230,88 @@ const ProductDetail = () => {
 
                         <div className="product-info-section">
                             <h1 className="product-detail-title">{product.name}</h1>
-                            {product.name === "HORSE HM-500" && (
-                                <>
-                                    <p className="product-subtitle">Adhesivo Mortero para Anclajes Epoxi</p>
-                                    <p className="product-description">TREMIX HORSE TX-HM500 Epoxy Resin Achoring es un adhesivo de resina epoxi modificado de dos componentes, con tubo de plástico de alta calidad, paquete de doble cartucho. Se inyecta en los orificios con la pistola dispensadora, mezclando la parte A y la parte B de manera uniforme, para plantar barras de refuerzo.</p>
-                                    <button className="download-docs-button">
-                                        <div className="pdf-download-icon">
-                                            <div className="pdf-icon">
-                                                <span className="pdf-text">PDF</span>
-                                            </div>
-                                            <div className="download-arrow">
-                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                                    <path d="M7 10L12 15L17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                                    <path d="M12 15V3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        Descargar Documentación Técnica
-                                    </button>
-                                </>
-                            )}
+                            
+                            <div className="product-category-info">
+                                <span className="product-category-badge">{product.category}</span>
+                                {product.type && (
+                                    <span className="product-subcategory-badge">{product.type}</span>
+                                )}
+                            </div>
+
+                            <button 
+                                className="download-docs-button"
+                                onClick={() => {
+                                    if (product.documents?.HDT) {
+                                        window.open(product.documents.HDT, '_blank');
+                                    }
+                                    if (product.documents?.HDS) {
+                                        window.open(product.documents.HDS, '_blank');
+                                    }
+                                }}
+                            >
+                                <div className="pdf-download-icon">
+                                    <span className="pdf-icon">
+                                        <span className="pdf-text">PDF</span>
+                                    </span>
+                                    <span>Descargar Documentos</span>
+                                    <svg className="download-arrow" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                </div>
+                            </button>
                         </div>
                     </div>
 
-                    {/* Horizontal Divider */}
                     <div className="horizontal-divider"></div>
 
-                    {/* Product Details Section */}
-                    <div className="product-details-section">
-                        <div className="tabs-container">
-                            <div className="tabs-header">
-                                <button 
-                                    className={`tab-button ${activeTab === 'description' ? 'active' : ''}`}
-                                    onClick={() => setActiveTab('description')}
-                                >
-                                    Descripción General
-                                </button>
-                                <button 
-                                    className={`tab-button ${activeTab === 'technical' ? 'active' : ''}`}
-                                    onClick={() => setActiveTab('technical')}
-                                >
-                                    Datos Técnicos
-                                </button>
-                            </div>
+                    <div className="product-tabs-section">
+                        <div className="tabs-header">
+                            <button 
+                                className={`tab-button ${activeTab === 'descripcion' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('descripcion')}
+                            >
+                                Descripción
+                            </button>
+                            <button 
+                                className={`tab-button ${activeTab === 'seguridad' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('seguridad')}
+                            >
+                                Seguridad
+                            </button>
+                        </div>
+
+                        <div className="tab-content">
+                            {activeTab === 'descripcion' && (
+                                <div className="tab-panel">
+                                    <div className="product-detail-description" dangerouslySetInnerHTML={{
+                                        __html: product.longDescription
+                                            .replace(/\n\n/g, '</p><p>')
+                                            .replace(/\n/g, '<br>')
+                                            .replace(/^(.*)$/, '<p>$1</p>')
+                                            .replace(/<p>(PROPIEDADES)<\/p>/g, '<p><strong>$1</strong></p>')
+                                            .replace(/<p>(APLICACIONES)<\/p>/g, '<p><strong>$1</strong></p>')
+                                            .replace(/•/g, '&bull;')
+                                    }} />
+                                </div>
+                            )}
                             
-                            <div className="tab-content">
-                                {activeTab === 'description' && (
-                                    <div className="tab-panel">
-                                        <h3>Descripción General</h3>
-                                        <p>Aquí irá la descripción general del producto...</p>
-                                    </div>
-                                )}
-                                
-                                {activeTab === 'technical' && (
-                                    <div className="tab-panel">
-                                        <h3>Datos Técnicos</h3>
-                                        <p>Aquí irán los datos técnicos del producto...</p>
-                                    </div>
-                                )}
-                            </div>
+                            {activeTab === 'seguridad' && (
+                                <div className="tab-panel">
+                                    <div className="product-detail-description" dangerouslySetInnerHTML={{
+                                        __html: product.safetyInfo
+                                            ? product.safetyInfo
+                                                .replace(/\n\n/g, '</p><p>')
+                                                .replace(/\n/g, '<br>')
+                                                .replace(/^(.*)$/, '<p>$1</p>')
+                                                .replace(/<p>(TRANSPORTE Y ALMACENAMIENTO)<\/p>/g, '<p><strong>$1</strong></p>')
+                                                .replace(/<p>(SEGURIDAD)<\/p>/g, '<p><strong>$1</strong></p>')
+                                                .replace(/●/g, '&bull;')
+                                            : '<p>Información de seguridad no disponible para este producto.</p>'
+                                    }} />
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
