@@ -12,16 +12,17 @@ function Navbar({ variant = 'home' }) {
 
     // Base de datos de productos para búsqueda
     const products = [
-        { id: 1, name: "MAXFLEX 440", description: "SELLADOR DE POLIURETANO" },
-        { id: 2, name: "HORSE HM-500", description: "ANCLAJES ADHESIVOS INYECTABLES" },
-        { id: 3, name: "MACROFIBRA MAXFIBER 50", description: "MACROFIBRA DE POLIPROPILENO VIRGEN" },
-        { id: 4, name: "MICROFIBRA MAXFIBER 19", description: "MICROFIBRA DE POLIPROPILENO VIRGEN" },
-        { id: 5, name: "SILICONA NEUTRA", description: "SELLADOR DE SILICONA NEUTRA" },
-        { id: 6, name: "MAXTECH JM702", description: "PISTOLA APLICADORA NEUMÁTICA" },
-        { id: 7, name: "MAXFLEX 445", description: "SELLADOR DE POLIURETANO" },
-        { id: 8, name: "MAXTECH JM138", description: "PISTOLA APLICADORA MANUAL JM500L" },
-        { id: 9, name: "MAXTECH JM500L", description: "PISTOLA APLICADORA MANUAL JM500L" },
-        { id: 10, name: "SELLADOR PARABRISAS", description: "Sellador de poliuretano" }
+        { id: 1, name: "MAXFLEX 440", description: "Sellador de poliuretano" },
+        { id: 2, name: "HORSE HM-500", description: "Anclajes adhesivos inyectables" },
+        { id: 3, name: "MACROFIBRA MAXFIBER 50", description: "Macrofibra de polipropileno virgen" },
+        { id: 4, name: "MICROFIBRA MAXFIBER 19", description: "Microfibra de polipropileno virgen" },
+        { id: 6, name: "MAXTECH JM702", description: "Pistola aplicadora neumática" },
+        { id: 9, name: "MAXTECH JM500L", description: "Pistola aplicadora manual" },
+        { id: 11, name: "SILANDE MF910H", description: "Sellador de butilo 2da barrera", externalUrl: "https://silandeargentina.com/productos/2" },
+        { id: 12, name: "SILANDE MF910G", description: "Sellador de butilo 1ra barrera", externalUrl: "https://silandeargentina.com/productos/3" },
+        { id: 13, name: "SILANDE MF910", description: "Sellador de butilo 1ra barrera", externalUrl: "https://silandeargentina.com/productos/4" },
+        { id: 14, name: "SILANDE MF899", description: "Sellador de silicona estructural", externalUrl: "https://silandeargentina.com/productos/8" },
+        { id: 15, name: "SILANDE MF889", description: "Sellador de silicona climático", externalUrl: "https://silandeargentina.com/productos/15" }
     ];
 
     const toggleMenu = () => {
@@ -51,7 +52,13 @@ function Navbar({ variant = 'home' }) {
         setSearchTerm('');
         setSearchResults([]);
         setShowResults(false);
-        navigate(`/productos/${productId}`);
+        
+        const product = products.find(p => p.id === productId);
+        if (product && product.externalUrl) {
+            window.open(product.externalUrl, '_blank');
+        } else {
+            navigate(`/productos/${productId}`);
+        }
     };
 
 

@@ -114,6 +114,82 @@
         display: block;
         align-items: unset;
     }
+    
+    /* Mobile card typography adjustments */
+    .objective-card .card-title {
+        font-size: 16px !important;
+        text-align: center !important;
+    }
+    
+    .objective-card p {
+        font-size: 13px !important;
+        text-align: center !important;
+        display: block !important;
+        align-items: unset !important;
+        justify-content: unset !important;
+    }
+    
+    .objective-card .text-justify {
+        text-align: center !important;
+    }
+    
+    /* Extra specificity for text centering */
+    .objective-card p.text-justify {
+        text-align: center !important;
+        text-justify: unset !important;
+    }
+    
+    .about .objective-card p {
+        text-align: center !important;
+    }
+    
+    /* Force center alignment for all text-justify elements in cards */
+    .objective-card .text-justify {
+        text-align: center !important;
+        text-justify: none !important;
+        justify-content: unset !important;
+    }
+    
+    /* Even more specific selector */
+    @media screen and (max-width: 768px) {
+        .objective-card .text-justify {
+            text-align: center !important;
+        }
+        
+        /* Force center alignment with maximum specificity */
+        .about .objective-card .text-justify {
+            text-align: center !important;
+            text-justify: none !important;
+        }
+        
+        /* Target all paragraph elements in cards */
+        .objective-card p {
+            text-align: center !important;
+            text-justify: none !important;
+        }
+        
+        /* Override any Bootstrap or other framework styles */
+        .objective-card .text-justify,
+        .objective-card p.text-justify {
+            text-align: center !important;
+        }
+        
+        /* Nuclear option - override everything */
+        .about .row .col-md-4 .objective-card .text-justify {
+            text-align: center !important;
+            text-justify: none !important;
+        }
+        
+        /* Force center on all text elements in cards */
+        .about .objective-card * {
+            text-align: center !important;
+        }
+        
+        /* Restore title alignment if needed */
+        .about .objective-card .card-title {
+            text-align: center !important;
+        }
+    }
 }
 
 /* Sección de Marcas Representadas */

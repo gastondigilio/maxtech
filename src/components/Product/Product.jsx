@@ -25,10 +25,8 @@ const Product = () => {
     // Estructura de industrias con sus subcategorías
     const industries = {
         'Construcción': ['Anclajes químicos', 'Aditivos para hormigón', 'Adhesivos y selladores'],
-        'Aberturas': ['Fabricación DVH', 'Instalación silicona neutra', 'Insumos'],
-        'Automotriz': ['Adhesivos y selladores'],
-        'Aplicadores': [],
-        'Maquinaria': []
+        'Aberturas': ['Fabricación DVH', 'Instalación silicona neutra', 'Instalación', 'Insumos'],
+        'Aplicadores': []
     };
 
     const handleBrandClick = (brand) => {
@@ -66,7 +64,12 @@ const Product = () => {
     };
 
     const handleProductClick = (productId) => {
-        navigate(`/productos/${productId}`);
+        const product = mockProducts.find(p => p.id === productId);
+        if (product && product.externalUrl) {
+            window.open(product.externalUrl, '_blank');
+        } else {
+            navigate(`/productos/${productId}`);
+        }
     };
 
     // Función para contar productos por industria
@@ -88,7 +91,7 @@ const Product = () => {
             type: "Adhesivos y selladores",
             industry: "Construcción",
             image: "/images/products/maxtech/JM500.png",
-            description: "SELLADOR DE POLIURETANO"
+            description: "Sellador de poliuretano"
         },
         {
             id: 2,
@@ -97,7 +100,7 @@ const Product = () => {
             type: "Anclajes químicos",
             industry: "Construcción",
             image: "/images/products/horse/HM500.png",
-            description: "ANCLAJES ADHESIVOS INYECTABLES"
+            description: "Anclajes adhesivos inyectables"
         },
         {
             id: 3,
@@ -106,7 +109,7 @@ const Product = () => {
             type: "Aditivos para hormigón",
             industry: "Construcción",
             image: "/images/products/maxtech/macro1.png",
-            description: "MACROFIBRA DE POLIPROPILENO VIRGEN"
+            description: "Macrofibra de polipropileno virgen"
         },
         {
             id: 4,
@@ -115,16 +118,7 @@ const Product = () => {
             type: "Aditivos para hormigón",
             industry: "Construcción",
             image: "/images/products/maxtech/microfibra1.png",
-            description: "MICROFIBRA DE POLIPROPILENO VIRGEN"
-        },
-        {
-            id: 5,
-            name: "SILICONA NEUTRA",
-            category: "Maxsil",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "SELLADOR DE SILICONA NEUTRA"
+            description: "Microfibra de polipropileno virgen"
         },
         {
             id: 6,
@@ -133,25 +127,7 @@ const Product = () => {
             type: "",
             industry: "Aplicadores",
             image: "/images/products/maxtech/JM702.png",
-            description: "PISTOLA APLICADORA NEUMÁTICA"
-        },
-        {
-            id: 7,
-            name: "MAXFLEX 445",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "SELLADOR DE POLIURETANO"
-        },
-        {
-            id: 8,
-            name: "MAXTECH JM138",
-            category: "Maxtech",
-            type: "",
-            industry: "Aplicadores",
-            image: "/images/products/maxtech/JM500.png",
-            description: "PISTOLA APLICADORA MANUAL JM500L"
+            description: "Pistola aplicadora neumática"
         },
         {
             id: 9,
@@ -160,17 +136,58 @@ const Product = () => {
             type: "",
             industry: "Aplicadores",
             image: "/images/products/maxtech/JM500.png",
-            description: "PISTOLA APLICADORA MANUAL JM500L"
+            description: "Pistola aplicadora manual"
         },
         {
-            id: 10,
-            name: "SELLADOR PARABRISAS",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Automotriz",
-            image: "/images/products/maxtech/parabrisas.png",
-            description: "Sellador de poliuretano"
-        }
+            id: 11,
+            name: "SILANDE MF910H",
+            category: "Silande",
+            type: "Fabricación DVH",
+            industry: "Aberturas",
+            image: "/images/products/silande/MF910H.png",
+            description: "Sellador de butilo 2da barrera",
+            externalUrl: "https://silandeargentina.com/productos/2"
+        },
+        {
+            id: 12,
+            name: "SILANDE MF910G",
+            category: "Silande",
+            type: "Fabricación DVH",
+            industry: "Aberturas",
+            image: "/images/products/silande/MF910G.png",
+            description: "Sellador de butilo 1ra barrera",
+            externalUrl: "https://silandeargentina.com/productos/3"
+        },
+        {
+            id: 13,
+            name: "SILANDE MF910",
+            category: "Silande",
+            type: "Fabricación DVH",
+            industry: "Aberturas",
+            image: "/images/products/silande/MF910.png",
+            description: "Sellador de butilo 1ra barrera",
+            externalUrl: "https://silandeargentina.com/productos/4"
+        },
+        {
+            id: 14,
+            name: "SILANDE MF899",
+            category: "Silande",
+            type: "Instalación",
+            industry: "Aberturas",
+            image: "/images/products/silande/MF899.png",
+            description: "Sellador de silicona estructural",
+            externalUrl: "https://silandeargentina.com/productos/8"
+        },
+        {
+            id: 15,
+            name: "SILANDE MF889",
+            category: "Silande",
+            type: "Instalación",
+            industry: "Aberturas",
+            image: "/images/products/silande/MF889.png",
+            description: "Sellador de silicona climático",
+            externalUrl: "https://silandeargentina.com/productos/15"
+        },
     ];
 
     const filteredProducts = mockProducts.filter(product => {

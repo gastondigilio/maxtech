@@ -64,9 +64,9 @@ const Footer = () => {
                 <div className="footer-section">
                     <h4>Productos</h4>
                     <ul>
-                        <li><a href="/productos">Adhesivos</a></li>
-                        <li><a href="/productos">Selladores</a></li>
-                        <li><a href="/productos">Accesorios</a></li>
+                        <li><a href="/productos">Construcción</a></li>
+                        <li><a href="/productos">Aberturas</a></li>
+                        <li><a href="/productos">Aplicadores</a></li>
                     </ul>
                 </div>
                 

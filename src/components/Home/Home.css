@@ -17,3 +17,70 @@
 .whatsapp-button:hover img {
     transform: scale(1.05);
 }
+
+/* Mobile typography standards */
+@media screen and (max-width: 768px) {
+    /* All titles mobile - 24px */
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 24px !important;
+    }
+    
+    /* All body text mobile - 16px */
+    p, span, div {
+        font-size: 16px !important;
+    }
+    
+    /* Specific adjustments for About section */
+    .about-title {
+        font-size: 24px !important;
+    }
+    
+    /* Mobile layout for "Nuestro compromiso" section */
+    #about {
+        flex-direction: column !important;
+        padding: 1rem !important;
+        gap: 1rem !important;
+        align-items: center !important;
+    }
+    
+    /* Mobile layout for commitment section columns */
+    #about > div {
+        width: 100% !important;
+        flex: none !important;
+        text-align: left !important;
+    }
+    
+    /* Mobile title adjustment for commitment section */
+    #about h2 {
+        font-size: 24px !important;
+    }
+    
+    /* Mobile vertical blue component adjustment */
+    #about > div > div > div:first-child {
+        height: 24px !important;
+    }
+    
+    /* Hide building glass image on mobile - rec35.png or rec36.png */
+    #about img[src="/rec35.png"],
+    #about img[src="/rec36.png"] {
+        display: none !important;
+    }
+    
+    /* Mobile layout for commitment images */
+    #about img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 200px !important;
+        object-fit: cover !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Mobile layout for commitment text */
+    #about p {
+        width: 100% !important;
+        text-align: left !important;
+        margin-bottom: 1rem !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+}

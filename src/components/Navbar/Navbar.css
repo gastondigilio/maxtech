@@ -12,7 +12,7 @@ body {
 
 /* Agregar espacio superior solo al contenido principal */
 .App {
-    padding-top: 95px !important;
+    padding-top: 0 !important;
 }
 
 /* Asegurar que la navbar esté por encima de todo */
@@ -88,6 +88,24 @@ html, body {
     width: 194.58px;
     height: auto;
     margin-right: 10px;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .navbar {
+        min-height: 38px !important; /* 25% reduction from 51px */
+        height: auto !important;
+    }
+    
+    .logo {
+        width: 136px; /* 30% reduction from 194.58px */
+        height: auto;
+        margin-right: 10px;
+    }
+    
+    .App {
+        padding-top: 0 !important; /* Adjusted for new navbar height */
+    }
 }
 
 .navbar-center {

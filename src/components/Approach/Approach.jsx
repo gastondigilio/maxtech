@@ -1,15 +1,25 @@
 import React from 'react';
 import './Approach.css';
-import Banner from '../assets/Approach/approachBanner.png';
+import BackgroundImage from '../assets/Approach/fachada-moderna-del-edificio-de-oficinas.jpg';
+import MobileBackgroundImage from '../assets/Approach/ventanamobile.jpg';
 
 const Approach = () => {
     return (
         <>
-            <div className="approach-container" style={{ backgroundImage: `url(${Banner})` }}>
+            <div className="approach-container">
+                <div className="approach-background approach-background-desktop" style={{ 
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(${BackgroundImage})` 
+                }}></div>
+                <div className="approach-background approach-background-mobile" style={{ 
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${MobileBackgroundImage})` 
+                }}></div>
                 <div className="approach-content">
                     <h2 className='approach-title'>SOLUCIONES TECNOLÓGICAS PARA LA CONSTRUCCIÓN E INDUSTRIAS</h2>
                     <p className='approach-text'>Ofrecemos innovación tecnológica para lograr procesos productivos más eficientes y optimizar sistemas de construcción, aportando a un crecimiento sostenible</p>
-                    <a href='/productos' className="about-button">Ver Catálogo</a>
+                    <div className="cta-buttons">
+                        <a href='/productos' className="about-button">Ver Catálogo</a>
+                        <a href='#sobre-nosotros' className="about-button-secondary mobile-only">Ver Más</a>
+                    </div>
                 </div>
             </div>
         </>
