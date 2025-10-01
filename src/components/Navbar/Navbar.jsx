@@ -82,38 +82,37 @@ function Navbar({ variant = 'home' }) {
         };
     }, [showResults]);
 
-    // Cerrar menú móvil al hacer clic fuera o en un enlace
-    useEffect(() => {
-        const handleMenuClick = (event) => {
-            if (menuOpen) {
-                // Si se hace clic en un enlace del menú, cerrar el menú
-                if (event.target.closest('.navbar-right.show ul li a')) {
-                    setMenuOpen(false);
+        // Cerrar menú móvil al hacer clic fuera del menú
+        useEffect(() => {
+            const handleMenuClick = (event) => {
+                if (menuOpen) {
+                    // Solo cerrar si se hace clic fuera del menú
+                    if (!event.target.closest('.navbar-right') && !event.target.closest('.menu-icon')) {
+                        setMenuOpen(false);
+                    }
                 }
-                // Si se hace clic fuera del menú, cerrar el menú
-                else if (!event.target.closest('.navbar-right') && !event.target.closest('.menu-icon')) {
-                    setMenuOpen(false);
-                }
-            }
-        };
+            };
 
-        document.addEventListener('mousedown', handleMenuClick);
-        return () => {
-            document.removeEventListener('mousedown', handleMenuClick);
-        };
-    }, [menuOpen]);
+            document.addEventListener('mousedown', handleMenuClick);
+            return () => {
+                document.removeEventListener('mousedown', handleMenuClick);
+            };
+        }, [menuOpen]);
 
     // Función para manejar el click en los enlaces
     const handleNavClick = (href, event) => {
+        console.log('handleNavClick called with href:', href);
         if (href.startsWith('#')) {
             event.preventDefault();
             
             // Hacer scroll a la sección
             const element = document.querySelector(href);
+            console.log('Element found:', element);
             if (element) {
                 // Scroll más preciso para cada sección
-                const navbarHeight = 72; // Altura aproximada de la navbar (reducida 10%)
-                const elementTop = element.offsetTop - navbarHeight;
+                const navbarHeight = 38; // Altura de navbar en móvil
+                const elementTop = element.offsetTop - navbarHeight - 20;
+                console.log('Scrolling to:', elementTop);
                 
                 window.scrollTo({
                     top: elementTop,
@@ -123,6 +122,8 @@ function Navbar({ variant = 'home' }) {
                 // Activar el marker correspondiente al hacer click
                 const sectionId = href.substring(1); // Remover el #
                 setActiveSection(sectionId);
+            } else {
+                console.log('Element not found for href:', href);
             }
         } else if (href.startsWith('/#')) {
             event.preventDefault();
@@ -204,19 +205,66 @@ function Navbar({ variant = 'home' }) {
                 </div>
 
                 <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
-                                    <ul>
-                    {getNavLinks().map((link, index) => (
-                        <li key={index}>
-                            <a 
-                                href={link.href}
-                                className={activeSection === link.id ? 'active' : ''}
-                                onClick={(e) => handleNavClick(link.href, e)}
-                            >
-                                {link.text}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                    <ul>
+                        {!menuOpen ? (
+                            // Enlaces de desktop cuando el menú está cerrado
+                            getNavLinks().map((link, index) => (
+                                <li key={`desktop-${index}`}>
+                                    <a 
+                                        href={link.href}
+                                        className={activeSection === link.id ? 'active' : ''}
+                                        onClick={(e) => handleNavClick(link.href, e)}
+                                    >
+                                        {link.text}
+                                    </a>
+                                </li>
+                            ))
+                        ) : (
+                            // Enlaces específicos del menú móvil cuando está abierto
+                            <>
+                                <li>
+                                    <a 
+                                        href='#about-intro' 
+                                        className="menu-link"
+                                        onClick={() => setTimeout(() => setMenuOpen(false), 300)}
+                                    >
+                                        Compañía
+                                    </a>
+                                </li>
+                                <li>
+                                    <a 
+                                        href='#marcas' 
+                                        className="menu-link"
+                                        onClick={() => setTimeout(() => setMenuOpen(false), 300)}
+                                    >
+                                        Fábricas representadas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a 
+                                        href='/productos' 
+                                        className="menu-link"
+                                        onClick={() => setTimeout(() => setMenuOpen(false), 300)}
+                                    >
+                                        Productos
+                                    </a>
+                                </li>
+                                <li className="menu-divider"></li>
+                                <li>
+                                    <a href='mailto:info@maxtechlatam.com' className="menu-link email-link">
+                                        <span className="menu-icon">✉</span>
+                                        <span className="contact-text">info@maxtechlatam.com</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='tel:+5491151489606' className="menu-link phone-link">
+                                        <span className="menu-icon">📞</span>
+                                        <span className="contact-text">+54 (9 11) 5148 9606</span>
+                                    </a>
+                                </li>
+                            </>
+                        )}
+                    </ul>
                 </div>
                 <div className="menu-icon" onClick={toggleMenu}>
                     <div className="bar"></div>

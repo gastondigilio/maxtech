@@ -247,6 +247,26 @@ html, body {
     border-radius: 5px;
 }
 
+/* Estilos específicos para desktop - solo cuando NO está el menú móvil abierto */
+.navbar-right ul li a:not(.menu-link) {
+    color: #0082c9;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.navbar-right ul li a:not(.menu-link):hover,
+.navbar-right ul li a:not(.menu-link).active {
+    text-decoration: underline;
+    background-color: rgba(0, 130, 201, 0.1);
+    border-radius: 5px;
+}
+
 .menu-icon {
     display: none;
     cursor: pointer;
@@ -344,8 +364,9 @@ html, body {
         width: 100%;
     }
 
-    .navbar-right.show ul li a {
-        display: block;
+    .navbar-right.show ul li a.menu-link {
+        display: flex;
+        align-items: center;
         padding: 10px 0;
         font-size: 16px;
         font-weight: 600;
@@ -358,9 +379,35 @@ html, body {
         text-decoration: none;
     }
 
-    .navbar-right.show ul li a.active {
+    .navbar-right.show ul li a.menu-link.active {
         color: #0082c9;
         font-weight: 600;
+    }
+
+    .navbar-right.show ul li a.menu-link .menu-icon {
+        margin-right: 10px;
+        font-size: 16px;
+        font-style: normal;
+        text-shadow: none;
+        color: #999;
+        filter: grayscale(100%) brightness(0.7) contrast(1.2);
+    }
+
+    .navbar-right.show ul li a.menu-link .contact-text {
+        font-size: 10px;
+        font-weight: 300;
+        font-family: 'Inter', sans-serif;
+        color: #999;
+        text-transform: lowercase;
+    }
+
+    .menu-divider {
+        height: 1px;
+        background-color: #e0e0e0;
+        margin: 20px 0;
+        width: 100%;
+        border: none;
+        padding: 0;
     }
 
     .navbar-right.show {
