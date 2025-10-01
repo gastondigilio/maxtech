@@ -822,10 +822,24 @@ body {
     }
 
     /* Mostrar ícono de filtros en móvil */
+    .product-container {
+        padding-top: 60px;
+    }
+    
     .mobile-filters-icon {
         display: block;
         order: 1;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
+    }
+    
+    /* Deshabilitar hovers en móvil */
+    .product-card:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-card:hover .product-image {
+        transform: none;
     }
     
     /* Ocultar breadcrumb en móvil */

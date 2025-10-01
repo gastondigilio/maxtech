@@ -23,8 +23,8 @@ const ProductDetail = () => {
             longDescription: "Ficha técnica\n• Viscosidad de la mezcla: 18-22Pa • S\n• División de resistencia a la tracción ≥8.5MPa\n• Resistencia a la flexión ≥50MPa\n• Resistencia a la compresión ≥60MPa\n• Índice de tixotopía ≥4.0\n• Temperatura de distorsión ≥65\n• Resistencia al cizallamiento de acero-acero ≥16MPa\n• C30, φ25, L = 150 mm condición de resistencia a la tracción ≥11MPa\n• C30, φ25, L = 125 mm. Resistencia de unión de condición ≥17MPa\n• Longitud de pelado de impacto T acero-acero ≤25mm\n\nRango de aplicación\n• Conexiones estructurales con barras de refuerzo postinstaladas (por ejemplo, extensión / conexión a paredes, losas, escaleras, columnas, cimientos, etc.)\n\n• Es posible la renovación estructural de edificios, puentes y otras estructuras civiles, reconstruyendo y reforzando miembros concretos\n\n• Anclaje de conexiones de acero estructural (por ejemplo, columnas de acero, vigas, etc.)\n\nCómo utilizar\n• Taladro\n• agujero limpio\n• agujero del cepillo\n• Inyectar adhesivo\n• planta de barras de refuerzo\n• Curado",
             safetyInfo: "Procedimientos de emergencia y primeros auxilios:\nInhalación: Lleve a la víctima al aire libre. Si no respira, administre respiración artificial, preferiblemente boca a boca. Obtenga atención médica profesional de inmediato.\nContacto con los ojos: Mantenga los párpados abiertos y enjuague con agua durante al menos 15 a 20 minutos hasta que no queden rastros de sustancias químicas. Obtenga atención médica profesional de inmediato.\nContacto con la piel: quitarse la ropa y el calzado contaminados. Lavar con abundante agua y jabón durante 15-20 minutos hasta que no queden restos de sustancias químicas. Obtener atención médica profesional de inmediato.\n\nIngestión: Este material produce irritación gastrointestinal. Diluir inmediatamente tragando agua o leche. No intentar introducir nada en la boca de una persona inconsciente. Obtener atención médica profesional de inmediato.\n\nProtección ocular: Use gafas de seguridad química durante las operaciones de mezclado/vertido u otras actividades en las que sea probable que haya contacto ocular con material no diluido. Ropa protectora: Use ropa de trabajo general.",
             documents: {
-                HDT: "/documents/products/horse/hm-500/HDT.pdf",
-                HDS: "/documents/products/horse/hm-500/HDS.pdf"
+                HDT: "/documents/products/horse/hm-500/HOJA TECNICA HORSE HM500 ANCLAJE QUIMICO EPOXI.pdf",
+                HDS: "/documents/products/horse/hm-500/HOJA SEGURIDAD HORSE HM500 ANCLAJE QUIMICO EPOXI.pdf"
             }
         },
         {
@@ -52,9 +52,13 @@ const ProductDetail = () => {
             type: "Aditivos para hormigón",
             industry: "Construcción",
             image: "/images/products/maxtech/microfibra1.png",
-            description: "MICROFIBRA DE POLIPROPILENO VIRGEN",
-            longDescription: "PROPIEDADES\n• Fibra de polipropileno virgen\n• Longitud: 19mm\n• Diámetro: 0.45mm\n• Control de fisuración\n• Mejora trabajabilidad\n\nAPLICACIONES\n• Hormigón de alto rendimiento\n• Control de fisuración\n• Mejora de trabajabilidad\n• Construcción civil",
-            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga el producto en envases cerrados, alejado de la humedad.\n● Almacenamiento: Mantener en lugar seco y ventilado. Temperatura: ambiente.\n● Vida útil: 36 meses en condiciones adecuadas de almacenamiento.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Evite la inhalación del polvo durante el manejo.\n● Usar mascarilla y guantes durante la manipulación.\n● En caso de contacto con los ojos, enjuague con agua abundante y consulte a un médico."
+            description: "Microfibra de polipropileno 100% virgen refuerzo anti grietas y fisuras. Incrementa la impermeabilización.",
+            longDescription: "Antifisuras: Mejora la resistencia al agrietamiento de las grietas no estructurales en la fase plástica del hormigón.\nImpermeabilidad: Mejora la impermeabilidad y es un material autoimpermeable rígido eficaz.\nEl rango de dosificación es de 0,6 a 1,8 kg/m3 y la resistencia al agrietamiento y a las filtraciones del hormigón suele ser de 0,9 kg/m3.",
+            safetyInfo: "",
+            documents: {
+                HDT: "/documents/products/maxtech/microfiber-19/HDT MICRO FIBRA DE POLIPROPILENO.pdf",
+                HDS: "/documents/products/maxtech/microfiber-19/HOJA DE DATOS DE SEGURIDAD MICRO FIBRA MAXTECH.pdf"
+            }
         },
         {
             id: 6,
@@ -65,7 +69,10 @@ const ProductDetail = () => {
             image: "/images/products/maxtech/JM702.png",
             description: "PISTOLA APLICADORA NEUMÁTICA",
             longDescription: "Diseñado para usar con tubos de tamaño estándar de 600 ml.\nFuerza máxima: 0.8 MPa\nCuerpo de aluminio para mayor resistencia.\nFácil ajuste del flujo de sellador.\nConector giratorio para manguera de aire.\nTipo salchicha para una rápida carga y extracción del cartucho.\nGatillo ergonómico para mayor comodidad durante el uso.\nExcelente para cartuchos y bolsas de sellador.\nResistente.\nTamaño: 600 ml\nEmbalaje: 6 unidades por caja\nTamaño de la caja: 54.5 x 47 x 27 cm",
-            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga la herramienta en su estuche original, protegida de golpes.\n● Almacenamiento: Guardar en lugar seco y limpio. Lubricar según especificaciones.\n● Vida útil: 5 años con mantenimiento adecuado.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Usar equipo de protección personal (guantes, gafas).\n● Verificar presión de aire antes del uso.\n● Mantener la herramienta limpia y en buen estado.\n● Leer manual de instrucciones antes del uso."
+            safetyInfo: "",
+            documents: {
+                HDT: "/documents/products/maxtech/jm702/HDT JM 702 MAXTECH.pdf"
+            }
         },
         {
             id: 9,
@@ -76,7 +83,10 @@ const ProductDetail = () => {
             image: "/images/products/maxtech/JM500.png",
             description: "PISTOLA APLICADORA MANUAL JM500L",
             longDescription: "Diseñado para usar con tubos de tamaño estándar de 600 ml.\nRelación de empuje de 13:1\nCuerpo de aluminio y mango de aleación de zinc para mayor\nresistencia.\nVarilla rugosa.\nTipo salchicha para una rápida carga y extracción del cartucho.\nDisco de accionamiento metalúrgico para mayor resistencia.\nCortador de boquilla.\nPerforador de sellos.\nGatillo ergonómico para mayor comodidad durante el uso.\nTamaño: 600 ml\nEmbalaje: 6 piezas / caja\nTamaño de la caja: 53 x 29 x 17 cm",
-            safetyInfo: "TRANSPORTE Y ALMACENAMIENTO\n\n● Transporte: Mantenga la herramienta en su estuche original, protegida de golpes.\n● Almacenamiento: Guardar en lugar seco y limpio. Limpiar después de cada uso.\n● Vida útil: 4 años con mantenimiento adecuado.\n\nSEGURIDAD\n\n● Mantener alejado de los niños.\n● Usar equipo de protección personal (guantes, gafas).\n● Mantener la herramienta limpia y en buen estado.\n● Leer manual de instrucciones antes del uso.\n● No sobrecargar la pistola."
+            safetyInfo: "",
+            documents: {
+                HDT: "/documents/products/maxtech/jm500l/HDT JM 500 MAXTECH.pdf"
+            }
         },
     ];
 
@@ -96,10 +106,6 @@ const ProductDetail = () => {
         return null;
     }
 
-    // Debug: mostrar el estado actual
-    console.log('Product:', product.name);
-    console.log('Main image:', mainImage);
-    console.log('Secondary images:', product.secondaryImages);
 
 
     const handleBreadcrumbClick = (path, params = {}) => {
@@ -190,10 +196,7 @@ const ProductDetail = () => {
                                             src={product.image}
                                             alt={product.name}
                                             className={`secondary-image ${mainImage === product.image ? 'active' : ''}`}
-                                            onClick={() => {
-                                                console.log('Clicking main image');
-                                                setMainImage(product.image);
-                                            }}
+                                            onClick={() => setMainImage(product.image)}
                                         />
                                         {product.secondaryImages.map((image, index) => (
                                             <img
@@ -201,10 +204,7 @@ const ProductDetail = () => {
                                                 src={image}
                                                 alt={`${product.name} - Imagen ${index + 1}`}
                                                 className={`secondary-image ${mainImage === image ? 'active' : ''}`}
-                                                onClick={() => {
-                                                    console.log('Clicking secondary image:', image);
-                                                    setMainImage(image);
-                                                }}
+                                                onClick={() => setMainImage(image)}
                                             />
                                         ))}
                                     </div>
@@ -233,7 +233,7 @@ const ProductDetail = () => {
                                     : product.id === 3
                                     ? "100% virgen de polipropileno para refuerzo estructural de hormigón y morteros. Incrementa la impermeabilización."
                                     : product.id === 4
-                                    ? "La MICROFIBRA MAXFIBER 19 es una microfibra de polipropileno virgen que mejora significativamente las propiedades del hormigón. Proporciona control de fisuración, mejora la trabajabilidad y aumenta la resistencia a la abrasión, ideal para aplicaciones de hormigón de alto rendimiento."
+                                    ? "Microfibra de polipropileno 100% virgen refuerzo anti grietas y fisuras. Incrementa la impermeabilización."
                                     : product.id === 6
                                     ? "Aplicador neumático profesional para adhesivos, selladores, pastas y mastiques"
                                     : product.id === 9
@@ -246,10 +246,20 @@ const ProductDetail = () => {
                                 className="download-docs-button"
                                 onClick={() => {
                                     if (product.documents?.HDT) {
-                                        window.open(product.documents.HDT, '_blank');
+                                        const link = document.createElement('a');
+                                        link.href = product.documents.HDT;
+                                        link.download = product.documents.HDT.split('/').pop();
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
                                     }
                                     if (product.documents?.HDS) {
-                                        window.open(product.documents.HDS, '_blank');
+                                        const link = document.createElement('a');
+                                        link.href = product.documents.HDS;
+                                        link.download = product.documents.HDS.split('/').pop();
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
                                     }
                                 }}
                             >

@@ -13,8 +13,8 @@ function Navbar({ variant = 'home' }) {
 
     // Base de datos de productos para búsqueda
     const products = [
-        { id: 2, name: "HORSE HM-500", description: "HM-500 Epoxy Resin Achoring es un adhesivo de resina epoxi modificado de dos componentes, con tubo de plástico de alta calidad, paquete de doble cartucho. Se inyecta en los orificios con la pistola dispensadora, mezclando la parte A y la parte B de manera uniforme, para plantar barras de refuerzo." },
-        { id: 3, name: "MACROFIBRA MAXFIBER 50", description: "100% virgen de polipropileno para refuerzo estructural de hormigón y morteros. Incrementa la impermeabilización." },
+        { id: 2, name: "HORSE HM-500", description: "Anclajes adhesivos inyectables" },
+        { id: 3, name: "MACROFIBRA MAXFIBER 50", description: "Macrofibra de polipropileno virgen" },
         { id: 4, name: "MICROFIBRA MAXFIBER 19", description: "Microfibra de polipropileno virgen" },
         { id: 6, name: "MAXTECH JM702", description: "Pistola aplicadora neumática" },
         { id: 9, name: "MAXTECH JM500L", description: "Pistola aplicadora manual" },

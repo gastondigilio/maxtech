@@ -92,7 +92,7 @@ const Product = () => {
             type: "Anclajes químicos inyectables",
             industry: "Construcción",
             image: "/images/products/horse/HM500.png",
-            description: "HM-500 Epoxy Resin Achoring es un adhesivo de resina epoxi modificado de dos componentes, con tubo de plástico de alta calidad, paquete de doble cartucho. Se inyecta en los orificios con la pistola dispensadora, mezclando la parte A y la parte B de manera uniforme, para plantar barras de refuerzo."
+            description: "Anclajes adhesivos inyectables"
         },
         {
             id: 3,
@@ -101,7 +101,7 @@ const Product = () => {
             type: "Aditivos para hormigón",
             industry: "Construcción",
             image: "/images/products/maxtech/macro1.png",
-            description: "100% virgen de polipropileno para refuerzo estructural de hormigón y morteros. Incrementa la impermeabilización."
+            description: "Macrofibra de polipropileno virgen"
         },
         {
             id: 4,
