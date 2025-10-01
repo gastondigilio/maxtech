@@ -18,8 +18,20 @@
     gap: 0.25rem;
     background-color: #f8f9fa;
     border-radius: 8px;
-    margin: 1rem 0 2rem 0;
-    padding: 1rem 1.5rem;
+    margin: 1rem 0 0 0;
+    padding: 0.7rem 1.5rem;
+}
+
+.breadcrumb-divider {
+    width: 100vw;
+    height: 0.5px;
+    background-color: #f0f0f0;
+    margin: 0 0 2rem 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .breadcrumb-item {
@@ -259,19 +271,38 @@
 
 .product-detail-title {
     color: #0082c9;
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 0;
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin: -0.5rem 0 0 0;
     line-height: 1.2;
 }
 
 .product-description-title {
     color: #666;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin: 0.5rem 0 0 0;
+    margin: -0.5rem 0 0 0;
+    line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.product-description-label {
+    color: #000000;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    margin-bottom: -0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-intro-text {
+    color: #555;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
 }
 
 .product-subtitle {
@@ -377,8 +408,8 @@
     color: #0082c9;
     font-weight: 600;
     display: block;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
     font-size: 1.2rem;
     filter: none;
 }
