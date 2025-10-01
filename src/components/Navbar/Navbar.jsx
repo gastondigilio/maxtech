@@ -12,7 +12,6 @@ function Navbar({ variant = 'home' }) {
 
     // Base de datos de productos para búsqueda
     const products = [
-        { id: 1, name: "MAXFLEX 440", description: "Sellador de poliuretano" },
         { id: 2, name: "HORSE HM-500", description: "Anclajes adhesivos inyectables" },
         { id: 3, name: "MACROFIBRA MAXFIBER 50", description: "Macrofibra de polipropileno virgen" },
         { id: 4, name: "MICROFIBRA MAXFIBER 19", description: "Microfibra de polipropileno virgen" },
@@ -205,36 +204,19 @@ function Navbar({ variant = 'home' }) {
                 </div>
 
                 <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
-                    <ul>
-                        <li>
-                            <a href='#about' className="menu-link" onClick={(e) => handleNavClick('#about', e)}>
-                                Compañía
+                                    <ul>
+                    {getNavLinks().map((link, index) => (
+                        <li key={index}>
+                            <a 
+                                href={link.href}
+                                className={activeSection === link.id ? 'active' : ''}
+                                onClick={(e) => handleNavClick(link.href, e)}
+                            >
+                                {link.text}
                             </a>
                         </li>
-                        <li>
-                            <a href='#marcas' className="menu-link" onClick={(e) => handleNavClick('#marcas', e)}>
-                                Fábricas representadas
-                            </a>
-                        </li>
-                        <li>
-                            <a href='#product' className="menu-link" onClick={(e) => handleNavClick('#product', e)}>
-                                Productos
-                            </a>
-                        </li>
-                        <li className="menu-divider"></li>
-                        <li>
-                            <a href='mailto:info@maxtechlatam.com' className="menu-link email-link">
-                                <span className="menu-icon">✉</span>
-                                <span className="contact-text">info@maxtechlatam.com</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href='tel:+5491151489606' className="menu-link phone-link">
-                                <span className="menu-icon">📞</span>
-                                <span className="contact-text">+54 (9 11) 5148 9606</span>
-                            </a>
-                        </li>
-                    </ul>
+                    ))}
+                </ul>
                 </div>
                 <div className="menu-icon" onClick={toggleMenu}>
                     <div className="bar"></div>

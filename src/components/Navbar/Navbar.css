@@ -344,7 +344,7 @@ html, body {
         width: 100%;
     }
 
-    .navbar-right.show ul li a.menu-link {
+    .navbar-right.show ul li a {
         display: block;
         padding: 10px 0;
         font-size: 16px;
@@ -358,31 +358,9 @@ html, body {
         text-decoration: none;
     }
 
-    .navbar-right.show ul li a.menu-link.active {
+    .navbar-right.show ul li a.active {
         color: #0082c9;
         font-weight: 600;
-    }
-
-    .navbar-right.show ul li a.menu-link {
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar-right.show ul li a.menu-link .menu-icon {
-        margin-right: 10px;
-        font-size: 16px;
-        font-style: normal;
-        text-shadow: none;
-        color: #999;
-        filter: grayscale(100%) brightness(0.7) contrast(1.2);
-    }
-
-    .navbar-right.show ul li a.menu-link .contact-text {
-        font-size: 10px;
-        font-weight: 300;
-        font-family: 'Inter', sans-serif;
-        color: #999;
-        text-transform: lowercase;
     }
 
     .navbar-right.show {

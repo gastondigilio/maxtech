@@ -85,15 +85,6 @@ const Product = () => {
     // Productos reales de las marcas Maxtech y Horse
     const mockProducts = [
         {
-            id: 1,
-            name: "MAXFLEX 440",
-            category: "Maxtech",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/JM500.png",
-            description: "Sellador de poliuretano"
-        },
-        {
             id: 2,
             name: "HORSE HM-500",
             category: "Horse",
