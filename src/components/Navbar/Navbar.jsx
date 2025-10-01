@@ -291,7 +291,7 @@ function Navbar({ variant = 'home' }) {
                             <path d="m21 21-4.35-4.35"></path>
                         </svg>
                     </div>
-                    <div className="menu-icon" onClick={toggleMenu}>
+                    <div className={`menu-icon ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
                         <div className="bar"></div>
                         <div className="bar"></div>
                         <div className="bar"></div>
