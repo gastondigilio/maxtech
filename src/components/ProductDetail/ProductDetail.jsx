@@ -182,6 +182,7 @@ const ProductDetail = () => {
 
                         <div className="product-info-section">
                             <h1 className="product-detail-title">{product.name}</h1>
+                            <h2 className="product-description-title">DESCRIPCIÓN DEL PRODUCTO</h2>
                             
                             <div className="product-category-info">
                                 <span className="product-category-badge">{product.category}</span>
@@ -224,7 +225,7 @@ const ProductDetail = () => {
                                 className={`tab-button ${activeTab === 'descripcion' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('descripcion')}
                             >
-                                Descripción
+                                Detalles
                             </button>
                             <button 
                                 className={`tab-button ${activeTab === 'seguridad' ? 'active' : ''}`}
