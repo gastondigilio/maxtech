@@ -258,6 +258,49 @@ html, body {
     height: 3px;
     background-color: #0082c9;
     margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-icon {
+    position: relative;
+}
+
+.menu-icon .bar:nth-child(1) {
+    transform-origin: center;
+}
+
+.menu-icon .bar:nth-child(2) {
+    transform-origin: center;
+}
+
+.menu-icon .bar:nth-child(3) {
+    transform-origin: center;
+}
+
+/* Animación cuando el menú está abierto */
+.navbar-right.show ~ .menu-icon .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-right.show ~ .menu-icon .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-right.show ~ .menu-icon .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Asegurar que no haya superposición cuando el menú está cerrado */
+.menu-icon .bar:nth-child(1) {
+    transform: rotate(0deg) translate(0px, 0px);
+}
+
+.menu-icon .bar:nth-child(2) {
+    opacity: 1;
+}
+
+.menu-icon .bar:nth-child(3) {
+    transform: rotate(0deg) translate(0px, 0px);
 }
 
 .close-btn {
@@ -290,21 +333,129 @@ html, body {
 
     .navbar-right.show ul {
         display: flex;
-        /* Muestra la lista de elementos en columna */
         flex-direction: column;
-        align-items: flex-end;
-        /* Alinea los elementos a la derecha */
+        align-items: stretch;
+        width: 100%;
+        gap: 0;
+    }
+
+    .navbar-right.show ul li {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .navbar-right.show ul li a.menu-link {
+        display: block;
+        padding: 10px 0;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: 'Inter', sans-serif;
+        text-align: left;
+        margin-bottom: 3px;
+        background-color: transparent;
+        color: #333;
+        border: none;
+        text-decoration: none;
+    }
+
+    .navbar-right.show ul li a.menu-link.active {
+        color: #0082c9;
+        font-weight: 600;
+    }
+
+    .navbar-right.show ul li a.menu-link {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-right.show ul li a.menu-link .menu-icon {
+        margin-right: 10px;
+        font-size: 16px;
+        font-style: normal;
+        text-shadow: none;
+        color: #999;
+        filter: grayscale(100%) brightness(0.7) contrast(1.2);
+    }
+
+    .navbar-right.show ul li a.menu-link .contact-text {
+        font-size: 10px;
+        font-weight: 300;
+        font-family: 'Inter', sans-serif;
+        color: #999;
+        text-transform: lowercase;
     }
 
     .navbar-right.show {
-        position: absolute;
-        top: 100%;
-        /* Se posiciona debajo de la navbar */
+        position: fixed;
+        top: 0;
         right: 0;
-        background-color: #FFFFFF !important;
-        padding: 10px;
-        border-radius: 5px;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
         z-index: 1001;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .navbar-right.show::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+    }
+
+    .navbar-right.show ul {
+        background-color: white;
+        width: 250px;
+        height: auto;
+        max-height: 80vh;
+        padding: 50px 20px 20px 20px;
+        margin: 0;
+        overflow-y: auto;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+        animation: slideInRight 0.3s ease-out;
+        border-radius: 0 0 0 12px;
+        position: relative;
+    }
+
+
+    .menu-divider {
+        height: 1px;
+        background-color: #e0e0e0;
+        margin: 20px 0;
+        width: 100%;
+        border: none;
+        padding: 0;
+    }
+
+    .navbar-right.show {
+        animation: fadeIn 0.3s ease-out;
+    }
+}
+
+/* Animaciones para el menú móvil */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

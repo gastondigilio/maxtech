@@ -83,6 +83,27 @@ function Navbar({ variant = 'home' }) {
         };
     }, [showResults]);
 
+    // Cerrar menú móvil al hacer clic fuera o en un enlace
+    useEffect(() => {
+        const handleMenuClick = (event) => {
+            if (menuOpen) {
+                // Si se hace clic en un enlace del menú, cerrar el menú
+                if (event.target.closest('.navbar-right.show ul li a')) {
+                    setMenuOpen(false);
+                }
+                // Si se hace clic fuera del menú, cerrar el menú
+                else if (!event.target.closest('.navbar-right') && !event.target.closest('.menu-icon')) {
+                    setMenuOpen(false);
+                }
+            }
+        };
+
+        document.addEventListener('mousedown', handleMenuClick);
+        return () => {
+            document.removeEventListener('mousedown', handleMenuClick);
+        };
+    }, [menuOpen]);
+
     // Función para manejar el click en los enlaces
     const handleNavClick = (href, event) => {
         if (href.startsWith('#')) {
@@ -184,30 +205,41 @@ function Navbar({ variant = 'home' }) {
                 </div>
 
                 <div className={`navbar-right ${menuOpen ? 'show' : ''}`}>
-                                    <ul>
-                    {getNavLinks().map((link, index) => (
-                        <li key={index}>
-                            <a 
-                                href={link.href}
-                                className={activeSection === link.id ? 'active' : ''}
-                                onClick={(e) => handleNavClick(link.href, e)}
-                            >
-                                {link.text}
+                    <ul>
+                        <li>
+                            <a href='#about' className="menu-link" onClick={(e) => handleNavClick('#about', e)}>
+                                Compañía
                             </a>
                         </li>
-                    ))}
-                </ul>
+                        <li>
+                            <a href='#marcas' className="menu-link" onClick={(e) => handleNavClick('#marcas', e)}>
+                                Fábricas representadas
+                            </a>
+                        </li>
+                        <li>
+                            <a href='#product' className="menu-link" onClick={(e) => handleNavClick('#product', e)}>
+                                Productos
+                            </a>
+                        </li>
+                        <li className="menu-divider"></li>
+                        <li>
+                            <a href='mailto:info@maxtechlatam.com' className="menu-link email-link">
+                                <span className="menu-icon">✉</span>
+                                <span className="contact-text">info@maxtechlatam.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='tel:+5491151489606' className="menu-link phone-link">
+                                <span className="menu-icon">📞</span>
+                                <span className="contact-text">+54 (9 11) 5148 9606</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div className="menu-icon" onClick={toggleMenu}>
-                    {menuOpen ? (
-                        <div className="close-btn">X</div>
-                    ) : (
-                        <>
-                            <div className="bar"></div>
-                            <div className="bar"></div>
-                            <div className="bar"></div>
-                        </>
-                    )}
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
                 </div>
             </nav>
         </div>

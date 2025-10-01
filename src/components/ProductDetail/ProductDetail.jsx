@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProductDetail.css';
 import Footer from '../Footer/Footer.jsx';
-import JM500 from '../assets/Product/JM500.JPG';
-import macroFibra from '../assets/Product/macroFibra.jpg';
 
 
 const ProductDetail = () => {
@@ -83,9 +81,6 @@ const ProductDetail = () => {
         return null;
     }
 
-    const handleBackToProducts = () => {
-        navigate('/productos');
-    };
 
     const handleBreadcrumbClick = (path, params = {}) => {
         if (path === '/productos') {

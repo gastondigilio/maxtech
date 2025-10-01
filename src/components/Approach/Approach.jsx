@@ -4,6 +4,17 @@ import BackgroundImage from '../assets/Approach/fachada-moderna-del-edificio-de-
 import MobileBackgroundImage from '../assets/Approach/ventanamobile.jpg';
 
 const Approach = () => {
+    const handleScrollToAbout = () => {
+        const element = document.querySelector('#about-intro');
+        if (element) {
+            const navbarHeight = 38;
+            const elementTop = element.offsetTop - navbarHeight - 20;
+            window.scrollTo({
+                top: elementTop,
+                behavior: 'smooth'
+            });
+        }
+    };
     return (
         <>
             <div className="approach-container">
@@ -18,7 +29,7 @@ const Approach = () => {
                     <p className='approach-text'>Ofrecemos innovación tecnológica para lograr procesos productivos más eficientes y optimizar sistemas de construcción, aportando a un crecimiento sostenible</p>
                     <div className="cta-buttons">
                         <a href='/productos' className="about-button">Ver Catálogo</a>
-                        <a href='#sobre-nosotros' className="about-button-secondary mobile-only">Ver Más</a>
+                        <a href='#about-intro' className="about-button-secondary mobile-only" onClick={handleScrollToAbout}>Ver Más</a>
                     </div>
                 </div>
             </div>

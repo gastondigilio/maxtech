@@ -83,4 +83,21 @@
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
     }
+    
+    /* Mobile layout for about-intro section */
+    #about-intro {
+        text-align: left !important;
+        padding: 1rem !important;
+    }
+    
+    #about-intro h1 {
+        text-align: left !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    #about-intro p {
+        text-align: left !important;
+        margin: 0 !important;
+        max-width: none !important;
+    }
 }
