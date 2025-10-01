@@ -416,6 +416,11 @@ footer .footer-logo .footer-logo-img {
     color: #0082c9;
 }
 
+/* Ocultar contacto móvil en desktop */
+.footer-mobile-contact {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
@@ -431,5 +436,44 @@ footer .footer-logo .footer-logo-img {
     
     .footer-bottom-links {
         justify-content: center;
+    }
+    
+    /* Tamaño de fuente para Powered by AgaruCorp en móvil */
+    .footer-bottom p {
+        font-size: 10px !important;
+    }
+    
+    /* Mostrar contacto móvil solo en móvil */
+    .footer-mobile-contact {
+        display: block;
+        margin-top: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-mobile-contact p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 0.8rem;
+        color: #666666;
+        font-size: 0.9rem;
+    }
+    
+    .footer-mobile-contact p i {
+        color: #0082c9;
+        width: 16px;
+        font-size: 14px;
+    }
+    
+    .footer-mobile-contact .contact-link {
+        color: #666666;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .footer-mobile-contact .contact-link:hover {
+        color: #0082c9;
+        text-decoration: underline;
     }
 }

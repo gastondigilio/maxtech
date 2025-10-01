@@ -267,10 +267,32 @@ html, body {
     border-radius: 5px;
 }
 
+.navbar-mobile-controls {
+    display: none;
+    align-items: center;
+    gap: 15px;
+    padding-right: 10px;
+}
+
+.mobile-search-icon {
+    cursor: pointer;
+    color: #0082c9;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-search-icon:hover {
+    background-color: rgba(0, 130, 201, 0.1);
+    transform: scale(1.1);
+}
+
 .menu-icon {
     display: none;
     cursor: pointer;
-    padding-right: 10px;
 }
 
 .bar {
@@ -336,6 +358,104 @@ html, body {
     background-color: transparent;
 }
 
+/* Estilos para la barra de búsqueda móvil */
+.mobile-search-container {
+    position: fixed;
+    top: 38px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 9999999;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-out;
+}
+
+.mobile-search-form {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.mobile-search-form:focus-within {
+    border-color: #0082c9;
+    box-shadow: 0 0 0 2px rgba(0, 130, 201, 0.1);
+}
+
+.mobile-search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    padding: 4px 8px;
+}
+
+.mobile-search-input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.mobile-search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-search-button:hover {
+    color: #0082c9;
+}
+
+.mobile-search-results {
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    position: relative;
+    z-index: 9999999;
+}
+
+.mobile-search-result-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-search-result-item:last-child {
+    border-bottom: none;
+}
+
+.mobile-search-result-item:hover {
+    background-color: #f8f9fa;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .navbar-center {
         display: none;
@@ -345,6 +465,10 @@ html, body {
     .navbar-right ul {
         display: none;
         /* Oculta la lista de elementos */
+    }
+
+    .navbar-mobile-controls {
+        display: flex;
     }
 
     .menu-icon {

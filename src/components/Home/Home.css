@@ -20,6 +20,12 @@
 
 /* Mobile typography standards */
 @media screen and (max-width: 768px) {
+    /* Reducir botón de WhatsApp en móvil un 25% */
+    .whatsapp-button img {
+        width: 52.5px !important;
+        height: 52.5px !important;
+    }
+    
     /* All titles mobile - 24px */
     h1, h2, h3, h4, h5, h6 {
         font-size: 24px !important;

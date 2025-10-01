@@ -59,6 +59,10 @@ const Footer = () => {
                             <span>Uruguay</span>
                         </div>
                     </div>
+                    <div className="footer-mobile-contact">
+                        <p><i className="fas fa-envelope"></i><span><a href="#" onClick={handleEmailClick} className="contact-link">info@maxtechlatam.com</a></span></p>
+                        <p><i className="fas fa-phone"></i><span>+54 9 11 5148-9606</span></p>
+                    </div>
                 </div>
                 
                 <div className="footer-section">

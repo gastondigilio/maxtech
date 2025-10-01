@@ -8,6 +8,7 @@ function Navbar({ variant = 'home' }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
     const navigate = useNavigate();
 
     // Base de datos de productos para búsqueda
@@ -26,6 +27,14 @@ function Navbar({ variant = 'home' }) {
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
+    };
+
+    const toggleMobileSearch = () => {
+        setMobileSearchOpen(!mobileSearchOpen);
+        if (!mobileSearchOpen) {
+            // Si se está abriendo, cerrar el menú si está abierto
+            setMenuOpen(false);
+        }
     };
 
     // Función para filtrar productos en tiempo real
@@ -74,13 +83,16 @@ function Navbar({ variant = 'home' }) {
             if (showResults && !event.target.closest('.search-container')) {
                 setShowResults(false);
             }
+            if (mobileSearchOpen && !event.target.closest('.mobile-search-container')) {
+                setMobileSearchOpen(false);
+            }
         };
 
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [showResults]);
+    }, [showResults, mobileSearchOpen]);
 
         // Cerrar menú móvil al hacer clic fuera del menú
         useEffect(() => {
@@ -91,13 +103,19 @@ function Navbar({ variant = 'home' }) {
                         setMenuOpen(false);
                     }
                 }
+                if (mobileSearchOpen) {
+                    // Solo cerrar si se hace clic fuera del buscador móvil
+                    if (!event.target.closest('.mobile-search-container') && !event.target.closest('.mobile-search-icon')) {
+                        setMobileSearchOpen(false);
+                    }
+                }
             };
 
             document.addEventListener('mousedown', handleMenuClick);
             return () => {
                 document.removeEventListener('mousedown', handleMenuClick);
             };
-        }, [menuOpen]);
+        }, [menuOpen, mobileSearchOpen]);
 
     // Función para manejar el click en los enlaces
     const handleNavClick = (href, event) => {
@@ -266,12 +284,58 @@ function Navbar({ variant = 'home' }) {
                         )}
                     </ul>
                 </div>
-                <div className="menu-icon" onClick={toggleMenu}>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
+                <div className="navbar-mobile-controls">
+                    <div className="mobile-search-icon" onClick={toggleMobileSearch}>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </div>
+                    <div className="menu-icon" onClick={toggleMenu}>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                    </div>
                 </div>
             </nav>
+            
+            {/* Barra de búsqueda móvil */}
+            {mobileSearchOpen && (
+                <div className="mobile-search-container">
+                    <div className="mobile-search-form">
+                        <input
+                            type="text"
+                            placeholder="Buscar productos..."
+                            value={searchTerm}
+                            onChange={handleSearchChange}
+                            className="mobile-search-input"
+                            autoComplete="off"
+                            autoFocus
+                        />
+                        <div className="mobile-search-button">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    {showResults && searchResults.length > 0 && (
+                        <div className="mobile-search-results">
+                            {searchResults.map((product) => (
+                                <div 
+                                    key={product.id}
+                                    className="mobile-search-result-item"
+                                    onClick={() => handleProductSelect(product.id)}
+                                >
+                                    <div className="result-name">{product.name}</div>
+                                    <div className="result-description">{product.description}</div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 }
