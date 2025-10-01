@@ -92,7 +92,7 @@ function Navbar({ variant = 'home' }) {
             const element = document.querySelector(href);
             if (element) {
                 // Scroll más preciso para cada sección
-                const navbarHeight = 80; // Altura aproximada de la navbar
+                const navbarHeight = 72; // Altura aproximada de la navbar (reducida 10%)
                 const elementTop = element.offsetTop - navbarHeight;
                 
                 window.scrollTo({

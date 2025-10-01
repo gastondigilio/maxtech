@@ -33,7 +33,7 @@ html, body {
 
 /* Forzar la altura de la navbar */
 .navbar {
-    min-height: 51px !important;
+    min-height: 46px !important;
     height: auto !important;
 }
 
@@ -51,7 +51,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.02rem 1.275rem !important;
+    padding: 0.9rem 1.275rem !important;
     margin: 0;
     background-color: white;
     color: #0082c9;

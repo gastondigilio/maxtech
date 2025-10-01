@@ -8,7 +8,7 @@ const Approach = () => {
         <>
             <div className="approach-container">
                 <div className="approach-background approach-background-desktop" style={{ 
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(${BackgroundImage})` 
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${BackgroundImage})` 
                 }}></div>
                 <div className="approach-background approach-background-mobile" style={{ 
                     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${MobileBackgroundImage})` 

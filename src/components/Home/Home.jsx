@@ -20,7 +20,7 @@ function Home() {
             setTimeout(() => {
                 const element = document.querySelector(scrollToSection);
                 if (element) {
-                    const navbarHeight = 80;
+                    const navbarHeight = 72;
                     const elementTop = element.offsetTop - navbarHeight;
                     
                     window.scrollTo({
@@ -35,11 +35,11 @@ function Home() {
     return (
         <div className="App">
             <Approach />
-            <div id="about-intro" style={{padding: '2rem', textAlign: 'left', backgroundColor: '#ffffff', marginTop: '10px'}}>
+            <div id="about-intro" style={{padding: '2rem', textAlign: 'center', backgroundColor: '#ffffff', marginTop: '10px'}}>
                 <h1 className="about-title" style={{fontSize: '41px', fontWeight: '600', color: '#000000', marginBottom: '2rem'}}>
                     Sobre Nosotros
                 </h1>
-                <p style={{fontSize: '15px', color: '#666666', maxWidth: '1000px', margin: '0', lineHeight: '1.6'}}>
+                <p style={{fontSize: '15px', color: '#666666', maxWidth: '1000px', margin: '0 auto', lineHeight: '1.6'}}>
                     Somos una empresa líder dedicada a la investigación, desarrollo y certificación de tecnología de vanguardia. 
                     Nuestro objetivo es transformar el sector a través de la eficiencia, seguridad y sostenibilidad, 
                     impulsando el crecimiento de nuestros clientes y el desarrollo responsable de la industria.
