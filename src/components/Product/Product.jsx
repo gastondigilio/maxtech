@@ -10,6 +10,7 @@ const Product = () => {
     const [selectedSubcategories, setSelectedSubcategories] = useState([]);
     const [expandedIndustry, setExpandedIndustry] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [showFilters, setShowFilters] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -88,10 +89,10 @@ const Product = () => {
             id: 2,
             name: "HORSE HM-500",
             category: "Horse",
-            type: "Anclajes químicos",
+            type: "Anclajes químicos inyectables",
             industry: "Construcción",
             image: "/images/products/horse/HM500.png",
-            description: "Anclajes adhesivos inyectables"
+            description: "HM-500 Epoxy Resin Achoring es un adhesivo de resina epoxi modificado de dos componentes, con tubo de plástico de alta calidad, paquete de doble cartucho. Se inyecta en los orificios con la pistola dispensadora, mezclando la parte A y la parte B de manera uniforme, para plantar barras de refuerzo."
         },
         {
             id: 3,
@@ -100,7 +101,7 @@ const Product = () => {
             type: "Aditivos para hormigón",
             industry: "Construcción",
             image: "/images/products/maxtech/macro1.png",
-            description: "Macrofibra de polipropileno virgen"
+            description: "100% virgen de polipropileno para refuerzo estructural de hormigón y morteros. Incrementa la impermeabilización."
         },
         {
             id: 4,
@@ -253,6 +254,19 @@ const Product = () => {
                      </div>
                  </div>
                  <div className="product-layout">
+                     {/* Ícono de filtros para móvil */}
+                     <div className="mobile-filters-icon">
+                        <button 
+                            className="filters-icon-btn"
+                            onClick={() => setShowFilters(true)}
+                        >
+                            <svg className="filters-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 4H21L15 12V19L9 21V12L3 4Z" stroke="#0082c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            <span className="filters-text">Filtros</span>
+                        </button>
+                     </div>
+                     
                      {/* Filtros laterales izquierdos */}
                      <div className="filters-sidebar">
                          {/* Filtros por industria */}
@@ -421,6 +435,152 @@ const Product = () => {
                 <Footer />
             </div>
             
+            {/* Modal de filtros móviles */}
+            {showFilters && (
+                <div className="filters-modal-overlay" onClick={() => setShowFilters(false)}>
+                    <div className="filters-modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="filters-modal-header">
+                            <button 
+                                className="filters-modal-close"
+                                onClick={() => setShowFilters(false)}
+                            >
+                                ✕
+                            </button>
+                        </div>
+                        
+                        <div className="filters-modal-content">
+                            {/* Filtros por industria */}
+                            <div className="filter-section">
+                                <h4 className="filter-section-title">Industria</h4>
+                                <div className="industry-filters">
+                                    {Object.entries(industries).map(([industry, subcategories]) => (
+                                        <div key={industry} className="industry-item">
+                                            {/* Botón principal de la industria */}
+                                            <div 
+                                                className={`filter-item industry-main ${selectedIndustry === industry ? 'active' : ''}`}
+                                                onClick={() => handleIndustryClick(industry)}
+                                            >
+                                                <div className="filter-content">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        checked={selectedIndustry === industry}
+                                                        onChange={() => handleIndustryClick(industry)}
+                                                        className="filter-checkbox"
+                                                    />
+                                                    <span className="filter-name">{industry}</span>
+                                                    {subcategories.length > 0 && (
+                                                        <button 
+                                                            className={`expand-btn ${expandedIndustry === industry ? 'expanded' : ''}`}
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                toggleIndustryExpansion(industry);
+                                                            }}
+                                                        >
+                                                            ▼
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </div>
+                                            
+                                            {/* Dropdown de subcategorías */}
+                                            {expandedIndustry === industry && (
+                                                <div className="subcategories-dropdown">
+                                                    {subcategories.map((subcategory) => (
+                                                        <div 
+                                                            key={subcategory}
+                                                            className={`filter-item subcategory-item ${selectedSubcategories.includes(subcategory) ? 'active' : ''}`}
+                                                            onClick={() => handleSubcategoryClick(subcategory)}
+                                                        >
+                                                            <div className="filter-content">
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    checked={selectedSubcategories.includes(subcategory)}
+                                                                    onChange={() => handleSubcategoryClick(subcategory)}
+                                                                    className="filter-checkbox"
+                                                                />
+                                                                <span className="filter-name">{subcategory}</span>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            {/* Filtros por marca */}
+                            <div className="filter-section">
+                                <h4 className="filter-section-title">Marca</h4>
+                                <div className="brand-filters">
+                                    <div 
+                                        className={`filter-item ${selectedBrand === 'Maxtech' ? 'active' : ''}`}
+                                        onClick={() => handleBrandClick('Maxtech')}
+                                    >
+                                        <div className="filter-content">
+                                            <input 
+                                                type="checkbox" 
+                                                checked={selectedBrand === 'Maxtech'}
+                                                onChange={() => handleBrandClick('Maxtech')}
+                                                className="filter-checkbox"
+                                            />
+                                            <span className="filter-name">Maxtech</span>
+                                        </div>
+                                    </div>
+                                    <div 
+                                        className={`filter-item ${selectedBrand === 'Horse' ? 'active' : ''}`}
+                                        onClick={() => handleBrandClick('Horse')}
+                                    >
+                                        <div className="filter-content">
+                                            <input 
+                                                type="checkbox" 
+                                                checked={selectedBrand === 'Horse'}
+                                                onChange={() => handleBrandClick('Horse')}
+                                                className="filter-checkbox"
+                                            />
+                                            <span className="filter-name">Horse</span>
+                                        </div>
+                                    </div>
+                                    <div 
+                                        className={`filter-item ${selectedBrand === 'Maxsil' ? 'active' : ''}`}
+                                        onClick={() => handleBrandClick('Maxsil')}
+                                    >
+                                        <div className="filter-content">
+                                            <input 
+                                                type="checkbox" 
+                                                checked={selectedBrand === 'Maxsil'}
+                                                onChange={() => handleBrandClick('Maxsil')}
+                                                className="filter-checkbox"
+                                            />
+                                            <span className="filter-name">Maxsil</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="filters-modal-footer">
+                            <button 
+                                className="clear-filters-btn"
+                                onClick={() => {
+                                    setSelectedIndustry(null);
+                                    setSelectedSubcategories([]);
+                                    setSelectedBrand(null);
+                                }}
+                            >
+                                Limpiar filtros
+                            </button>
+                            <button 
+                                className="apply-filters-btn"
+                                onClick={() => setShowFilters(false)}
+                            >
+                                Aplicar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Botón de WhatsApp flotante */}
             <button
                 className="whatsapp-button"
