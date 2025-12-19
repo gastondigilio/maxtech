@@ -242,39 +242,38 @@ const ProductDetail = () => {
                                 }
                             </p>
 
-                            <button 
-                                className="download-docs-button"
-                                onClick={() => {
-                                    if (product.documents?.HDT) {
-                                        const link = document.createElement('a');
-                                        link.href = product.documents.HDT;
-                                        link.download = product.documents.HDT.split('/').pop();
-                                        document.body.appendChild(link);
-                                        link.click();
-                                        document.body.removeChild(link);
-                                    }
-                                    if (product.documents?.HDS) {
-                                        const link = document.createElement('a');
-                                        link.href = product.documents.HDS;
-                                        link.download = product.documents.HDS.split('/').pop();
-                                        document.body.appendChild(link);
-                                        link.click();
-                                        document.body.removeChild(link);
-                                    }
-                                }}
-                            >
-                                <div className="pdf-download-icon">
-                                    <span className="pdf-icon">
-                                        <span className="pdf-text">PDF</span>
-                                    </span>
-                                    <span>Descargar Documentos</span>
-                                    <svg className="download-arrow" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                        <polyline points="7,10 12,15 17,10"/>
-                                        <line x1="12" y1="15" x2="12" y2="3"/>
-                                    </svg>
-                                </div>
-                            </button>
+                            <div className="download-docs-container">
+                                {product.documents?.HDT && (
+                                    <button 
+                                        className="download-docs-button"
+                                        onClick={() => {
+                                            const link = document.createElement('a');
+                                            link.href = product.documents.HDT;
+                                            link.download = product.documents.HDT.split('/').pop();
+                                            document.body.appendChild(link);
+                                            link.click();
+                                            document.body.removeChild(link);
+                                        }}
+                                    >
+                                        <span>Ficha Técnica</span>
+                                    </button>
+                                )}
+                                {product.documents?.HDS && (
+                                    <button 
+                                        className="download-docs-button download-docs-button-secondary"
+                                        onClick={() => {
+                                            const link = document.createElement('a');
+                                            link.href = product.documents.HDS;
+                                            link.download = product.documents.HDS.split('/').pop();
+                                            document.body.appendChild(link);
+                                            link.click();
+                                            document.body.removeChild(link);
+                                        }}
+                                    >
+                                        <span>Hoja de Seguridad</span>
+                                    </button>
+                                )}
+                            </div>
                         </div>
                     </div>
 

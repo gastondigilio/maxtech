@@ -83,6 +83,11 @@ const Product = () => {
         return mockProducts.filter(product => product.type === subcategory).length;
     };
 
+    // Función para contar productos por marca
+    const getBrandProductCount = (brand) => {
+        return mockProducts.filter(product => product.category === brand).length;
+    };
+
     // Productos reales de las marcas Maxtech y Horse
     const mockProducts = [
         {
@@ -331,57 +336,72 @@ const Product = () => {
                              </div>
                          </div>
                          
-                         {/* Filtros por marca */}
-                         <div className="filter-section">
-                             <h4 className="filter-section-title">Marca</h4>
-                             <div className="brand-filters">
-                                 <div 
-                                     className={`filter-item ${selectedBrand === 'Maxtech' ? 'active' : ''}`}
-                                     onClick={() => handleBrandClick('Maxtech')}
-                                 >
-                                     <div className="filter-content">
-                                         <input 
-                                             type="checkbox" 
-                                             checked={selectedBrand === 'Maxtech'}
-                                             onChange={() => handleBrandClick('Maxtech')}
-                                             className="filter-checkbox"
-                                         />
-                                         <span className="filter-name">Maxtech</span>
-                                         <span className="product-count">(7)</span>
-                                     </div>
-                                 </div>
-                                 <div 
-                                     className={`filter-item ${selectedBrand === 'Horse' ? 'active' : ''}`}
-                                     onClick={() => handleBrandClick('Horse')}
-                                 >
-                                     <div className="filter-content">
-                                         <input 
-                                             type="checkbox" 
-                                             checked={selectedBrand === 'Horse'}
-                                             onChange={() => handleBrandClick('Horse')}
-                                             className="filter-checkbox"
-                                         />
-                                         <span className="filter-name">Horse</span>
-                                         <span className="product-count">(1)</span>
-                                     </div>
-                                 </div>
-                                 <div 
-                                     className={`filter-item ${selectedBrand === 'Maxsil' ? 'active' : ''}`}
-                                     onClick={() => handleBrandClick('Maxsil')}
-                                 >
-                                     <div className="filter-content">
-                                         <input 
-                                             type="checkbox" 
-                                             checked={selectedBrand === 'Maxsil'}
-                                             onChange={() => handleBrandClick('Maxsil')}
-                                             className="filter-checkbox"
-                                         />
-                                         <span className="filter-name">Maxsil</span>
-                                         <span className="product-count">(1)</span>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
+                        {/* Filtros por marca */}
+                        <div className="filter-section">
+                            <h4 className="filter-section-title">Marca</h4>
+                            <div className="brand-filters">
+                                <div 
+                                    className={`filter-item ${selectedBrand === 'Maxtech' ? 'active' : ''}`}
+                                    onClick={() => handleBrandClick('Maxtech')}
+                                >
+                                    <div className="filter-content">
+                                        <input 
+                                            type="checkbox" 
+                                            checked={selectedBrand === 'Maxtech'}
+                                            onChange={() => handleBrandClick('Maxtech')}
+                                            className="filter-checkbox"
+                                        />
+                                        <span className="filter-name">Maxtech</span>
+                                        <span className="product-count">({getBrandProductCount('Maxtech')})</span>
+                                    </div>
+                                </div>
+                                <div 
+                                    className={`filter-item ${selectedBrand === 'Horse' ? 'active' : ''}`}
+                                    onClick={() => handleBrandClick('Horse')}
+                                >
+                                    <div className="filter-content">
+                                        <input 
+                                            type="checkbox" 
+                                            checked={selectedBrand === 'Horse'}
+                                            onChange={() => handleBrandClick('Horse')}
+                                            className="filter-checkbox"
+                                        />
+                                        <span className="filter-name">Horse</span>
+                                        <span className="product-count">({getBrandProductCount('Horse')})</span>
+                                    </div>
+                                </div>
+                                <div 
+                                    className={`filter-item ${selectedBrand === 'Maxtech Profesional' ? 'active' : ''}`}
+                                    onClick={() => handleBrandClick('Maxtech Profesional')}
+                                >
+                                    <div className="filter-content">
+                                        <input 
+                                            type="checkbox" 
+                                            checked={selectedBrand === 'Maxtech Profesional'}
+                                            onChange={() => handleBrandClick('Maxtech Profesional')}
+                                            className="filter-checkbox"
+                                        />
+                                        <span className="filter-name">Maxtech Profesional</span>
+                                        <span className="product-count">({getBrandProductCount('Maxtech Profesional')})</span>
+                                    </div>
+                                </div>
+                                <div 
+                                    className={`filter-item ${selectedBrand === 'Silande' ? 'active' : ''}`}
+                                    onClick={() => handleBrandClick('Silande')}
+                                >
+                                    <div className="filter-content">
+                                        <input 
+                                            type="checkbox" 
+                                            checked={selectedBrand === 'Silande'}
+                                            onChange={() => handleBrandClick('Silande')}
+                                            className="filter-checkbox"
+                                        />
+                                        <span className="filter-name">Silande</span>
+                                        <span className="product-count">({getBrandProductCount('Silande')})</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                      </div>
 
                                                                     {/* Contenido principal de productos */}
@@ -525,6 +545,7 @@ const Product = () => {
                                                 className="filter-checkbox"
                                             />
                                             <span className="filter-name">Maxtech</span>
+                                            <span className="product-count">({getBrandProductCount('Maxtech')})</span>
                                         </div>
                                     </div>
                                     <div 
@@ -539,20 +560,37 @@ const Product = () => {
                                                 className="filter-checkbox"
                                             />
                                             <span className="filter-name">Horse</span>
+                                            <span className="product-count">({getBrandProductCount('Horse')})</span>
                                         </div>
                                     </div>
                                     <div 
-                                        className={`filter-item ${selectedBrand === 'Maxsil' ? 'active' : ''}`}
-                                        onClick={() => handleBrandClick('Maxsil')}
+                                        className={`filter-item ${selectedBrand === 'Maxtech Profesional' ? 'active' : ''}`}
+                                        onClick={() => handleBrandClick('Maxtech Profesional')}
                                     >
                                         <div className="filter-content">
                                             <input 
                                                 type="checkbox" 
-                                                checked={selectedBrand === 'Maxsil'}
-                                                onChange={() => handleBrandClick('Maxsil')}
+                                                checked={selectedBrand === 'Maxtech Profesional'}
+                                                onChange={() => handleBrandClick('Maxtech Profesional')}
                                                 className="filter-checkbox"
                                             />
-                                            <span className="filter-name">Maxsil</span>
+                                            <span className="filter-name">Maxtech Profesional</span>
+                                            <span className="product-count">({getBrandProductCount('Maxtech Profesional')})</span>
+                                        </div>
+                                    </div>
+                                    <div 
+                                        className={`filter-item ${selectedBrand === 'Silande' ? 'active' : ''}`}
+                                        onClick={() => handleBrandClick('Silande')}
+                                    >
+                                        <div className="filter-content">
+                                            <input 
+                                                type="checkbox" 
+                                                checked={selectedBrand === 'Silande'}
+                                                onChange={() => handleBrandClick('Silande')}
+                                                className="filter-checkbox"
+                                            />
+                                            <span className="filter-name">Silande</span>
+                                            <span className="product-count">({getBrandProductCount('Silande')})</span>
                                         </div>
                                     </div>
                                 </div>

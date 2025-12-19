@@ -422,25 +422,125 @@ footer .footer-logo .footer-logo-img {
 }
 
 @media screen and (max-width: 768px) {
+    .footer {
+        width: 100%;
+        overflow-x: hidden;
+        padding: 2rem 0 0 0;
+    }
+    
     .footer-content {
+        display: grid !important;
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 1rem;
+        gap: 2rem;
+        padding: 0 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        max-width: 100% !important;
+    }
+    
+    /* Resetear todos los estilos de flex y anchos fijos en mobile */
+    .footer-content > * {
+        flex: none !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    
+    .footer-content > *:nth-child(1),
+    .footer-content > *:nth-child(2),
+    .footer-content > *:nth-child(3),
+    .footer-content > *:nth-child(4) {
+        flex: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .footer-section {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo-img {
+        width: 120px !important;
+    }
+    
+    .footer-flags {
+        justify-content: center;
+        gap: 2rem;
+        margin: 1.5rem 0;
+    }
+    
+    .footer-section h4 {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+    
+    .footer-section ul {
+        text-align: center;
+        padding: 0;
+    }
+    
+    .footer-section ul li {
+        text-align: center;
+        margin-bottom: 0.75rem;
+    }
+    
+    .footer-section ul li a {
+        text-align: center;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+    
+    .contact-info p {
+        justify-content: center;
+        text-align: center;
+        padding-left: 0;
+        margin-left: 0;
+    }
+    
+    .contact-info p i {
+        position: relative;
+        left: auto;
+        transform: none;
+    }
+    
+    .contact-info p span {
+        margin-left: 0.5rem;
+    }
+    
+    .footer-bottom {
+        width: 100%;
+        overflow-x: hidden;
+        margin-top: 1.5rem;
+        padding: 1.5rem 0;
     }
     
     .footer-bottom-content {
         flex-direction: column;
         text-align: center;
-        padding: 0 1rem;
+        padding: 0 1.5rem;
+        max-width: 100%;
     }
     
     .footer-bottom-links {
         justify-content: center;
+        flex-wrap: wrap;
     }
     
     /* Tamaño de fuente para Powered by AgaruCorp en móvil */
     .footer-bottom p {
-        font-size: 10px !important;
+        font-size: 0.75rem !important;
+        word-wrap: break-word;
     }
     
     /* Mostrar contacto móvil solo en móvil */
@@ -475,5 +575,10 @@ footer .footer-logo .footer-logo-img {
     .footer-mobile-contact .contact-link:hover {
         color: #0082c9;
         text-decoration: underline;
+    }
+    
+    /* Ocultar sección de contacto en mobile ya que está en footer-mobile-contact */
+    .footer-section:nth-child(3) {
+        display: none;
     }
 }

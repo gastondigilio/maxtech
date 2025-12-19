@@ -1,0 +1,36 @@
+{
+  "files.associations": {
+    "*.pdf": "pdf"
+  },
+  "workbench.editorAssociations": {
+    "*.pdf": "default"
+  },
+  "files.exclude": {
+    "**/*.pdf": false
+  },
+  "[pdf]": {
+    "editor.defaultFormatter": null
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash",
+      "icon": "terminal-bash"
+    }
+  },
+  "terminal.integrated.automationProfile.windows": {
+    "path": "powershell.exe"
+  }
+}
+

@@ -1,0 +1,3 @@
+# Mark PDF files as binary
+*.pdf binary
+
