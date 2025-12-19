@@ -755,3 +755,31 @@
 .product-detail-container {
     position: relative;
 }
+
+/* Botón de WhatsApp flotante */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.whatsapp-button img {
+    width: 51.975px;
+    height: 51.975px;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover img {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .whatsapp-button img {
+        width: 52.5px !important;
+        height: 52.5px !important;
+    }
+}

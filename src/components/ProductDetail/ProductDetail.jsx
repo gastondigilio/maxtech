@@ -333,6 +333,14 @@ const ProductDetail = () => {
             </div>
             
             <Footer />
+            
+            {/* Botón de WhatsApp flotante */}
+            <button
+                className="whatsapp-button"
+                onClick={() => window.open("https://wa.me/+5491151489606", "_blank")}
+            >
+                <img src="/images/ui/WhatsApp.png" alt="WhatsApp" />
+            </button>
         </>
     );
 };
