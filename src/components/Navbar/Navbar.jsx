@@ -164,14 +164,14 @@ function Navbar({ variant = 'home' }) {
     const getNavLinks = () => {
         if (variant === 'product') {
             return [
-                { href: "/#about-intro", text: "Sobre nosotros", id: "about" },
+                { href: "/#about-intro", text: "Nosotros", id: "about" },
                 { href: "/productos", text: "Productos", id: "productos" },
                 { href: "#contact", text: "Contacto", id: "contact" }
             ];
         }
         // Variante por defecto (home)
         return [
-            { href: "#about-intro", text: "Sobre nosotros", id: "about" },
+            { href: "#about-intro", text: "Nosotros", id: "about" },
             { href: "/productos", text: "Productos", id: "productos" },
             { href: "#contact", text: "Contacto", id: "contact" }
         ];

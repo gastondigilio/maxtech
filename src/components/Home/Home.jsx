@@ -35,156 +35,81 @@ function Home() {
     return (
         <div className="App">
             <Approach />
-            <div id="about-intro" style={{padding: '2rem', textAlign: 'center', backgroundColor: '#ffffff', marginTop: '10px'}}>
-                <h1 className="about-title" style={{fontSize: '41px', fontWeight: '600', color: '#000000', marginBottom: '2rem'}}>
-                    Sobre Nosotros
-                </h1>
-                <p style={{fontSize: '15px', color: '#666666', maxWidth: '1000px', margin: '0 auto', lineHeight: '1.6'}}>
+            <section id="about-intro" className="about-intro">
+                <h1 className="about-title">Nosotros</h1>
+                <p className="about-intro-text">
                     Somos una empresa líder dedicada a la investigación, desarrollo y certificación de tecnología de vanguardia. 
                     Nuestro objetivo es transformar el sector a través de la eficiencia, seguridad y sostenibilidad, 
                     impulsando el crecimiento de nuestros clientes y el desarrollo responsable de la industria.
                 </p>
-            </div>
+            </section>
             
-            {/* Sección consolidada About */}
-            <div id="about" style={{
-                padding: '2rem 2rem',
-                backgroundColor: '#ffffff',
-                display: 'flex',
-                gap: '3rem',
-                maxWidth: '1200px',
-                margin: '0.5rem auto 0 auto',
-                alignItems: 'flex-start'
-            }}>
-                {/* Columna izquierda */}
-                <div style={{
-                    flex: '1',
-                    textAlign: 'left'
-                }}>
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        marginBottom: '2rem'
-                    }}>
-                        <div style={{
-                            width: '16px',
-                            height: '150px',
-                            backgroundColor: '#0082c9',
-                            marginRight: '1rem'
-                        }}></div>
-                        <h2 style={{
-                            fontSize: '32px',
-                            fontWeight: '700',
-                            color: '#000000',
-                            margin: '0'
-                        }}>
-                            Nuestro compromiso, misión y objetivos
-                        </h2>
+            <section id="about" className="commitment-section">
+                <div className="commitment-left">
+                    <div className="commitment-heading">
+                        <span className="commitment-accent" aria-hidden="true"></span>
+                        <h2>Nuestro compromiso, misión y objetivos</h2>
                     </div>
                     
-                    <div style={{
-                        position: 'relative',
-                        marginBottom: '2rem'
-                    }}>
+                    <div className="commitment-main-image">
                         <img 
                             src="/TECNOLOGIA1.png" 
                             alt="Tecnología Maxtech" 
-                            style={{
-                                width: '100%',
-                                height: '300px',
-                                objectFit: 'cover',
-                                borderRadius: '4px'
-                            }}
                         />
-
                     </div>
                 </div>
                 
-                {/* Columna derecha */}
-                <div style={{
-                    flex: '1',
-                    textAlign: 'left'
-                }}>
-                    {/* Imágenes superiores */}
-                    <div style={{
-                        display: 'flex',
-                        gap: '1rem',
-                        marginBottom: '2rem'
-                    }}>
+                <div className="commitment-right">
+                    <div className="commitment-side-images">
                         <img 
                             src="/rec35.png" 
                             alt="Recurso 35" 
-                            style={{
-                                width: '48%',
-                                height: '150px',
-                                objectFit: 'cover',
-                                borderRadius: '4px'
-                            }}
                         />
                         <img 
                             src="/rec36.png" 
                             alt="Recurso 36" 
-                            style={{
-                                width: '48%',
-                                height: '150px',
-                                objectFit: 'cover',
-                                borderRadius: '4px'
-                            }}
                         />
                     </div>
                     
-                    {/* Textos */}
-                    <p style={{
-                        fontSize: '18px',
-                        color: '#666666',
-                        lineHeight: '1.6',
-                        marginBottom: '1.5rem'
-                    }}>
+                    <p>
                         Ser reconocidos como líderes en la investigación, desarrollo y certificación de tecnología de punta de todo el mundo. 
                         A través de alianzas estratégicas y un enfoque centrado en el cliente, buscamos contribuir al crecimiento de nuestros clientes 
                         y al desarrollo responsable de la industria.
                     </p>
                     
-                    <p style={{
-                        fontSize: '18px',
-                        color: '#666666',
-                        lineHeight: '1.6',
-                        marginBottom: '2rem'
-                    }}>
+                    <p>
                         Nos comprometemos a ofrecer soluciones impulsando la innovación y la sostenibilidad que transformen el sector, 
                         mejorando la eficiencia y seguridad en los procesos constructivos y productivos.
                     </p>
-                    
-
                 </div>
-            </div>
+            </section>
             
             <About />
             
             {/* Sección de Marcas */}
-            <div id="marcas" className="brands-section">
+            <section id="marcas" className="brands-section">
                 <h3 className="brands-title">Fábricas Representadas</h3>
-                <div className="brands-container">
-                    <div className="brand-item">
-                        <a href="https://es.horseen.com/" target="_blank" rel="noopener noreferrer" className="brand-link">
-                            <img 
-                                src="/horse.png" 
-                                alt="Horse" 
-                                className="brand-logo"
+                <div className="brands-grid">
+                    <div className="brand-tile">
+                        <a href="https://es.horseen.com/" target="_blank" rel="noopener noreferrer" className="brand-tile-link" aria-label="Horse">
+                            <img
+                                src="/horse.png"
+                                alt="Horse"
+                                className="brand-tile-logo"
                             />
                         </a>
                     </div>
-                    <div className="brand-item">
-                        <a href="https://silandeargentina.com/" target="_blank" rel="noopener noreferrer" className="brand-link">
-                            <img 
-                                src="/logosilande.png" 
-                                alt="Logo Silande" 
-                                className="brand-logo"
+                    <div className="brand-tile">
+                        <a href="https://silandeargentina.com/" target="_blank" rel="noopener noreferrer" className="brand-tile-link" aria-label="Silande">
+                            <img
+                                src="/logosilande.png"
+                                alt="Silande"
+                                className="brand-tile-logo"
                             />
                         </a>
                     </div>
                 </div>
-            </div>
+            </section>
             
             {/* <Product/> */}
             <Contact />

@@ -97,7 +97,7 @@ const Footer = () => {
             
             <div className="footer-bottom">
                 <div className="footer-bottom-content">
-                    <p><a href="https://www.agarucorp.com" target="_blank" rel="noopener noreferrer" className="footer-copyright-link">&copy; Powered by AgaruCorp</a></p>
+                    <p><a href="https://www.agarucorp.com" target="_blank" rel="noopener noreferrer" className="footer-copyright-link">&copy; Powered by AGARUCORP</a></p>
                 </div>
             </div>
             
