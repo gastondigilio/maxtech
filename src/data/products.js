@@ -119,6 +119,43 @@ export const products = [
         }
     },
     {
+        id: 3,
+        name: "MACROFIBRA MAXFIBER 50",
+        category: "Maxtech",
+        type: "Aditivos para hormigón",
+        industry: "Construcción",
+        image: "/images/products/maxtech/macro1.png",
+        secondaryImages: [
+            "/images/products/maxtech/Group 4.png",
+            "/images/products/maxtech/macro2.png"
+        ],
+        description: "Macrofibra de polipropileno virgen",
+        specs: ["Refuerzo estructural", "Hormigón y morteros"],
+        intro: "100% virgen de polipropileno para refuerzo estructural de hormigón y morteros. Incrementa la impermeabilización.",
+        longDescription: "",
+        safetyInfo: "",
+        documents: {
+            HDS: "/documents/products/maxtech/macrofiber-50/HOJA DE DATOS DE SEGURIDAD MICRO FIBRA MAXTECH.pdf"
+        }
+    },
+    {
+        id: 4,
+        name: "MICROFIBRA MAXFIBER 19",
+        category: "Maxtech",
+        type: "Aditivos para hormigón",
+        industry: "Construcción",
+        image: "/images/products/maxtech/microfibra1.png",
+        description: "Microfibra de polipropileno virgen",
+        specs: ["Antifisuras", "0,6–1,8 kg/m³"],
+        intro: "Microfibra de polipropileno 100% virgen refuerzo anti grietas y fisuras. Incrementa la impermeabilización.",
+        longDescription: "Antifisuras: Mejora la resistencia al agrietamiento de las grietas no estructurales en la fase plástica del hormigón.\nImpermeabilidad: Mejora la impermeabilidad y es un material autoimpermeable rígido eficaz.\nEl rango de dosificación es de 0,6 a 1,8 kg/m3 y la resistencia al agrietamiento y a las filtraciones del hormigón suele ser de 0,9 kg/m3.",
+        safetyInfo: "",
+        documents: {
+            HDT: "/documents/products/maxtech/microfiber-19/HDT MICRO FIBRA DE POLIPROPILENO.pdf",
+            HDS: "/documents/products/maxtech/microfiber-19/HOJA DE DATOS DE SEGURIDAD MICRO FIBRA MAXTECH.pdf"
+        }
+    },
+    {
         id: 11,
         name: "SILANDE MF910H",
         category: "Silande",
@@ -167,43 +204,6 @@ export const products = [
         image: "/images/products/silande/MF889.png",
         description: "Sellador de silicona climático",
         externalUrl: "https://silandeargentina.com/productos/15"
-    },
-    {
-        id: 3,
-        name: "MACROFIBRA MAXFIBER 50",
-        category: "Maxtech",
-        type: "Aditivos para hormigón",
-        industry: "Construcción",
-        image: "/images/products/maxtech/macro1.png",
-        secondaryImages: [
-            "/images/products/maxtech/Group 4.png",
-            "/images/products/maxtech/macro2.png"
-        ],
-        description: "Macrofibra de polipropileno virgen",
-        specs: ["Refuerzo estructural", "Hormigón y morteros"],
-        intro: "100% virgen de polipropileno para refuerzo estructural de hormigón y morteros. Incrementa la impermeabilización.",
-        longDescription: "",
-        safetyInfo: "",
-        documents: {
-            HDS: "/documents/products/maxtech/macrofiber-50/HOJA DE DATOS DE SEGURIDAD MICRO FIBRA MAXTECH.pdf"
-        }
-    },
-    {
-        id: 4,
-        name: "MICROFIBRA MAXFIBER 19",
-        category: "Maxtech",
-        type: "Aditivos para hormigón",
-        industry: "Construcción",
-        image: "/images/products/maxtech/microfibra1.png",
-        description: "Microfibra de polipropileno virgen",
-        specs: ["Antifisuras", "0,6–1,8 kg/m³"],
-        intro: "Microfibra de polipropileno 100% virgen refuerzo anti grietas y fisuras. Incrementa la impermeabilización.",
-        longDescription: "Antifisuras: Mejora la resistencia al agrietamiento de las grietas no estructurales en la fase plástica del hormigón.\nImpermeabilidad: Mejora la impermeabilidad y es un material autoimpermeable rígido eficaz.\nEl rango de dosificación es de 0,6 a 1,8 kg/m3 y la resistencia al agrietamiento y a las filtraciones del hormigón suele ser de 0,9 kg/m3.",
-        safetyInfo: "",
-        documents: {
-            HDT: "/documents/products/maxtech/microfiber-19/HDT MICRO FIBRA DE POLIPROPILENO.pdf",
-            HDS: "/documents/products/maxtech/microfiber-19/HOJA DE DATOS DE SEGURIDAD MICRO FIBRA MAXTECH.pdf"
-        }
     }
 ];
 
