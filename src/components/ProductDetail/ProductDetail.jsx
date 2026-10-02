@@ -88,6 +88,21 @@ const ProductDetail = () => {
                 HDT: "/documents/products/maxtech/jm500l/HDT JM 500 MAXTECH.pdf"
             }
         },
+        {
+            id: 16,
+            name: "SELLADOR HÍBRIDO CRISTAL",
+            category: "Maxtech Profesional",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/sellador-hibrido-cristal.jpg",
+            description: "Adhesivo-sellador de polímero híbrido (MS), 100% transparente. Ofrece una excepcional resistencia de unión sobre casi todos los materiales de construcción, adhiere sobre superficies húmedas y es libre de silicona y disolventes. Para uniones de alta exigencia en construcción, industria, náutica y automoción.",
+            longDescription: "PROPIEDADES\n• Endurecimiento rápido\n• Cristal transparente\n• Excelentes propiedades mecánicas\n• Aplicación universal, multimaterial\n• Alta resistencia adhesiva, sella como la silicona\n• También adhiere sobre superficies húmedas\n• Inodoro\n• Baja contracción\n• Libre de silicona y disolventes\n• Pintable (no apto para pinturas de resina alquídica; realizar ensayos de compatibilidad)\n\nAPLICACIONES\n• Unión y sellado en construcción y metalúrgica: zócalos, paneles de yeso, terracota, madera, metales\n• Superficies de vidrio, piedra natural, mármol y granito\n• Unión elástica de alta resistencia: plásticos, hormigón, ladrillo, revoque, cerámica, hormigón celular, fibrocemento, HPL, ABS, corcho, esmalte\n• Al unir PC/PMMA o dos materiales no absorbentes, verificar compatibilidad previa (al menos un sustrato debe ser absorbente)\n\nESPECIFICACIONES\n• Base: polímero híbrido (MS)\n• Consistencia: pasta tixotrópica\n• Sistema de curado: por humedad\n• Formación de piel (23 °C, 50% HR): 5–30 min\n• Velocidad de curado (23 °C, 50% HR): mín. 2,5 mm / 24 h\n• Dureza (Shore A, ISO 868): 55\n• Densidad: 1,05 g/ml\n• Resistencia a la temperatura: −40 °C a +90 °C\n• Temperatura de aplicación: +5 °C a +25 °C\n• Color: cristal transparente\n• Presentación: cartucho de 280 ml\n\nLIMITACIONES\n• No apto para unión sobre PE, PP, PVC, neopreno, PTFE ni sustratos bituminosos\n• No apto para aplicaciones bajo agua, cargas húmedas permanentes ni acuarios\n• No usar como adhesivo en sistemas de acristalamiento estructural\n• Sin protección UV: en exteriores debe quedar confinado, ya que puede amarillear con la exposición prolongada al sol\n\nRECOMENDACIONES DE USO\n• Las superficies deben estar secas, limpias y libres de polvo, grasa y partículas sueltas; al menos una debe ser porosa\n• No aplicar sobre materiales que estén curando o fraguando\n• Las fijaciones temporales en piezas pesadas pueden retirarse dentro de las 24 horas\n• Probar en condiciones reales de aplicación antes del uso definitivo",
+            safetyInfo: "SEGURIDAD\n\nClasificación GHS: irritación cutánea cat. 2 (H315) e irritación ocular grave cat. 2 (H319). Palabra de advertencia: Atención.\n\nPrimeros auxilios:\n• Inhalación: llevar a la persona al aire libre y mantenerla en una posición cómoda para respirar.\n• Contacto con la piel: lavar con abundante agua.\n• Contacto con los ojos: enjuagar con abundante agua corriente durante al menos 10–15 minutos. Retirar los lentes de contacto si es fácil hacerlo. Consultar a un médico si la irritación persiste.\n• Ingestión: llamar a un centro de toxicología o a un médico si la persona se siente mal.\n\nProtección personal: guantes de protección, gafas de seguridad y ropa adecuada. Asegurar buena ventilación; si es insuficiente, usar protección respiratoria. No comer, beber ni fumar durante el uso y lavarse las manos después de manipular el producto.\n\nEmergencias: Centro Nacional de Intoxicaciones 0800 333 0160.\n\nTRANSPORTE Y ALMACENAMIENTO\n\nNo clasificado como mercancía peligrosa (ADR / RID / IMDG / IATA). Almacenar en lugar fresco y seco, entre +5 °C y +25 °C. Vida útil: 12 meses en envase original cerrado.",
+            documents: {
+                HDT: "/documents/products/maxtech/sellador-hibrido-cristal/HDT_Sellador-Hibrido-Cristal.pdf",
+                HDS: "/documents/products/maxtech/sellador-hibrido-cristal/HDS_Sellador-Hibrido-Cristal.pdf"
+            }
+        },
     ];
 
     // Buscar el producto por ID
@@ -238,7 +253,7 @@ const ProductDetail = () => {
                                     ? "Aplicador neumático profesional para adhesivos, selladores, pastas y mastiques"
                                     : product.id === 9
                                     ? "Aplicador manual profesional para adhesivos, selladores, pastas y mastiques"
-                                    : "Descripción del producto disponible en la sección de detalles."
+                                    : product.description || "Descripción del producto disponible en la sección de detalles."
                                 }
                             </p>
 
@@ -304,6 +319,8 @@ const ProductDetail = () => {
                                             .replace(/APLICACIONES/g, '<strong>APLICACIONES</strong>')
                                             .replace(/CARACTERÍSTICAS/g, '<strong>CARACTERÍSTICAS</strong>')
                                             .replace(/ESPECIFICACIONES/g, '<strong>ESPECIFICACIONES</strong>')
+                                            .replace(/LIMITACIONES/g, '<strong>LIMITACIONES</strong>')
+                                            .replace(/RECOMENDACIONES DE USO/g, '<strong>RECOMENDACIONES DE USO</strong>')
                                             .replace(/\n\n/g, '</p><p>')
                                             .replace(/\n/g, '<br>')
                                             .replace(/^(.*)$/, '<p>$1</p>')

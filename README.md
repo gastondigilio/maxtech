@@ -1,3 +1,15 @@
+# MAXTECH web
+
+## Agregar un producto al catálogo
+
+1. Foto en `public/images/products/<marca>/<slug-del-producto>.jpg` (o `.png`).
+2. Documentos en `public/documents/products/<marca>/<slug-del-producto>/`, con este nombre:
+   - Ficha técnica: `HDT_<Nombre-Del-Producto>.pdf`
+   - Hoja de seguridad: `HDS_<Nombre-Del-Producto>.pdf`
+
+   Sin acentos ni espacios, palabras separadas por guiones. Ejemplo: `HDT_Sellador-Hibrido-Cristal.pdf` y `HDS_Sellador-Hibrido-Cristal.pdf`.
+3. Cargar el producto en `src/components/Product/Product.jsx` (listado) y en `src/components/ProductDetail/ProductDetail.jsx` (detalle, con `documents: { HDT, HDS }`). Los botones "Ficha Técnica" y "Hoja de Seguridad" aparecen solos cuando el documento está cargado.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

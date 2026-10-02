@@ -136,6 +136,15 @@ const Product = () => {
             description: "Pistola aplicadora manual"
         },
         {
+            id: 16,
+            name: "SELLADOR HÍBRIDO CRISTAL",
+            category: "Maxtech Profesional",
+            type: "Adhesivos y selladores",
+            industry: "Construcción",
+            image: "/images/products/maxtech/sellador-hibrido-cristal.jpg",
+            description: "Adhesivo-sellador híbrido MS transparente"
+        },
+        {
             id: 11,
             name: "SILANDE MF910H",
             category: "Silande",
