@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
+import { products, matchesSearch } from '../../data/products';
 
 function Navbar({ variant = 'home' }) {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -10,20 +11,6 @@ function Navbar({ variant = 'home' }) {
     const [showResults, setShowResults] = useState(false);
     const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
     const navigate = useNavigate();
-
-    // Base de datos de productos para búsqueda
-    const products = [
-        { id: 2, name: "HORSE HM-500", description: "Anclajes adhesivos inyectables" },
-        { id: 3, name: "MACROFIBRA MAXFIBER 50", description: "Macrofibra de polipropileno virgen" },
-        { id: 4, name: "MICROFIBRA MAXFIBER 19", description: "Microfibra de polipropileno virgen" },
-        { id: 6, name: "MAXTECH JM702", description: "Pistola aplicadora neumática" },
-        { id: 9, name: "MAXTECH JM500L", description: "Pistola aplicadora manual" },
-        { id: 11, name: "SILANDE MF910H", description: "Sellador de butilo 2da barrera", externalUrl: "https://silandeargentina.com/productos/2" },
-        { id: 12, name: "SILANDE MF910G", description: "Sellador de butilo 1ra barrera", externalUrl: "https://silandeargentina.com/productos/3" },
-        { id: 13, name: "SILANDE MF910", description: "Sellador de butilo 1ra barrera", externalUrl: "https://silandeargentina.com/productos/4" },
-        { id: 14, name: "SILANDE MF899", description: "Sellador de silicona estructural", externalUrl: "https://silandeargentina.com/productos/8" },
-        { id: 15, name: "SILANDE MF889", description: "Sellador de silicona climático", externalUrl: "https://silandeargentina.com/productos/15" }
-    ];
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -43,10 +30,7 @@ function Navbar({ variant = 'home' }) {
         setSearchTerm(value);
         
         if (value.trim().length > 0) {
-            const filtered = products.filter(product => 
-                product.name.toLowerCase().includes(value.toLowerCase()) ||
-                product.description.toLowerCase().includes(value.toLowerCase())
-            );
+            const filtered = products.filter(product => matchesSearch(product, value));
             setSearchResults(filtered);
             setShowResults(true);
         } else {

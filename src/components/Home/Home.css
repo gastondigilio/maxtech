@@ -148,7 +148,7 @@
     font-size: 26px;
     font-weight: 600;
     margin: 0 0 2.5rem;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-heading);
     letter-spacing: -0.01em;
 }
 

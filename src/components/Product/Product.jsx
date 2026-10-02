@@ -2,7 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Product.css';
 import Footer from '../Footer/Footer';
+import { products, industries, brands, matchesSearch } from '../../data/products';
 
+
+// Cantidades fijas por opción de filtro
+const countBy = (field, value) => products.filter(product => product[field] === value).length;
+
+// Industria a la que pertenece cada subcategoría
+const subcategoryIndustry = Object.entries(industries).reduce((acc, [industry, subcategories]) => {
+    subcategories.forEach(subcategory => { acc[subcategory] = industry; });
+    return acc;
+}, {});
+
+const DocIcon = () => (
+    <svg className="product-docs-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <path d="M14 2v6h6M8 13h8M8 17h5" />
+    </svg>
+);
+
+// Opción de filtro: el <label> hace que todo el renglón active el checkbox una sola vez
+const FilterOption = ({ label, count, checked, onChange, className = '', children }) => (
+    <div className={`filter-item ${className} ${checked ? 'active' : ''}`}>
+        <label className="filter-content">
+            <input
+                type="checkbox"
+                checked={checked}
+                onChange={onChange}
+                className="filter-checkbox"
+            />
+            <span className="filter-name">{label}</span>
+            <span className="product-count">{count}</span>
+        </label>
+        {children}
+    </div>
+);
 
 const Product = () => {
     const [selectedBrand, setSelectedBrand] = useState(null);
@@ -14,263 +48,216 @@ const Product = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Leer parámetro de búsqueda de la URL
+    // Leer filtros de la URL (buscador del menú y breadcrumb del detalle)
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search);
         const searchParam = urlParams.get('search');
+        const industryParam = urlParams.get('industry');
+        const subcategoryParam = urlParams.get('subcategory');
+        const brandParam = urlParams.get('brand');
+
         if (searchParam) {
             setSearchTerm(searchParam);
         }
+        if (industryParam && industries[industryParam]) {
+            setSelectedIndustry(industryParam);
+            setSelectedSubcategories(subcategoryParam ? [subcategoryParam] : []);
+            if (subcategoryParam) {
+                setExpandedIndustry(industryParam);
+            }
+        }
+        if (brandParam && brands.includes(brandParam)) {
+            setSelectedBrand(brandParam);
+        }
     }, [location.search]);
 
-    // Estructura de industrias con sus subcategorías
-    const industries = {
-        'Construcción': ['Anclajes químicos', 'Aditivos para hormigón', 'Adhesivos y selladores'],
-        'Aberturas': ['Fabricación DVH', 'Instalación silicona neutra', 'Instalación', 'Insumos'],
-        'Aplicadores': []
-    };
-
     const handleBrandClick = (brand) => {
-        setSelectedBrand(brand);
+        setSelectedBrand(prev => (prev === brand ? null : brand));
     };
 
     const handleIndustryClick = (industry) => {
-        if (selectedIndustry === industry) {
-            setSelectedIndustry(null);
-            setSelectedSubcategories([]);
-        } else {
-            setSelectedIndustry(industry);
-            setSelectedSubcategories([]);
-        }
+        setSelectedIndustry(prev => (prev === industry ? null : industry));
+        setSelectedSubcategories([]);
     };
 
     const handleSubcategoryClick = (subcategory) => {
-        setSelectedSubcategories(prev => {
-            if (prev.includes(subcategory)) {
-                // Si ya está seleccionada, la removemos
-                return prev.filter(item => item !== subcategory);
-            } else {
-                // Si no está seleccionada, la agregamos
-                return [...prev, subcategory];
-            }
-        });
+        const industry = subcategoryIndustry[subcategory];
+        if (selectedIndustry !== industry) {
+            // Elegir una subcategoría de otra industria cambia la industria activa
+            setSelectedIndustry(industry);
+            setSelectedSubcategories([subcategory]);
+            return;
+        }
+        setSelectedSubcategories(prev =>
+            prev.includes(subcategory)
+                ? prev.filter(item => item !== subcategory)
+                : [...prev, subcategory]
+        );
     };
 
     const toggleIndustryExpansion = (industry) => {
-        if (expandedIndustry === industry) {
-            setExpandedIndustry(null);
+        setExpandedIndustry(prev => (prev === industry ? null : industry));
+    };
+
+    const clearAllFilters = () => {
+        setSelectedIndustry(null);
+        setSelectedSubcategories([]);
+        setSelectedBrand(null);
+        setSearchTerm('');
+    };
+
+    const handleProductClick = (product) => {
+        if (product.externalUrl) {
+            window.open(product.externalUrl, '_blank', 'noopener');
         } else {
-            setExpandedIndustry(industry);
+            navigate(`/productos/${product.id}`);
         }
     };
 
-    const handleProductClick = (productId) => {
-        const product = mockProducts.find(p => p.id === productId);
-        if (product && product.externalUrl) {
-            window.open(product.externalUrl, '_blank');
-        } else {
-            navigate(`/productos/${productId}`);
-        }
-    };
-
-    // Función para contar productos por industria
-    const getIndustryProductCount = (industry) => {
-        return mockProducts.filter(product => product.industry === industry).length;
-    };
-
-    // Función para contar productos por subcategoría
-    const getSubcategoryProductCount = (subcategory) => {
-        return mockProducts.filter(product => product.type === subcategory).length;
-    };
-
-    // Función para contar productos por marca
-    const getBrandProductCount = (brand) => {
-        return mockProducts.filter(product => product.category === brand).length;
-    };
-
-    // Productos reales de las marcas Maxtech y Horse
-    const mockProducts = [
-        {
-            id: 2,
-            name: "HORSE HM-500",
-            category: "Horse",
-            type: "Anclajes químicos inyectables",
-            industry: "Construcción",
-            image: "/images/products/horse/HM500.png",
-            description: "Anclajes adhesivos inyectables"
-        },
-        {
-            id: 3,
-            name: "MACROFIBRA MAXFIBER 50",
-            category: "Maxtech",
-            type: "Aditivos para hormigón",
-            industry: "Construcción",
-            image: "/images/products/maxtech/macro1.png",
-            description: "Macrofibra de polipropileno virgen"
-        },
-        {
-            id: 4,
-            name: "MICROFIBRA MAXFIBER 19",
-            category: "Maxtech",
-            type: "Aditivos para hormigón",
-            industry: "Construcción",
-            image: "/images/products/maxtech/microfibra1.png",
-            description: "Microfibra de polipropileno virgen"
-        },
-        {
-            id: 6,
-            name: "MAXTECH JM702",
-            category: "Maxtech",
-            type: "",
-            industry: "Aplicadores",
-            image: "/images/products/maxtech/JM702.png",
-            description: "Pistola aplicadora neumática"
-        },
-        {
-            id: 9,
-            name: "MAXTECH JM500L",
-            category: "Maxtech",
-            type: "",
-            industry: "Aplicadores",
-            image: "/images/products/maxtech/JM500.png",
-            description: "Pistola aplicadora manual"
-        },
-        {
-            id: 16,
-            name: "SELLADOR HÍBRIDO CRISTAL",
-            category: "Maxtech Profesional",
-            type: "Adhesivos y selladores",
-            industry: "Construcción",
-            image: "/images/products/maxtech/sellador-hibrido-cristal.jpg",
-            description: "Adhesivo-sellador híbrido MS transparente"
-        },
-        {
-            id: 11,
-            name: "SILANDE MF910H",
-            category: "Silande",
-            type: "Fabricación DVH",
-            industry: "Aberturas",
-            image: "/images/products/silande/MF910H.png",
-            description: "Sellador de butilo 2da barrera",
-            externalUrl: "https://silandeargentina.com/productos/2"
-        },
-        {
-            id: 12,
-            name: "SILANDE MF910G",
-            category: "Silande",
-            type: "Fabricación DVH",
-            industry: "Aberturas",
-            image: "/images/products/silande/MF910G.png",
-            description: "Sellador de butilo 1ra barrera",
-            externalUrl: "https://silandeargentina.com/productos/3"
-        },
-        {
-            id: 13,
-            name: "SILANDE MF910",
-            category: "Silande",
-            type: "Fabricación DVH",
-            industry: "Aberturas",
-            image: "/images/products/silande/MF910.png",
-            description: "Sellador de butilo 1ra barrera",
-            externalUrl: "https://silandeargentina.com/productos/4"
-        },
-        {
-            id: 14,
-            name: "SILANDE MF899",
-            category: "Silande",
-            type: "Instalación",
-            industry: "Aberturas",
-            image: "/images/products/silande/MF899.png",
-            description: "Sellador de silicona estructural",
-            externalUrl: "https://silandeargentina.com/productos/8"
-        },
-        {
-            id: 15,
-            name: "SILANDE MF889",
-            category: "Silande",
-            type: "Instalación",
-            industry: "Aberturas",
-            image: "/images/products/silande/MF889.png",
-            description: "Sellador de silicona climático",
-            externalUrl: "https://silandeargentina.com/productos/15"
-        },
-    ];
-
-    const filteredProducts = mockProducts.filter(product => {
-        // Filtro por marca
+    const filteredProducts = products.filter(product => {
         const brandMatch = !selectedBrand || product.category === selectedBrand;
-        
-        // Filtro por industria (general o subcategoría específica)
+
         let industryMatch = true;
-        if (selectedIndustry) {
-            if (selectedSubcategories.length > 0) {
-                // Si hay subcategorías seleccionadas, filtrar por cualquiera de ellas
-                industryMatch = selectedSubcategories.includes(product.type);
-            } else {
-                // Si solo hay industria seleccionada, filtrar por cualquier subcategoría de esa industria
-                industryMatch = product.industry === selectedIndustry;
-            }
+        if (selectedSubcategories.length > 0) {
+            industryMatch = selectedSubcategories.includes(product.type);
+        } else if (selectedIndustry) {
+            industryMatch = product.industry === selectedIndustry;
         }
-        
-        // Filtro por búsqueda de texto
-        const searchMatch = !searchTerm || 
-            product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            product.description.toLowerCase().includes(searchTerm.toLowerCase());
-        
-        return brandMatch && industryMatch && searchMatch;
+
+        return brandMatch && industryMatch && matchesSearch(product, searchTerm);
     });
+
+    const renderFilters = () => (
+        <>
+            <div className="filter-section">
+                <h4 className="filter-section-title">Industria</h4>
+                <div className="industry-filters">
+                    {Object.entries(industries).map(([industry, subcategories]) => {
+                        // Solo se muestran subcategorías que tienen productos
+                        const availableSubcategories = subcategories.filter(sub => countBy('type', sub) > 0);
+                        const isExpanded = expandedIndustry === industry;
+                        return (
+                            <div key={industry} className="industry-item">
+                                <FilterOption
+                                    label={industry}
+                                    count={countBy('industry', industry)}
+                                    checked={selectedIndustry === industry}
+                                    onChange={() => handleIndustryClick(industry)}
+                                    className="industry-main"
+                                >
+                                    {availableSubcategories.length > 0 && (
+                                        <button
+                                            type="button"
+                                            className={`expand-btn ${isExpanded ? 'expanded' : ''}`}
+                                            onClick={() => toggleIndustryExpansion(industry)}
+                                            aria-label={`${isExpanded ? 'Ocultar' : 'Ver'} subcategorías de ${industry}`}
+                                            aria-expanded={isExpanded}
+                                        >
+                                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                                <path d="m6 9 6 6 6-6" />
+                                            </svg>
+                                        </button>
+                                    )}
+                                </FilterOption>
+
+                                {isExpanded && (
+                                    <div className="subcategories-dropdown">
+                                        {availableSubcategories.map((subcategory) => (
+                                            <FilterOption
+                                                key={subcategory}
+                                                label={subcategory}
+                                                count={countBy('type', subcategory)}
+                                                checked={selectedSubcategories.includes(subcategory)}
+                                                onChange={() => handleSubcategoryClick(subcategory)}
+                                                className="subcategory-item"
+                                            />
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
+            <div className="filter-section">
+                <h4 className="filter-section-title">Marca</h4>
+                <div className="brand-filters">
+                    {brands.map(brand => (
+                        <FilterOption
+                            key={brand}
+                            label={brand}
+                            count={countBy('category', brand)}
+                            checked={selectedBrand === brand}
+                            onChange={() => handleBrandClick(brand)}
+                        />
+                    ))}
+                </div>
+            </div>
+        </>
+    );
+
+    const hasActiveFilters = selectedIndustry || selectedBrand || searchTerm;
 
     return (
         <>
-             <div className="product-container" id='productos'>
-                 {/* Etiquetas de filtros activos */}
-                 <div className="search-section">
-                     <div className="search-container">
-                         {selectedIndustry && (
-                             <div className="active-filter-tag">
-                                 <span className="filter-label">
-                                     Industria: {selectedIndustry}
-                                     {selectedSubcategories.length > 0 && ` > ${selectedSubcategories.join(', ')}`}
-                                 </span>
-                                 <button 
-                                     className="remove-filter-btn"
-                                     onClick={() => {
-                                         setSelectedIndustry(null);
-                                         setSelectedSubcategories([]);
-                                     }}
-                                 >
-                                     ✕
-                                 </button>
-                             </div>
-                         )}
-                         {selectedBrand && (
-                             <div className="active-filter-tag">
-                                 <span className="filter-label">Marca: {selectedBrand}</span>
-                                 <button 
-                                     className="remove-filter-btn"
-                                     onClick={() => setSelectedBrand(null)}
-                                 >
-                                     ✕
-                                 </button>
-                             </div>
-                         )}
-                         {searchTerm && (
-                             <div className="active-filter-tag">
-                                 <span className="filter-label">Búsqueda: {searchTerm}</span>
-                                 <button 
-                                     className="remove-filter-btn"
-                                     onClick={() => setSearchTerm('')}
-                                 >
-                                     ✕
-                                 </button>
-                             </div>
-                         )}
-                     </div>
-                 </div>
-                 <div className="product-layout">
-                     {/* Ícono de filtros para móvil */}
-                     <div className="mobile-filters-icon">
-                        <button 
+            <div className="product-container" id='productos'>
+                {/* Etiquetas de filtros activos */}
+                <div className="search-section">
+                    <div className="search-container">
+                        {selectedIndustry && (
+                            <div className="active-filter-tag">
+                                <span className="filter-label">
+                                    Industria: {selectedIndustry}
+                                    {selectedSubcategories.length > 0 && ` > ${selectedSubcategories.join(', ')}`}
+                                </span>
+                                <button
+                                    className="remove-filter-btn"
+                                    aria-label="Quitar filtro de industria"
+                                    onClick={() => {
+                                        setSelectedIndustry(null);
+                                        setSelectedSubcategories([]);
+                                    }}
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                        )}
+                        {selectedBrand && (
+                            <div className="active-filter-tag">
+                                <span className="filter-label">Marca: {selectedBrand}</span>
+                                <button
+                                    className="remove-filter-btn"
+                                    aria-label="Quitar filtro de marca"
+                                    onClick={() => setSelectedBrand(null)}
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                        )}
+                        {searchTerm && (
+                            <div className="active-filter-tag">
+                                <span className="filter-label">Búsqueda: {searchTerm}</span>
+                                <button
+                                    className="remove-filter-btn"
+                                    aria-label="Quitar búsqueda"
+                                    onClick={() => setSearchTerm('')}
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                        )}
+                        {hasActiveFilters && (
+                            <button className="clear-all-link" onClick={clearAllFilters}>
+                                Limpiar todo
+                            </button>
+                        )}
+                    </div>
+                </div>
+                <div className="product-layout">
+                    {/* Ícono de filtros para móvil */}
+                    <div className="mobile-filters-icon">
+                        <button
                             className="filters-icon-btn"
                             onClick={() => setShowFilters(true)}
                         >
@@ -279,176 +266,80 @@ const Product = () => {
                             </svg>
                             <span className="filters-text">Filtros</span>
                         </button>
-                     </div>
-                     
-                     {/* Filtros laterales izquierdos */}
-                     <div className="filters-sidebar">
-                         {/* Filtros por industria */}
-                         <div className="filter-section">
-                             <h4 className="filter-section-title">Industria</h4>
-                             <div className="industry-filters">
-                                 {Object.entries(industries).map(([industry, subcategories]) => (
-                                     <div key={industry} className="industry-item">
-                                         {/* Botón principal de la industria */}
-                                         <div 
-                                             className={`filter-item industry-main ${selectedIndustry === industry ? 'active' : ''}`}
-                                             onClick={() => handleIndustryClick(industry)}
-                                         >
-                                             <div className="filter-content">
-                                                 <input 
-                                                     type="checkbox" 
-                                                     checked={selectedIndustry === industry}
-                                                     onChange={() => handleIndustryClick(industry)}
-                                                     className="filter-checkbox"
-                                                 />
-                                                 <span className="filter-name">{industry}</span>
-                                                 <span className="product-count">({getIndustryProductCount(industry)})</span>
-                                                 {subcategories.length > 0 && (
-                                                     <button 
-                                                         className={`expand-btn ${expandedIndustry === industry ? 'expanded' : ''}`}
-                                                         onClick={(e) => {
-                                                             e.stopPropagation();
-                                                             toggleIndustryExpansion(industry);
-                                                         }}
-                                                     >
-                                                         ▼
-                                                     </button>
-                                                 )}
-                                             </div>
-                                         </div>
-                                         
-                                         {/* Dropdown de subcategorías */}
-                                         {expandedIndustry === industry && (
-                                             <div className="subcategories-dropdown">
-                                                 {subcategories.map((subcategory) => (
-                                                     <div 
-                                                         key={subcategory}
-                                                         className={`filter-item subcategory-item ${selectedSubcategories.includes(subcategory) ? 'active' : ''}`}
-                                                         onClick={() => handleSubcategoryClick(subcategory)}
-                                                     >
-                                                         <div className="filter-content">
-                                                             <input 
-                                                                 type="checkbox" 
-                                                                 checked={selectedSubcategories.includes(subcategory)}
-                                                                 onChange={() => handleSubcategoryClick(subcategory)}
-                                                                 className="filter-checkbox"
-                                                             />
-                                                             <span className="filter-name">{subcategory}</span>
-                                                             <span className="product-count">({getSubcategoryProductCount(subcategory)})</span>
-                                                         </div>
-                                                     </div>
-                                                 ))}
-                                             </div>
-                                         )}
-                                     </div>
-                                 ))}
-                             </div>
-                         </div>
-                         
-                        {/* Filtros por marca */}
-                        <div className="filter-section">
-                            <h4 className="filter-section-title">Marca</h4>
-                            <div className="brand-filters">
-                                <div 
-                                    className={`filter-item ${selectedBrand === 'Maxtech' ? 'active' : ''}`}
-                                    onClick={() => handleBrandClick('Maxtech')}
-                                >
-                                    <div className="filter-content">
-                                        <input 
-                                            type="checkbox" 
-                                            checked={selectedBrand === 'Maxtech'}
-                                            onChange={() => handleBrandClick('Maxtech')}
-                                            className="filter-checkbox"
-                                        />
-                                        <span className="filter-name">Maxtech</span>
-                                        <span className="product-count">({getBrandProductCount('Maxtech')})</span>
-                                    </div>
-                                </div>
-                                <div 
-                                    className={`filter-item ${selectedBrand === 'Horse' ? 'active' : ''}`}
-                                    onClick={() => handleBrandClick('Horse')}
-                                >
-                                    <div className="filter-content">
-                                        <input 
-                                            type="checkbox" 
-                                            checked={selectedBrand === 'Horse'}
-                                            onChange={() => handleBrandClick('Horse')}
-                                            className="filter-checkbox"
-                                        />
-                                        <span className="filter-name">Horse</span>
-                                        <span className="product-count">({getBrandProductCount('Horse')})</span>
-                                    </div>
-                                </div>
-                                <div 
-                                    className={`filter-item ${selectedBrand === 'Maxtech Profesional' ? 'active' : ''}`}
-                                    onClick={() => handleBrandClick('Maxtech Profesional')}
-                                >
-                                    <div className="filter-content">
-                                        <input 
-                                            type="checkbox" 
-                                            checked={selectedBrand === 'Maxtech Profesional'}
-                                            onChange={() => handleBrandClick('Maxtech Profesional')}
-                                            className="filter-checkbox"
-                                        />
-                                        <span className="filter-name">Maxtech Profesional</span>
-                                        <span className="product-count">({getBrandProductCount('Maxtech Profesional')})</span>
-                                    </div>
-                                </div>
-                                <div 
-                                    className={`filter-item ${selectedBrand === 'Silande' ? 'active' : ''}`}
-                                    onClick={() => handleBrandClick('Silande')}
-                                >
-                                    <div className="filter-content">
-                                        <input 
-                                            type="checkbox" 
-                                            checked={selectedBrand === 'Silande'}
-                                            onChange={() => handleBrandClick('Silande')}
-                                            className="filter-checkbox"
-                                        />
-                                        <span className="filter-name">Silande</span>
-                                        <span className="product-count">({getBrandProductCount('Silande')})</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                     </div>
+                    </div>
 
-                                                                    {/* Contenido principal de productos */}
-                           <div className="products-main">
-                               <div className="products-grid">
+                    {/* Filtros laterales izquierdos */}
+                    <div className="filters-sidebar">
+                        {renderFilters()}
+                    </div>
+
+                    {/* Contenido principal de productos */}
+                    <div className="products-main">
+                        <p className="results-count">
+                            {filteredProducts.length} {filteredProducts.length === 1 ? 'producto' : 'productos'}
+                        </p>
+                        <div className="products-grid">
                             {filteredProducts.length > 0 ? (
                                 filteredProducts.map((product) => (
-                                    <div 
-                                        key={product.id} 
+                                    <article
+                                        key={product.id}
                                         className="product-card"
-                                        onClick={() => handleProductClick(product.id)}
-                                        style={{ cursor: 'pointer' }}
+                                        onClick={() => handleProductClick(product)}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter') handleProductClick(product);
+                                        }}
+                                        role="link"
+                                        tabIndex={0}
                                     >
                                         <div className="product-image-container">
-                                            <img 
-                                                src={product.image} 
-                                                alt={product.name} 
+                                            <img
+                                                src={product.image}
+                                                alt={product.name}
                                                 className="product-image"
+                                                loading="lazy"
                                             />
                                         </div>
                                         <div className="product-info">
+                                            <div className="product-meta">
+                                                <span className="product-brand">{product.category}</span>
+                                                <span className="product-type">{product.type || product.industry}</span>
+                                            </div>
                                             <h3 className="product-title">{product.name}</h3>
                                             <p className="product-description">{product.description}</p>
-                                            {/* <span className="product-category">{product.category}</span> */}
 
+                                            {product.specs?.length > 0 && (
+                                                <ul className="product-specs">
+                                                    {product.specs.map(spec => (
+                                                        <li key={spec} className="product-spec">{spec}</li>
+                                                    ))}
+                                                </ul>
+                                            )}
+
+                                            <div className="product-card-footer">
+                                                {product.externalUrl ? (
+                                                    <span className="product-docs">Ficha en sitio de {product.category}</span>
+                                                ) : (
+                                                    <span className="product-docs">
+                                                        {(product.documents?.HDT || product.documents?.HDS) && <DocIcon />}
+                                                        {[
+                                                            product.documents?.HDT && 'Ficha técnica',
+                                                            product.documents?.HDS && 'Hoja de seguridad'
+                                                        ].filter(Boolean).join(' · ')}
+                                                    </span>
+                                                )}
+                                                <span className="product-card-arrow" aria-hidden="true">
+                                                    {product.externalUrl ? '↗' : '→'}
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </article>
                                 ))
                             ) : (
                                 <div className="no-products-message">
                                     <p>No se encontraron productos con los filtros seleccionados.</p>
-                                    <button 
+                                    <button
                                         className="clear-filters-btn"
-                                        onClick={() => {
-                                            setSelectedIndustry(null);
-                                            setSelectedSubcategories([]);
-                                            setSelectedBrand(null);
-                                        }}
+                                        onClick={clearAllFilters}
                                     >
                                         Limpiar filtros
                                     </button>
@@ -458,170 +349,43 @@ const Product = () => {
                     </div>
                 </div>
             </div>
-            
+
             {/* Footer */}
             <div id="contact">
                 <Footer />
             </div>
-            
+
             {/* Modal de filtros móviles */}
             {showFilters && (
                 <div className="filters-modal-overlay" onClick={() => setShowFilters(false)}>
                     <div className="filters-modal" onClick={(e) => e.stopPropagation()}>
                         <div className="filters-modal-header">
-                            <button 
+                            <h3>Filtros</h3>
+                            <button
                                 className="filters-modal-close"
+                                aria-label="Cerrar filtros"
                                 onClick={() => setShowFilters(false)}
                             >
                                 ✕
                             </button>
                         </div>
-                        
+
                         <div className="filters-modal-content">
-                            {/* Filtros por industria */}
-                            <div className="filter-section">
-                                <h4 className="filter-section-title">Industria</h4>
-                                <div className="industry-filters">
-                                    {Object.entries(industries).map(([industry, subcategories]) => (
-                                        <div key={industry} className="industry-item">
-                                            {/* Botón principal de la industria */}
-                                            <div 
-                                                className={`filter-item industry-main ${selectedIndustry === industry ? 'active' : ''}`}
-                                                onClick={() => handleIndustryClick(industry)}
-                                            >
-                                                <div className="filter-content">
-                                                    <input 
-                                                        type="checkbox" 
-                                                        checked={selectedIndustry === industry}
-                                                        onChange={() => handleIndustryClick(industry)}
-                                                        className="filter-checkbox"
-                                                    />
-                                                    <span className="filter-name">{industry}</span>
-                                                    {subcategories.length > 0 && (
-                                                        <button 
-                                                            className={`expand-btn ${expandedIndustry === industry ? 'expanded' : ''}`}
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                toggleIndustryExpansion(industry);
-                                                            }}
-                                                        >
-                                                            ▼
-                                                        </button>
-                                                    )}
-                                                </div>
-                                            </div>
-                                            
-                                            {/* Dropdown de subcategorías */}
-                                            {expandedIndustry === industry && (
-                                                <div className="subcategories-dropdown">
-                                                    {subcategories.map((subcategory) => (
-                                                        <div 
-                                                            key={subcategory}
-                                                            className={`filter-item subcategory-item ${selectedSubcategories.includes(subcategory) ? 'active' : ''}`}
-                                                            onClick={() => handleSubcategoryClick(subcategory)}
-                                                        >
-                                                            <div className="filter-content">
-                                                                <input 
-                                                                    type="checkbox" 
-                                                                    checked={selectedSubcategories.includes(subcategory)}
-                                                                    onChange={() => handleSubcategoryClick(subcategory)}
-                                                                    className="filter-checkbox"
-                                                                />
-                                                                <span className="filter-name">{subcategory}</span>
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            
-                            {/* Filtros por marca */}
-                            <div className="filter-section">
-                                <h4 className="filter-section-title">Marca</h4>
-                                <div className="brand-filters">
-                                    <div 
-                                        className={`filter-item ${selectedBrand === 'Maxtech' ? 'active' : ''}`}
-                                        onClick={() => handleBrandClick('Maxtech')}
-                                    >
-                                        <div className="filter-content">
-                                            <input 
-                                                type="checkbox" 
-                                                checked={selectedBrand === 'Maxtech'}
-                                                onChange={() => handleBrandClick('Maxtech')}
-                                                className="filter-checkbox"
-                                            />
-                                            <span className="filter-name">Maxtech</span>
-                                            <span className="product-count">({getBrandProductCount('Maxtech')})</span>
-                                        </div>
-                                    </div>
-                                    <div 
-                                        className={`filter-item ${selectedBrand === 'Horse' ? 'active' : ''}`}
-                                        onClick={() => handleBrandClick('Horse')}
-                                    >
-                                        <div className="filter-content">
-                                            <input 
-                                                type="checkbox" 
-                                                checked={selectedBrand === 'Horse'}
-                                                onChange={() => handleBrandClick('Horse')}
-                                                className="filter-checkbox"
-                                            />
-                                            <span className="filter-name">Horse</span>
-                                            <span className="product-count">({getBrandProductCount('Horse')})</span>
-                                        </div>
-                                    </div>
-                                    <div 
-                                        className={`filter-item ${selectedBrand === 'Maxtech Profesional' ? 'active' : ''}`}
-                                        onClick={() => handleBrandClick('Maxtech Profesional')}
-                                    >
-                                        <div className="filter-content">
-                                            <input 
-                                                type="checkbox" 
-                                                checked={selectedBrand === 'Maxtech Profesional'}
-                                                onChange={() => handleBrandClick('Maxtech Profesional')}
-                                                className="filter-checkbox"
-                                            />
-                                            <span className="filter-name">Maxtech Profesional</span>
-                                            <span className="product-count">({getBrandProductCount('Maxtech Profesional')})</span>
-                                        </div>
-                                    </div>
-                                    <div 
-                                        className={`filter-item ${selectedBrand === 'Silande' ? 'active' : ''}`}
-                                        onClick={() => handleBrandClick('Silande')}
-                                    >
-                                        <div className="filter-content">
-                                            <input 
-                                                type="checkbox" 
-                                                checked={selectedBrand === 'Silande'}
-                                                onChange={() => handleBrandClick('Silande')}
-                                                className="filter-checkbox"
-                                            />
-                                            <span className="filter-name">Silande</span>
-                                            <span className="product-count">({getBrandProductCount('Silande')})</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {renderFilters()}
                         </div>
-                        
+
                         <div className="filters-modal-footer">
-                            <button 
+                            <button
                                 className="clear-filters-btn"
-                                onClick={() => {
-                                    setSelectedIndustry(null);
-                                    setSelectedSubcategories([]);
-                                    setSelectedBrand(null);
-                                }}
+                                onClick={clearAllFilters}
                             >
                                 Limpiar filtros
                             </button>
-                            <button 
+                            <button
                                 className="apply-filters-btn"
                                 onClick={() => setShowFilters(false)}
                             >
-                                Aplicar
+                                Ver {filteredProducts.length} {filteredProducts.length === 1 ? 'producto' : 'productos'}
                             </button>
                         </div>
                     </div>
@@ -640,4 +404,3 @@ const Product = () => {
 };
 
 export default Product;
-

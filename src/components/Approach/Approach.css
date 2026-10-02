@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    font-family: Montserrat, sans-serif;
+    font-family: var(--font-body);
     overflow-x: hidden;
     min-height: 100vh;
     padding-top: 72px; /* offset navbar fija */
@@ -94,7 +94,7 @@
     margin: 0 0 1.25rem 0;
     font-size: 42px;
     line-height: 1.15;
-    font-family: 'Mulish', sans-serif;
+    font-family: var(--font-heading);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -107,7 +107,7 @@
     padding: 0;
     margin: 0 0 1.75rem 0;
     font-size: 17px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     font-weight: 400;
     line-height: 1.65;
     color: white;
@@ -201,7 +201,7 @@
         .approach-content h2 {
             font-size: 22px !important;
             margin: 0 0 8px 0;
-            font-family: 'Mulish', sans-serif;
+            font-family: var(--font-heading);
             font-weight: 800;
             padding-top: 0;
             text-align: center;
@@ -213,7 +213,7 @@
             padding-left: 0px;
             padding-right: 0px;
             font-size: 14px !important;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             font-weight: 400;
             margin-top: 5px;
             text-align: center;

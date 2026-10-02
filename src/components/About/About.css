@@ -1,7 +1,7 @@
 .about {
     background-color: white;
     color: black;
-    font-family: Montserrat, sans-serif;
+    font-family: var(--font-body);
     margin-top: 0;
     position: relative;
     z-index: 5;
@@ -71,7 +71,7 @@
 
 .objective-card .card-title {
     color: #0082c9;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-heading);
     font-weight: 700;
     font-size: 15px;
     text-transform: uppercase;
@@ -84,7 +84,7 @@
 }
 
 .objective-card p {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     font-weight: 400;
     font-size: 15px;
     color: #555555;
