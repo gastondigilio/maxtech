@@ -123,6 +123,22 @@ export const products = [
         }
     },
     {
+        id: 17,
+        name: "SELLADOR HÍBRIDO HIGH TACK",
+        category: "Maxtech Profesional",
+        type: "Adhesivos y selladores",
+        industry: "Construcción",
+        image: "/images/products/maxtech/sellador-hibrido-high-tack.jpg",
+        description: "Adhesivo-sellador híbrido MS de alto agarre inicial",
+        specs: ["Cartucho 300 ml", "Soporta hasta 350 kg"],
+        intro: "Adhesivo-sellador de polímero híbrido (MS) monocomponente, de alto agarre inicial y extra fuerte. Sostiene las piezas desde el primer momento, adhiere incluso bajo el agua y no corroe metales. Multimaterial, para uniones de alta exigencia en construcción e industria.",
+        longDescription: "PROPIEDADES\n• Agarre inmediato y fuerte (high tack)\n• Extra fuerte: soporta hasta 350 kg\n• Adhiere bajo el agua\n• No corroe metales\n• Multimaterial\n• Monocomponente, listo para usar\n• Bajo contenido de COV (< 27 g/l)\n\nESPECIFICACIONES\n• Base: polímero híbrido (MS)\n• Consistencia: pasta\n• Densidad: 1,60 ± 0,03 g/ml\n• Presentación: cartucho de 300 ml",
+        safetyInfo: "SEGURIDAD\n\nClasificación GHS: peligroso para el medio ambiente acuático, peligro crónico cat. 3 (H412: nocivo para la vida acuática, con efectos nocivos duraderos). No requiere palabra de advertencia. Contiene estannano, dibutilbis[(1-oxododecil)oxi]-; puede provocar una reacción alérgica (EUH208).\n\nPrimeros auxilios:\n• Inhalación: llevar a la persona al aire libre y mantenerla en una posición cómoda para respirar.\n• Contacto con la piel: lavar con abundante agua.\n• Contacto con los ojos: enjuagar con agua como medida de precaución.\n• Ingestión: llamar a un centro de toxicología o a un médico si la persona se siente mal.\n\nProtección personal: guantes de protección, gafas de seguridad y ropa adecuada. Asegurar buena ventilación; si es insuficiente, usar protección respiratoria. No comer, beber ni fumar durante el uso y lavarse las manos después de manipular el producto. Evitar su liberación al medio ambiente y mantener fuera del alcance de los niños.\n\nEmergencias: Centro Nacional de Intoxicaciones 0800 333 0160.\n\nTRANSPORTE Y ALMACENAMIENTO\n\nNo clasificado como mercancía peligrosa (ADR / RID / IMDG / IATA). Almacenar en un lugar fresco y bien ventilado.",
+        documents: {
+            HDS: "/documents/products/maxtech/sellador-hibrido-high-tack/HDS_Sellador-Hibrido-High-Tack.pdf"
+        }
+    },
+    {
         id: 11,
         name: "SILANDE MF910H",
         category: "Silande",
