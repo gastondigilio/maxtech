@@ -139,6 +139,22 @@ export const products = [
         }
     },
     {
+        id: 18,
+        name: "DEEP FORCE 900",
+        category: "Maxtech Profesional",
+        type: "Adhesivos y selladores",
+        industry: "Construcción",
+        image: "/images/products/maxtech/deep-force-900.jpg",
+        description: "Sellador adhesivo de poliurea para grietas en hormigón",
+        specs: ["Bolsa 500 ml", "Elongación más de 300%"],
+        intro: "Sellador de juntas y adhesivo de poliurea de alto rendimiento para reparar grietas en hormigón. Con alto contenido de sólidos, baja contracción, gran elongación y alta resistencia a la tracción, resuelve fugas y filtraciones en juntas de dilatación, de contracción y de conexión. También puede usarse como revestimiento impermeable.",
+        longDescription: "PROPIEDADES\n• Excelente durabilidad: resiste la inmersión en agua, ácidos, álcalis y altas temperaturas\n• Resistencia y elasticidad: refuerza la estructura y acompaña sus deformaciones\n• Estructura interna densa, excelente impermeabilidad\n• Sin contracción después del curado\n• Cura tanto a altas como a bajas temperaturas\n• Pintable\n\nAPLICACIONES\n• Ingeniería civil: obras hidráulicas, refuerzo de presas y sellado de filtraciones\n• Túneles: relleno de huecos entre el revestimiento y la roca, para evitar filtraciones\n• Puentes y rutas: curado rápido y alta resistencia para restaurar la capacidad portante\n• Edificios industriales y civiles: impermeabilización de sótanos, techos y muros\n\nESPECIFICACIONES\n• Base: poliurea\n• Sistema de curado: por humedad\n• Formación de piel (23 °C, 50% HR): 15–20 min\n• Velocidad de curado (23 °C, 50% HR): mín. 2,5 mm / 24 h\n• Dureza (Shore A a 28 días, ISO 868): 40 ± 5\n• Densidad relativa: 1,57–1,63\n• Alargamiento a la rotura (DIN 53504): más de 300%\n• Resistencia a la tracción (DIN 53504): 1,5–2,0 N/mm²\n• Capacidad de movimiento: 25%\n• Resistencia a la temperatura: −40 °C a +90 °C\n• Temperatura de aplicación: +5 °C a +40 °C\n• Color: gris\n• Presentación: bolsa de aluminio de 500 ml\n\nLIMITACIONES\n• No aplicar por debajo de +5 °C ni por encima de +40 °C\n• No apto para aplicaciones en contacto con alimentos\n\nRECOMENDACIONES DE USO\n• El sustrato debe estar seco, limpio y libre de polvo y aceite\n• Colocar la bolsa en la pistola aplicadora e inyectar el producto en la junta, con una profundidad de 1–2 cm. En juntas más profundas, rellenar antes con cordón de espuma o arena fina; el sellador debe quedar unos 2 mm por debajo de la superficie\n• Rendimiento de referencia: una bolsa de 500 ml sella aproximadamente 6 metros lineales de junta de 1 × 1 cm",
+        safetyInfo: "SEGURIDAD\n\nTomar las precauciones de higiene habituales. No apto para aplicaciones en contacto con alimentos. La hoja de seguridad de este producto todavía no está disponible.\n\nEmergencias: Centro Nacional de Intoxicaciones 0800 333 0160.\n\nTRANSPORTE Y ALMACENAMIENTO\n\nAlmacenar en lugar fresco y seco, entre +5 °C y +35 °C. Vida útil: 12 meses en envase cerrado.",
+        documents: {
+            HDT: "/documents/products/maxtech/deep-force-900/HDT_Deep-Force-900.pdf"
+        }
+    },
+    {
         id: 11,
         name: "SILANDE MF910H",
         category: "Silande",

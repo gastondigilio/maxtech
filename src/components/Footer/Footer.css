@@ -385,7 +385,7 @@ footer .footer-logo .footer-logo-img {
     color: #666666;
     margin: 0;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: calc(0.9rem - 2px);
 }
 
 .footer-copyright-link {
@@ -541,7 +541,7 @@ footer .footer-logo .footer-logo-img {
     
     /* Tamaño de fuente para Powered by AgaruCorp en móvil */
     .footer-bottom p {
-        font-size: 0.75rem !important;
+        font-size: calc(0.75rem - 2px) !important;
         word-wrap: break-word;
     }
     
